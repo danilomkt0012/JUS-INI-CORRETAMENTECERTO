@@ -159,3 +159,7 @@ Thumbs.db
 
 # Local development
 heroku_requirements.txt
+
+# uv package manager (use pip/requirements.txt for Heroku)
+uv.lock
+.uv/
