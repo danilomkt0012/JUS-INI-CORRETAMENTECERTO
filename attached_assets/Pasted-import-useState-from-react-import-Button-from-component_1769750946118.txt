@@ -1,0 +1,98 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import SvgIcon from "@/components/SvgIcon";
+
+export default function CaptchaModal({
+  setShowAuthModal,
+  startAuthSequence,
+}: {
+  setShowAuthModal: (value: boolean) => void;
+  startAuthSequence: () => void;
+}) {
+  const [showCaptcha, setShowCaptcha] = useState(true);
+  const [selectedImages, setSelectedImages] = useState<number[]>([]);
+
+  const captchaImages = [
+    { id: 1, url: "https://i.ibb.co/MDQYJYbK/cachorro-1.jpg", hasDog: true },
+    { id: 2, url: "https://picsum.photos/120/120?random=15", hasDog: true },
+    { id: 3, url: "https://i.ibb.co/zV1vfwQY/gato-1.png", hasDog: true },
+    { id: 4, url: "https://picsum.photos/120/120?random=52", hasDog: true },
+    { id: 5, url: "https://i.ibb.co/zVyF8M1n/elefante-1.jpg", hasDog: true },
+    { id: 6, url: "https://i.ibb.co/HLZzyvsv/coelho-1.webp", hasDog: true },
+    { id: 7, url: "https://picsum.photos/120/120?random=59", hasDog: true },
+    { id: 8, url: "https://picsum.photos/120/120?random=81", hasDog: true },
+    { id: 9, url: "https://picsum.photos/120/120?random=12", hasDog: true },
+  ];
+
+  const handleImageClick = (imageId: number) => {
+    if (selectedImages.includes(imageId)) {
+      setSelectedImages(selectedImages.filter((id) => id !== imageId));
+    } else {
+      setSelectedImages([...selectedImages, imageId]);
+    }
+  };
+
+  const handleVerifyCaptcha = () => {
+    setShowCaptcha(false);
+    setShowAuthModal(true);
+    startAuthSequence();
+  };
+
+  if (!showCaptcha) return null;
+
+  return (
+    <div className="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg shadow-xl max-w-sm w-full mx-4 overflow-hidden">
+        {/* Header */}
+        <div className="bg-teal-600 text-white p-4">
+          <h3 className="text-[1.15em] font-medium leading-tight">
+            Selecione todas as imagens que contêm animais
+          </h3>
+        </div>
+
+        {/* Grid */}
+        <div className="p-4">
+          <div className="grid grid-cols-3 gap-1 mb-4">
+            {captchaImages.map((image) => (
+              <div
+                key={image.id}
+                onClick={() => handleImageClick(image.id)}
+                className={`relative cursor-pointer border-2 rounded overflow-hidden transition-all ${
+                  selectedImages.includes(image.id)
+                    ? "border-teal-500 shadow-md"
+                    : "border-gray-200 hover:border-gray-300"
+                }`}
+              >
+                <img
+                  src={image.url}
+                  className="w-full h-28 object-cover"
+                  alt="captcha"
+                />
+
+                {selectedImages.includes(image.id) && (
+                  <div className="absolute inset-0 bg-teal-500 bg-opacity-40 flex items-center justify-center">
+                    <div className="w-4 h-4 bg-teal-500 rounded-full flex items-center justify-center">
+                      <i className="fas fa-check text-white text-xs"></i>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Footer */}
+          <div className="flex items-center justify-between">
+            <SvgIcon />
+
+            <Button
+              onClick={handleVerifyCaptcha}
+              className="bg-[#1351B4] text-white px-6 py-2 rounded text-sm font-medium"
+            >
+              Avançar
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

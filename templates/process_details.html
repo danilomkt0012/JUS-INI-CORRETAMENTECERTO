@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block title %}Processo {{ process.number }} - JusBrasil{% endblock %}
+
+{% block content %}
+<nav class="mb-4">
+    <a href="javascript:history.back()" class="text-emerald-600 hover:text-emerald-700 text-sm">
+        <i class="fas fa-arrow-left mr-1"></i>
+        Voltar
+    </a>
+</nav>
+
+<!-- Process Header -->
+<div class="bg-white border border-gray-200 rounded-lg p-4 mb-6">
+    <div class="flex items-start justify-between mb-4">
+        <div class="flex-1">
+            <h1 class="text-lg font-bold text-gray-900 leading-tight">
+                {{ process.type }}
+            </h1>
+            <p class="text-gray-600 text-sm mt-1">
+                Processo: {{ process.number }}
+            </p>
+            <p class="text-gray-500 text-sm">
+                {{ process.tribunal }}
+            </p>
+        </div>
+        <div class="text-right">
+            {% if process.status == 'Em andamento' %}
+                <span class="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
+                    {{ process.status }}
+                </span>
+            {% else %}
+                <span class="inline-block bg-gray-100 text-gray-600 text-sm px-3 py-1 rounded-full">
+                    {{ process.status }}
+                </span>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="text-xs text-gray-500">
+        Última atualização: {{ process.last_update }}
+    </div>
+</div>
+
+<!-- Process Parties -->
+<div class="bg-white border border-gray-200 rounded-lg p-4 mb-6">
+    <h2 class="text-base font-semibold text-gray-900 mb-3">
+        <i class="fas fa-users mr-2 text-emerald-600"></i>
+        Partes do Processo
+    </h2>
+    
+    <div class="space-y-3">
+        <div class="border-l-4 border-green-400 pl-4">
+            <div class="text-sm font-medium text-gray-900">Polo Ativo (Requerente)</div>
+            <div class="text-sm text-gray-700">{{ process.parties.polo_ativo }}</div>
+        </div>
+        
+        <div class="border-l-4 border-red-400 pl-4">
+            <div class="text-sm font-medium text-gray-900">Polo Passivo (Requerido)</div>
+            <div class="text-sm text-gray-700">{{ process.parties.polo_passivo }}</div>
+        </div>
+        
+        {% if process.parties.advogado %}
+            <div class="border-l-4 border-blue-400 pl-4">
+                <div class="text-sm font-medium text-gray-900">Advogado</div>
+                <div class="text-sm text-gray-700">{{ process.parties.advogado }}</div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Process Movements -->
+<div class="bg-white border border-gray-200 rounded-lg p-4 mb-6">
+    <h2 class="text-base font-semibold text-gray-900 mb-3">
+        <i class="fas fa-history mr-2 text-emerald-600"></i>
+        Andamentos do Processo
+    </h2>
+    
+    <div class="space-y-4">
+        {% for movement in process.movements %}
+            <div class="flex items-start space-x-3 pb-4 {% if not loop.last %}border-b border-gray-100{% endif %}">
+                <div class="flex-shrink-0 w-2 h-2 bg-emerald-600 rounded-full mt-2"></div>
+                <div class="flex-1">
+                    <div class="text-sm font-medium text-gray-900">
+                        {{ movement.description }}
+                    </div>
+                    <div class="text-xs text-gray-500 mt-1">
+                        {{ movement.date }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Process Summary -->
+<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-6">
+    <h2 class="text-base font-semibold text-emerald-900 mb-3">
+        <i class="fas fa-info-circle mr-2"></i>
+        Resumo do Processo
+    </h2>
+    <div class="text-sm text-emerald-800 space-y-2">
+        <p>
+            Este é um processo de <strong>{{ process.type }}</strong> em tramitação no <strong>{{ process.tribunal }}</strong>.
+        </p>
+        <p>
+            O processo encontra-se atualmente <strong>{{ process.status.lower() }}</strong>, 
+            com última movimentação registrada em <strong>{{ process.last_update }}</strong>.
+        </p>
+        <p>
+            As partes envolvidas são <strong>{{ process.parties.polo_ativo }}</strong> (requerente) 
+            e <strong>{{ process.parties.polo_passivo }}</strong> (requerido).
+        </p>
+    </div>
+</div>
+
+<!-- Actions -->
+<div class="grid grid-cols-1 gap-3">
+    <button class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-md px-4 py-3 text-sm transition duration-200">
+        <i class="fas fa-bell mr-2"></i>
+        Acompanhar processo
+    </button>
+    
+    <button class="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium rounded-md px-4 py-3 text-sm transition duration-200">
+        <i class="fas fa-download mr-2"></i>
+        Baixar relatório
+    </button>
+    
+    <button class="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium rounded-md px-4 py-3 text-sm transition duration-200">
+        <i class="fas fa-share mr-2"></i>
+        Compartilhar
+    </button>
+</div>
+
+<!-- Disclaimer -->
+<div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-6">
+    <h3 class="font-semibold text-yellow-900 mb-2">
+        <i class="fas fa-exclamation-triangle mr-2"></i>
+        Aviso Legal
+    </h3>
+    <p class="text-yellow-800 text-xs">
+        As informações apresentadas são obtidas de fontes públicas e podem não refletir a situação mais atual do processo. 
+        Para informações oficiais e atualizadas, consulte diretamente o tribunal competente ou procure orientação jurídica especializada.
+    </p>
+</div>
+{% endblock %}

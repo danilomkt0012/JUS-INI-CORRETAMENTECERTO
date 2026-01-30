@@ -1,0 +1,93 @@
+Preciso APENAS adicionar uma nova seção de FAQ no FINAL da página, logo abaixo da seção "Documentos".
+Não altere nenhuma lógica existente, não refatore código atual e não modifique outras seções.
+
+Apenas insira o HTML, CSS e JS abaixo, garantindo que funcione de forma independente.
+
+========================
+SEÇÃO FAQ (HTML)
+========================
+
+<section id="faq" class="faq-section">
+  <div class="faq-container">
+    <h2 class="faq-title">Dúvidas Frequentes</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">O que é o Jusbrasil?</button>
+      <div class="faq-answer">
+        <p>
+          O Jusbrasil é um serviço que coleta, organiza e facilita o acesso à informação jurídica,
+          com a missão de empoderar as decisões de cada pessoa brasileira.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Como consultar um processo?</button>
+      <div class="faq-answer">
+        <p>
+          Você pode consultar um processo informando o CPF, nome da parte ou número CNJ
+          na página de consulta processual.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">As partes ficam sabendo da consulta?</button>
+      <div class="faq-answer">
+        <p>
+          Não. A consulta é totalmente confidencial e nenhuma notificação é enviada às partes envolvidas.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">O que é o número CNJ?</button>
+      <div class="faq-answer">
+        <p>
+          O número CNJ é o identificador único de um processo judicial no Brasil,
+          composto por 20 dígitos.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+========================
+ESTILOS (CSS)
+========================
+
+<style>
+.faq-section {
+  padding: 60px 20px;
+  background: #f8f9fb;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq-question::after {
+  co

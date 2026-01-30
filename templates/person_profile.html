@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}{{ person.name }} - Perfil - JusBrasil{% endblock %}
+
+{% block content %}
+<nav class="mb-4">
+    <a href="{{ url_for('search') }}" class="text-emerald-600 hover:text-emerald-700 text-sm">
+        <i class="fas fa-arrow-left mr-1"></i>
+        Voltar à busca
+    </a>
+</nav>
+
+<div class="bg-white border border-gray-200 rounded-lg p-4 mb-6">
+    <div class="flex items-start justify-between mb-4">
+        <div class="flex-1">
+            <h1 class="text-xl font-bold text-gray-900 leading-tight">
+                {{ person.name }}
+            </h1>
+            <p class="text-gray-500 text-sm mt-1">
+                {{ person.age_range }} • {{ person.location }}
+            </p>
+            <p class="text-gray-400 text-xs mt-1">
+                CPF: {{ person.cpf_masked }}
+            </p>
+        </div>
+        <div class="text-right">
+            {% if person.has_processes %}
+                <span class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-full">
+                    {{ person.processes_count }} processo{% if person.processes_count != 1 %}s{% endif %}
+                </span>
+            {% else %}
+                <span class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                    Nenhum processo
+                </span>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% if person.has_processes and processes %}
+    <div class="mb-6">
+        <h2 class="text-lg font-semibold text-gray-900 mb-4">
+            Processos encontrados
+        </h2>
+        
+        {% for process in processes %}
+            <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+                <div class="flex items-start justify-between mb-3">
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-gray-900 text-sm">
+                            {{ process.type }}
+                        </h3>
+                        <p class="text-gray-600 text-xs mt-1">
+                            Processo: {{ process.number }}
+                        </p>
+                        <p class="text-gray-500 text-xs">
+                            {{ process.tribunal }}
+                        </p>
+                    </div>
+                    <div class="text-right">
+                        {% if process.status == 'Em andamento' %}
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                                {{ process.status }}
+                            </span>
+                        {% else %}
+                            <span class="inline-block bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-full">
+                                {{ process.status }}
+                            </span>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-100 pt-3">
+                    <div class="grid grid-cols-1 gap-2 mb-3">
+                        <div>
+                            <span class="text-xs font-medium text-gray-500">Polo Ativo:</span>
+                            <span class="text-xs text-gray-900 ml-1">{{ process.parties.polo_ativo }}</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-medium text-gray-500">Polo Passivo:</span>
+                            <span class="text-xs text-gray-900 ml-1">{{ process.parties.polo_passivo }}</span>
+                        </div>
+                        {% if process.parties.advogado %}
+                            <div>
+                                <span class="text-xs font-medium text-gray-500">Advogado:</span>
+                                <span class="text-xs text-gray-900 ml-1">{{ process.parties.advogado }}</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-500">
+                            Última atualização: {{ process.last_update }}
+                        </span>
+                        <a href="{{ url_for('process_details', process_id=process.id) }}" 
+                           class="text-emerald-600 hover:text-emerald-700 text-xs font-medium">
+                            Ver detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="text-center py-8">
+        <i class="fas fa-file-alt text-4xl text-gray-300 mb-4"></i>
+        <h2 class="text-lg font-semibold text-gray-900 mb-2">
+            Nenhum processo encontrado
+        </h2>
+        <p class="text-gray-500 text-sm mb-4">
+            Esta pessoa não possui processos registrados em nosso sistema.
+        </p>
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 text-left">
+            <h3 class="font-semibold text-blue-900 mb-2">
+                <i class="fas fa-info-circle mr-2"></i>
+                Informação importante
+            </h3>
+            <p class="text-blue-800 text-sm">
+                A ausência de processos em nosso sistema não garante que a pessoa não tenha processos em tramitação. 
+                Recomendamos consultar diretamente os tribunais competentes para informações mais completas.
+            </p>
+        </div>
+    </div>
+{% endif %}
+
+<!-- CPF Verification Section -->
+<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+    <h3 class="font-semibold text-emerald-900 mb-2">
+        <i class="fas fa-id-card mr-2"></i>
+        Verificação por CPF
+    </h3>
+    <p class="text-emerald-800 text-sm mb-3">
+        Para uma busca mais precisa e completa, você pode verificar processos utilizando o CPF da pessoa.
+    </p>
+    <button class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-md px-4 py-2 text-sm transition duration-200">
+        Buscar por CPF
+    </button>
+</div>
+{% endblock %}

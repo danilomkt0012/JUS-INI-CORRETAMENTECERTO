@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jusbrasil | Mais facilidade na sua Consulta Judicial</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    
+    <style>
+        :root {
+            --jus-primary: #0F172A;
+            --jus-green: #16A34A;
+            --jus-blue: #2563EB;
+            --jus-gray-50: #F8FAFC;
+            --jus-gray-100: #F1F5F9;
+            --jus-gray-200: #E2E8F0;
+            --jus-gray-300: #CBD5E1;
+            --jus-gray-400: #94A3B8;
+            --jus-gray-500: #64748B;
+            --jus-gray-600: #475569;
+            --jus-gray-700: #334155;
+            --jus-gray-800: #1E293B;
+            --jus-gray-900: #0F172A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.5;
+            color: var(--jus-gray-900);
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* ========== HEADER OFICIAL JUSBRASIL ========== */
+        .col_root__bXuz5 {
+            width: 100%;
+        }
+        
+        .col_colXs12___OaL5 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        
+        .topbar-header_root__faJcM {
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            border-bottom: 1px solid var(--jus-gray-200);
+        }
+        
+        .link_root__cF5pa {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .link_typesecondary__A2Aqt {
+            color: var(--jus-gray-700);
+        }
+        
+        .brand_root__ms4V_ {
+            display: block;
+        }
+        
+        .brand_positive__zHlvK path {
+            /* Keep original colors */
+        }
+        
+        .topbar-brand_brandSymbol__qkWfR {
+            width: 32px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+        
+        .topbar-brand_brand__IV1h9 {
+            width: 120px;
+            height: auto;
+        }
+        
+        .topbar-header_actions__gH2kL {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .button_root__WzaLZ {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: inherit;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+        
+        .button_sizemd__RbTxe {
+            padding: 8px 16px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .button_secondary__vhKXS {
+            color: var(--jus-blue);
+            background: transparent;
+            border: 1px solid var(--jus-blue);
+        }
+        
+        .button_secondary__vhKXS:hover {
+            background: rgba(37, 99, 235, 0.05);
+        }
+        
+        .button_tertiary__hnLDj {
+            color: var(--jus-gray-700);
+            background: transparent;
+            border: 1px solid var(--jus-gray-300);
+        }
+        
+        .button_tertiary__hnLDj:hover {
+            background: var(--jus-gray-50);
+            border-color: var(--jus-gray-400);
+        }
+        
+        .icon-button_root__kZx4M {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            padding: 0;
+        }
+        
+        .icon-button_tertiary__Yt8nB {
+            color: var(--jus-gray-600);
+        }
+        
+        .icon-button_tertiary__Yt8nB:hover {
+            background: var(--jus-gray-50);
+            border-color: var(--jus-gray-400);
+        }
+        
+        .icon-button_sizemd__dRzxQ svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .icon_root__fOxnR {
+            display: block;
+        }
+        
+        /* ========== SEGMENTED CONTROL NAVIGATION ========== */
+        .home-segment-navigation_segmentedControl__OyBaa {
+            display: flex;
+            justify-content: center;
+            padding: 24px 24px 16px;
+            background: #fff;
+        }
+        
+        .segmented-control_root__1xuG7 {
+            display: inline-flex;
+            align-items: center;
+            background: #fff;
+            border-radius: 100px;
+            padding: 4px;
+            gap: 4px;
+            border: 1px solid #E2E8F0;
+        }
+        
+        .home-segment-navigation_segmentedControlLink__gVwhD {
+            text-decoration: none;
+        }
+        
+        .segmented-control-item_root__1vLnt {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 20px;
+            border: none;
+            background: transparent;
+            border-radius: 100px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--jus-gray-600);
+            transition: all 0.15s ease;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        .shake {
+            animation: shake 0.6s ease-in-out;
+        }
+        
+        .segmented-control-item_root__1vLnt[data-state="on"] {
+            background: #0F172A;
+            color: #fff;
+            box-shadow: none;
+        }
+        
+        .segmented-control-item_root__1vLnt[data-state="off"]:hover {
+            color: var(--jus-gray-700);
+        }
+        
+        .segmented-control-item_label__zeWLT {
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 767px) {
+            .topbar-header_root__faJcM {
+                padding: 10px 16px;
+            }
+            
+            .topbar-header_actions__gH2kL {
+                gap: 8px;
+            }
+            
+            .button_root__WzaLZ {
+                display: none;
+            }
+            
+            .topbar-brand_brand__IV1h9 {
+                display: none;
+            }
+        }
+        
+        /* ========== SEARCH SECTION ========== */
+        .search-section_root__Kx9dF {
+            background: #FFFFFF;
+            padding: 24px 24px 56px;
+            text-align: center;
+        }
+        
+        .search-section-header_root__x5b_X {
+            max-width: 720px;
+            margin: 0 auto 24px;
+        }
+        
+        .heading_root__J_K7z {
+            margin: 0;
+        }
+        
+        .heading_size3xl__K3Nh_ {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .search-section-header_title__IRWNd {
+            color: var(--jus-gray-900);
+            margin-bottom: 8px;
+        }
+        
+        .body-text_root__2yfxU {
+            margin: 0;
+        }
+        
+        .body-text_sizemd__1G72f {
+            font-size: 15px;
+            font-weight: 400;
+        }
+        
+        .search-section-header_description___1eov {
+            color: var(--jus-gray-600);
+        }
+        
+        .row_root___0PP3 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .search-section_search__Bp_rh {
+            margin-bottom: 32px;
+        }
+        
+        .col_colMd8__KpUND {
+            max-width: 560px;
+            width: 100%;
+        }
+        
+        .search-autocomplete_root__QkKch {
+            width: 100%;
+        }
+        
+        .autocomplete-root_root__sQKg2 {
+            width: 100%;
+        }
+        
+        .search_container___sEN7 {
+            display: flex;
+            align-items: center;
+            background: #F1F5F9;
+            border-radius: 100px;
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        
+        .search_sizelg__N4udq {
+            height: 52px;
+        }
+        
+        .search_input__bMCWC {
+            flex: 1;
+            height: 100%;
+            padding: 0 16px;
+            font-size: 15px;
+            font-family: inherit;
+            border: none;
+            background: transparent;
+            outline: none;
+        }
+        
+        .search_input__bMCWC::placeholder {
+            color: #999;
+        }
+        
+        .search_icons__wPlyQ {
+            display: flex;
+            align-items: center;
+            padding-right: 8px;
+        }
+        
+        .search-icon-button_root__Mqno1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            color: var(--jus-gray-600);
+            transition: color 0.15s;
+        }
+        
+        .search-icon-button_root__Mqno1:hover {
+            color: var(--jus-gray-900);
+        }
+        
+        .icon_root__3OV_3 {
+            display: block;
+        }
+        
+        .search-section-features_root__Xk9mN {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .search-section-features_feature__uDmFV {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--jus-gray-700);
+            font-size: 15px;
+            text-align: left;
+        }
+        
+        .search-section-features_feature__uDmFV span {
+            text-align: left;
+            font-size: 15px;
+        }
+        
+        .search-section-features_featureIconContainer__mwUNl {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            background: #C9E9DF;
+            border-radius: 50%;
+        }
+        
+        .search-section-features_featureIcon__nRLWI {
+            color: #0F172A;
+            width: 24px;
+            height: 24px;
+        }
+        
+        @media (max-width: 768px) {
+            .search-section-features_root__Xk9mN {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                max-width: 340px;
+            }
+        }
+        
+        /* ========== MAIN BENEFIT SECTION ========== */
+        .main-benefit_root__Kx9dF {
+            background: #FFFFFF;
+            padding: 64px 24px;
+        }
+        
+        .main-benefit_container__inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .main-benefit_textContainer__JnWGl {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .main-benefit_imageContainer__qTx5u {
+            margin-top: 40px;
+        }
+        
+        .main-benefit_image__xqkBx {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .heading_sizexl__tYISh {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .main-benefit_title__XxxGS {
+            color: var(--jus-gray-900);
+            margin: 0;
+        }
+        
+        .main-benefit_description__y19d3 {
+            color: var(--jus-gray-600);
+            margin: 0;
+        }
+        
+        .main-benefit_button__757Iu {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: inherit;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.15s ease;
+            background: #fff;
+            color: var(--jus-gray-700);
+            border: 1px solid var(--jus-gray-300);
+            width: fit-content;
+        }
+        
+        .main-benefit_button__757Iu:hover {
+            background: var(--jus-gray-50);
+            border-color: var(--jus-gray-400);
+        }
+        
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            background: var(--jus-light-gray);
+            padding: 56px 20px;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--jus-dark);
+            margin-bottom: 12px;
+        }
+        
+        .cta-section p {
+            font-size: 15px;
+            color: var(--jus-gray);
+            max-width: 600px;
+            margin: 0 auto 24px;
+            line-height: 1.6;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--jus-green);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .btn-primary:hover {
+            background: var(--jus-green-dark);
+        }
+        
+        /* ========== GUIDES SECTION ========== */
+        .guides {
+            padding: 56px 20px;
+            background: #fff;
+        }
+        
+        .guides-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .guides h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--jus-dark);
+            margin-bottom: 28px;
+        }
+        
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .guide-card {
+            background: #fff;
+            border: 1px solid var(--jus-border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: box-shadow 0.2s;
+        }
+        
+        .guide-card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+        
+        .guide-card h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--jus-dark);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .guide-card p {
+            font-size: 13px;
+            color: var(--jus-gray);
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+        
+        .guide-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--jus-green);
+        }
+        
+        .guide-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* ========== PROFESSIONALS SECTION ========== */
+        .professionals {
+            background: linear-gradient(180deg, #1e2433 0%, #161b26 100%);
+            padding: 56px 20px;
+            text-align: center;
+        }
+        
+        .professionals-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--jus-green);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
+        }
+        
+        .professionals h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 14px;
+        }
+        
+        .professionals p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 720px;
+            margin: 0 auto 28px;
+            line-height: 1.6;
+        }
+        
+        /* ========== FAQ SECTION ========== */
+        .faq {
+            padding: 56px 20px;
+            background: #F1F5F9;
+        }
+        
+        .faq-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-header {
+            margin-bottom: 28px;
+        }
+        
+        .faq-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--jus-dark);
+            margin-bottom: 6px;
+        }
+        
+        .faq-header p {
+            font-size: 15px;
+            color: var(--jus-gray);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--jus-border);
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 18px 0;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: inherit;
+            color: var(--jus-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question i {
+            color: var(--jus-gray);
+            font-size: 12px;
+            transition: transform 0.25s ease;
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease;
+        }
+        
+        .faq-answer.show {
+            max-height: 600px;
+        }
+        
+        .faq-answer-content {
+            padding: 0 0 18px;
+            font-size: 14px;
+            color: #495057;
+            line-height: 1.7;
+        }
+        
+        .faq-answer-content p {
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .faq-answer-content a {
+            color: var(--jus-green);
+        }
+        
+        .faq-answer-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .faq-answer-content ul {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+        
+        .faq-answer-content li {
+            margin-bottom: 6px;
+        }
+        
+        .faq-answer-content li a {
+            color: var(--jus-green);
+        }
+        
+        .cnj-box {
+            background: var(--jus-light-gray);
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: var(--jus-dark);
+            margin-top: 10px;
+            display: inline-block;
+        }
+        
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #F1F5F9;
+            padding: 48px 20px 28px;
+        }
+        
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--jus-gray-900);
+            margin-bottom: 12px;
+        }
+        
+        .footer-col p,
+        .footer-col a {
+            font-size: 12px;
+            color: var(--jus-gray-600);
+            line-height: 2;
+        }
+        
+        .footer-col a:hover {
+            color: var(--jus-gray-900);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--jus-gray-300);
+            padding-top: 24px;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            font-size: 12px;
+            color: var(--jus-gray-500);
+        }
+        
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 991px) {
+            .guides-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 22px;
+            }
+            
+            .hero {
+                padding: 40px 20px 56px;
+            }
+            
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .cta-section h2,
+            .professionals h2,
+            .faq-header h2 {
+                font-size: 20px;
+            }
+        }
+        
+        /* ========== MODAL ========== */
+        .hidden {
+            display: none !important;
+        }
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-box {
+            background: #fff;
+            border-radius: 10px;
+            max-width: 380px;
+            width: 92%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .captcha-header {
+            background: #0d9488;
+            color: #fff;
+            padding: 14px 18px;
+        }
+        
+        .captcha-header h3 {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .captcha-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: #e5e5e5;
+        }
+        
+        .captcha-cell {
+            position: relative;
+            cursor: pointer;
+            aspect-ratio: 1;
+            overflow: hidden;
+        }
+        
+        .captcha-cell img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .captcha-check-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(13, 148, 136, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .captcha-check-overlay.show {
+            display: flex;
+        }
+        
+        .captcha-check-icon {
+            width: 26px;
+            height: 26px;
+            background: #0d9488;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .captcha-check-icon i {
+            color: #fff;
+            font-size: 12px;
+        }
+        
+        .captcha-footer {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fafafa;
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        .btn-captcha {
+            background: #1d4ed8;
+            color: #fff;
+            padding: 10px 26px;
+            border: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .btn-captcha:hover {
+            background: #1e40af;
+        }
+        
+        .auth-modal .modal-box {
+            padding: 36px;
+            text-align: center;
+        }
+        
+        .spinner {
+            width: 44px;
+            height: 44px;
+            border: 3px solid #e5e5e5;
+            border-top-color: var(--jus-green);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 18px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .auth-modal p {
+            font-size: 14px;
+            color: var(--jus-gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER OFICIAL JUSBRASIL -->
+    <div class="col_root__bXuz5 col_colXs12___OaL5 topbar-header_root__faJcM">
+        <a href="/" aria-label="Voltar para página principal Jusbrasil" class="link_root__cF5pa link_typesecondary__A2Aqt">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.2 50.2" preserveAspectRatio="xMidYMid meet" fill="none" role="img" class="brand_root__ms4V_ brand_positive__zHlvK topbar-brand_brandSymbol__qkWfR" width="100%">
+                <title>Marca Jusbrasil</title>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.761 48.76C.826 46.495-.523 41.48 1.75 37.56L20.951 4.422C23.223.5 28.256-.843 32.192 1.42c3.936 2.265 5.285 7.28 3.012 11.201L16.003 45.758C13.73 49.68 8.697 51.023 4.76 48.76" fill="#FFCE00"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M51.393 48.76c-3.936 2.263-8.968.92-11.241-3.002L20.95 12.622c-2.273-3.921-.924-8.936 3.011-11.2 3.937-2.265 8.97-.921 11.242 3L54.405 37.56c2.273 3.92.925 8.936-3.012 11.2Z" fill="#378CC8"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M34.867 3.894c-.054-.08-.105-.16-.162-.237-.099-.134-.205-.26-.31-.386-.071-.085-.138-.172-.213-.254-.093-.103-.193-.198-.29-.295-.097-.097-.192-.195-.295-.288-.083-.075-.171-.142-.257-.214-.126-.104-.25-.21-.385-.307-.077-.057-.16-.108-.24-.163a8.356 8.356 0 0 0-.448-.289c-.09-.052-.183-.1-.275-.15a7.897 7.897 0 0 0-.436-.222c-.117-.055-.236-.103-.355-.152a7.99 7.99 0 0 0-.372-.145 8.94 8.94 0 0 0-1.21-.325 7.964 7.964 0 0 0-.773-.109A7.674 7.674 0 0 0 27.67.331c-.12.006-.238.016-.358.027-.15.014-.3.03-.45.053a8.566 8.566 0 0 0-.783.156 9.436 9.436 0 0 0-.75.225 8.333 8.333 0 0 0-.373.145c-.119.05-.237.097-.354.152a8.172 8.172 0 0 0-.437.223c-.091.05-.184.097-.274.149a8.54 8.54 0 0 0-.45.29c-.08.054-.16.105-.238.162-.134.098-.26.203-.386.308-.086.07-.173.139-.256.213-.103.093-.198.191-.295.288-.098.098-.198.192-.29.295-.075.082-.142.169-.213.254-.106.126-.212.252-.31.386-.057.077-.108.157-.162.237-.1.146-.2.294-.292.448a8.165 8.165 0 0 0-.046 8.272l7.126 12.299 7.127-12.299a8.167 8.167 0 0 0-.047-8.271 8.236 8.236 0 0 0-.292-.449Z" fill="#4FAD5B"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 51" preserveAspectRatio="xMidYMid meet" fill="none" role="img" class="brand_root__ms4V_ brand_positive__zHlvK topbar-brand_brand__IV1h9" width="100%">
+                <title>Marca Jusbrasil</title>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M166.188 39.558c.021 3.963 3.008 5.944 8.957 5.944 1.256 0 2.39-.143 3.405-.43 1.013-.286 2.066-.847 3.156-1.683 1.09-.836 1.939-2.213 2.545-4.129.606-1.915.908-4.293.908-7.133 0-4.381-.837-7.562-2.511-9.544-1.675-1.981-4.386-2.973-8.131-2.973-2.799 0-5.575.562-8.329 1.685v18.263Zm-4.901-.274V2.678h4.901v13.707a25.798 25.798 0 0 1 8.329-1.377c1.546 0 3 .133 4.359.398 1.357.265 2.739.786 4.142 1.56a12.67 12.67 0 0 1 3.629 2.985c1.015 1.217 1.839 2.87 2.468 4.96.63 2.09.945 4.496.945 7.216 0 2.974-.348 5.58-1.044 7.816-.697 2.236-1.553 3.97-2.568 5.204a12.272 12.272 0 0 1-3.663 3.008c-1.426.77-2.74 1.267-3.944 1.486-1.205.22-2.437.331-3.696.331-2.453 0-4.586-.304-6.399-.91-1.812-.606-3.17-1.307-4.077-2.1a9.476 9.476 0 0 1-2.205-2.846c-.564-1.103-.9-2.014-1.01-2.73a13.599 13.599 0 0 1-.167-2.102ZM65.476 47.62v-5.099c2.582 1.81 5.364 2.716 8.344 2.716 3.067 0 5.28-.757 6.638-2.269 1.358-1.512 2.036-3.99 2.036-7.432V4.214h4.9v31.72c0 2.759-.386 5.115-1.158 7.069-.773 1.953-1.827 3.404-3.162 4.353-1.336.95-2.704 1.623-4.106 2.02-1.402.397-2.908.596-4.52.596-3.244 0-6.235-.783-8.972-2.35Zm31.7-12.416v-19.6h4.901v19.821c0 3.436.749 5.952 2.247 7.549 1.499 1.597 3.845 2.395 7.04 2.395 3.151 0 5.486-.798 7.007-2.395 1.52-1.597 2.281-4.113 2.281-7.549V15.604h4.899v19.6c0 4.702-1.235 8.34-3.706 10.91-2.47 2.572-5.964 3.858-10.481 3.858-4.517 0-8.011-1.286-10.482-3.858-2.47-2.57-3.705-6.208-3.705-10.91Zm38.13-17.332c-1.976 1.91-2.963 4.215-2.963 6.916 0 2.169.623 3.923 1.87 5.261 1.248 1.339 2.765 2.29 4.553 2.855a121.6 121.6 0 0 0 5.364 1.56c1.787.476 3.299 1.19 4.536 2.141 1.236.953 1.854 2.269 1.854 3.95 0 3.122-2.571 4.682-7.714 4.682-3.596 0-6.936-1.087-10.02-3.262v5.496c3.33 1.854 6.87 2.781 10.614 2.781 2.277 0 4.304-.276 6.084-.828 1.778-.55 3.209-1.51 4.29-2.878 1.081-1.368 1.621-3.163 1.621-5.386 0-2.134-.59-3.868-1.77-5.204-1.18-1.334-2.674-2.312-4.486-2.93a90.463 90.463 0 0 0-5.348-1.585c-1.788-.474-3.323-1.178-4.604-2.11-1.28-.93-1.92-2.234-1.92-3.908 0-1.588.645-2.93 1.936-4.028 1.292-1.097 3.162-1.645 5.612-1.645 2.979 0 5.672.695 8.079 2.085v-5.298c-2.671-1.19-5.563-1.785-8.674-1.785-3.995 0-7.06.973-9.036 2.882h.122v.038ZM199.187 49.972h4.901V2.678h-4.901v47.294ZM207.798 35.204c0-2.88.348-5.44 1.043-7.68.697-2.24 1.621-4.003 2.776-5.287a11.812 11.812 0 0 1 3.795-3.008c1.403-.704 2.799-1.174 4.192-1.412a22.272 22.272 0 0 1 4.076-.356c2.143 0 4.104.265 5.878.795a20.92 20.92 0 0 1 4.901 2.085v5.298c-3.199-2.079-6.564-3.118-10.086-3.118-3.95 0-6.87 1.15-8.757 3.45-1.888 2.3-2.831 5.397-2.831 9.29 0 3.939.948 7.035 2.847 9.29 1.899 2.256 4.807 3.384 8.725 3.384 3.523 0 6.893-1.04 10.102-3.12v5.3c-3.21 1.92-6.746 2.88-10.614 2.88-5.056 0-8.994-1.517-11.816-4.55-2.821-3.033-4.231-7.148-4.231-12.346v.105Zm30.566 14.768h4.9V15.604h-4.9v34.368Zm0-40.657h4.9V2.678h-4.9v6.637Zm10.879 40.657h4.901V2.678h-4.901v47.294Z" fill="#455A64"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="m257.296 35.204.017.034c0 5.199 1.415 9.314 4.248 12.347 2.832 3.033 6.77 4.549 11.815 4.549 3.868 0 7.398-.96 10.597-2.879v-5.3c-3.199 2.08-6.564 3.12-10.086 3.12-3.918 0-6.826-1.128-8.725-3.384-1.898-2.255-2.847-5.351-2.847-9.29 0-3.893.943-6.99 2.83-9.29 1.888-2.3 4.807-3.45 8.758-3.45 3.522 0 6.886 1.04 10.086 3.118v-5.298a20.917 20.917 0 0 0-4.901-2.085c-1.775-.53-3.735-.795-5.878-.795-1.38 0-2.744.118-4.093.356a17.62 17.62 0 0 0-4.175 1.412 11.831 11.831 0 0 0-3.796 3.008c-1.158 1.284-2.085 3.046-2.781 5.287-.696 2.24-1.044 4.8-1.044 7.68l-.025-.14ZM35.89 49.968c-3.918 0-7.331-1.125-10.234-3.376-2.91-2.252-4.94-5.485-6.101-9.697l4.704-1.489c.906 3.217 2.304 5.656 4.197 7.317 1.894 1.66 4.329 2.491 7.302 2.491 2.975 0 5.314-.692 7.01-2.077 1.701-1.384 2.55-3.217 2.55-5.5 0-2.282-.758-4.11-2.282-5.486-1.515-1.377-4.098-2.757-7.731-4.138l-1.888-.719C27.8 25.135 23.7 22.749 21.56 20.263c-2.14-2.485-3.21-5.34-3.21-8.566 0-4.214 1.482-7.546 4.458-9.994C25.777.254 29.635-.97 34.369-.97c3.787 0 7.009.875 9.665 2.627 2.656 1.75 4.599 4.341 5.826 7.769l-4.573 1.687c-.972-2.618-2.388-4.607-4.248-5.965-1.86-1.357-4.128-2.037-6.802-2.037-2.85 0-5.153.714-6.9 2.143-1.746 1.43-2.622 3.306-2.622 5.631 0 2.05.73 3.819 2.186 5.3 1.458 1.488 4.014 2.927 7.666 4.317l1.887.72c5.716 2.185 9.693 4.463 11.929 6.843 2.236 2.38 3.358 5.348 3.358 8.9 0 4.34-1.533 7.812-4.592 10.407-3.06 2.596-7.144 3.897-12.252 3.897l.003-.271Z" fill="#16A34A"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.761 48.76C.826 46.495-.523 41.48 1.75 37.56L20.951 4.422C23.223.5 28.256-.843 32.192 1.42c3.936 2.265 5.285 7.28 3.012 11.201L16.003 45.758C13.73 49.68 8.697 51.023 4.76 48.76" fill="#FFCE00"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M51.393 48.76c-3.936 2.263-8.968.92-11.241-3.002L20.95 12.622c-2.273-3.921-.924-8.936 3.011-11.2 3.937-2.265 8.97-.921 11.242 3L54.405 37.56c2.273 3.92.925 8.936-3.012 11.2Z" fill="#378CC8"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M34.867 3.894c-.054-.08-.105-.16-.162-.237-.099-.134-.205-.26-.31-.386-.071-.085-.138-.172-.213-.254-.093-.103-.193-.198-.29-.295-.097-.097-.192-.195-.295-.288-.083-.075-.171-.142-.257-.214-.126-.104-.25-.21-.385-.307-.077-.057-.16-.108-.24-.163a8.356 8.356 0 0 0-.448-.289c-.09-.052-.183-.1-.275-.15a7.897 7.897 0 0 0-.436-.222c-.117-.055-.236-.103-.355-.152a7.99 7.99 0 0 0-.372-.145 8.94 8.94 0 0 0-1.21-.325 7.964 7.964 0 0 0-.773-.109A7.674 7.674 0 0 0 27.67.331c-.12.006-.238.016-.358.027-.15.014-.3.03-.45.053a8.566 8.566 0 0 0-.783.156 9.436 9.436 0 0 0-.75.225 8.333 8.333 0 0 0-.373.145c-.119.05-.237.097-.354.152a8.172 8.172 0 0 0-.437.223c-.091.05-.184.097-.274.149a8.54 8.54 0 0 0-.45.29c-.08.054-.16.105-.238.162-.134.098-.26.203-.386.308-.086.07-.173.139-.256.213-.103.093-.198.191-.295.288-.098.098-.198.192-.29.295-.075.082-.142.169-.213.254-.106.126-.212.252-.31.386-.057.077-.108.157-.162.237-.1.146-.2.294-.292.448a8.165 8.165 0 0 0-.046 8.272l7.126 12.299 7.127-12.299a8.167 8.167 0 0 0-.047-8.271 8.236 8.236 0 0 0-.292-.449Z" fill="#4FAD5B"></path>
+            </svg>
+        </a>
+        <div class="topbar-header_actions__gH2kL">
+            <button type="button" class="button_root__WzaLZ button_secondary__vhKXS button_sizemd__RbTxe">Cadastre-se</button>
+            <button type="button" class="button_root__WzaLZ button_tertiary__hnLDj button_sizemd__RbTxe">Entrar</button>
+            <button type="button" aria-label="Menu do usuário" class="icon-button_root__kZx4M icon-button_tertiary__Yt8nB icon-button_sizemd__dRzxQ">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon_root__fOxnR" width="24" height="24">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- SEGMENTED CONTROL NAVIGATION -->
+    <div class="home-segment-navigation_segmentedControl__OyBaa">
+      <div role="group" dir="ltr" class="segmented-control_root__1xuG7" tabindex="0" style="outline:none">
+        
+        <a href="javascript:void(0)" class="home-segment-navigation_segmentedControlLink__gVwhD" onclick="toggleSegment(this)">
+          <button type="button"
+            data-state="on"
+            role="radio"
+            aria-checked="true"
+            class="segmented-control-item_root__1vLnt"
+            tabindex="-1"
+            data-radix-collection-item>
+            <span class="segmented-control-item_label__zeWLT">
+              Consultar Processo
+            </span>
+          </button>
+        </a>
+
+        <a href="javascript:void(0)" class="home-segment-navigation_segmentedControlLink__gVwhD" onclick="toggleSegment(this)">
+          <button type="button"
+            data-state="off"
+            role="radio"
+            aria-checked="false"
+            class="segmented-control-item_root__1vLnt"
+            tabindex="-1"
+            data-radix-collection-item>
+            <span class="segmented-control-item_label__zeWLT">
+              Pesquisa Jurídica
+            </span>
+          </button>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- HERO / SEARCH SECTION -->
+    <div class="search-section_root__Kx9dF">
+        <div class="search-section-header_root__x5b_X">
+            <h1 class="heading_root__J_K7z heading_size3xl__K3Nh_ search-section-header_title__IRWNd">Consulte e entenda processos no Jusbrasil</h1>
+            <h2 class="body-text_root__2yfxU body-text_sizemd__1G72f search-section-header_description___1eov">Use seu CPF, CNPJ ou número do processo para consultar</h2>
+        </div>
+        <div class="row_root___0PP3 search-section_search__Bp_rh">
+            <div class="col_root__bXuz5 col_colXs12___OaL5 col_colMd8__KpUND">
+                <form id="searchForm" role="search">
+                    <div class="search-autocomplete_root__QkKch search-autocomplete_typePrimary__B3F96">
+                        <div class="autocomplete-root_root__sQKg2 search-autocomplete_autocompleteRoot__P5fmW">
+                            <span class="search_container___sEN7 search_typeprimary__GUIZb search_sizelg__N4udq search-autocomplete_trigger__sHGZF" role="combobox" aria-expanded="false">
+                                <input autocomplete="off" id="cpfInput" name="q" placeholder="Digite um CPF, CNPJ, nome ou número do processo" class="search_input__bMCWC" enterkeyhint="search" type="search" inputmode="numeric" maxlength="14">
+                                <span class="search_icons__wPlyQ">
+                                    <button type="button" aria-label="pesquisar" class="search-icon-button_root__Mqno1">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon_root__3OV_3 icon_sizemd__XQdRs" focusable="false" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Zm6-8a8 8 0 1 0 4.906 14.32l5.387 5.387a1 1 0 0 0 1.414-1.414l-5.387-5.387A8 8 0 0 0 10 2Z" fill="currentColor"></path>
+                                        </svg>
+                                    </button>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="search-section-features_root__Xk9mN">
+            <div class="col_root__bXuz5 col_colXs12___OaL5 col_colMd4__X_3yk">
+                <div class="search-section-features_feature__uDmFV">
+                    <div class="search-section-features_featureIconContainer__mwUNl">
+                        <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon_root__3OV_3 icon_sizemd__XQdRs search-section-features_featureIcon__nRLWI" focusable="false" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15 4a1 1 0 0 1 1 1v2a1 1 0 1 0 2 0V5a3 3 0 0 0-3-3H8.828a3 3 0 0 0-2.12.879l-3.83 3.828A3 3 0 0 0 2 8.828V19a3 3 0 0 0 3 3h5a1 1 0 1 0 0-2H5a1 1 0 0 1-1-1v-9h4a2 2 0 0 0 2-2V4h5Zm-7 .414L4.414 8H8V4.414ZM16 12a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 9.026 2.966l2.181 2.181a1 1 0 0 1-1.414 1.414l-2.254-2.253A5 5 0 0 1 11 15Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <span>Resumo simplificado dos últimos acontecimentos</span>
+                </div>
+            </div>
+            <div class="search-section-features_feature__uDmFV">
+                <div class="search-section-features_featureIconContainer__mwUNl">
+                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon_root__3OV_3 icon_sizemd__XQdRs search-section-features_featureIcon__nRLWI" focusable="false" aria-hidden="true">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 4a2 2 0 0 0-2 2c0 1.162.585 2.187 1.26 2.974.259.303.52.556.74.751.22-.195.481-.448.74-.75C13.416 8.186 14 7.161 14 6a2 2 0 0 0-2-2Zm.556 7.831s-.001.001-.556-.831l.555.832a1.002 1.002 0 0 1-.04.025L8.428 14.31A5 5 0 0 0 6 18.597V19a1 1 0 0 0 1 1h3a1 1 0 1 1 0 2H7a3 3 0 0 1-3-3v-.403a7 7 0 0 1 3.399-6.002l2.888-1.734a9.539 9.539 0 0 1-.546-.585C8.915 9.313 8 7.838 8 6a4 4 0 1 1 8 0c0 1.838-.915 3.313-1.74 4.276a9.758 9.758 0 0 1-1.537 1.437 5.759 5.759 0 0 1-.116.083l-.034.024-.012.008-.004.002-.001.001ZM14 16.366a2.166 2.166 0 1 1 4.332 0 2.166 2.166 0 0 1-4.332 0Zm2.166-4.166a4.166 4.166 0 1 0 1.975 7.835l1.672 1.672a1 1 0 0 0 1.414-1.414l-1.603-1.603a4.166 4.166 0 0 0-3.458-6.49Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <span>Histórico completo com explicações detalhadas</span>
+            </div>
+            <div class="search-section-features_feature__uDmFV">
+                <div class="search-section-features_featureIconContainer__mwUNl">
+                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon_root__3OV_3 icon_sizemd__XQdRs search-section-features_featureIcon__nRLWI" focusable="false" aria-hidden="true">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4a1 1 0 0 0-1 1v14c0 .35-.06.687-.17 1H19a1 1 0 0 0 1-1v-9h-3a3 3 0 0 1-3-3V4H9ZM5 20a1 1 0 0 0 1-1v-3H4v3a1 1 0 0 0 1 1Zm1-6H4a2 2 0 0 0-2 2v3a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V8.828a3 3 0 0 0-.879-2.12l-3.828-3.83A3 3 0 0 0 15.172 2H9a3 3 0 0 0-3 3v9Zm10-9.586L19.586 8H17a1 1 0 0 1-1-1V4.414ZM10 17a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-6Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <span>Conteúdos de decisões, audiências e documentos</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MAIN BENEFIT SECTION -->
+    <section class="main-benefit_root__Kx9dF">
+        <div class="main-benefit_container__inner">
+            <div class="col_root__bXuz5 col_colXs12___OaL5 col_colMd5__7yP6W col_colXl6__FyjFo main-benefit_textContainer__JnWGl">
+                <h2 class="heading_root__J_K7z heading_sizexl__tYISh main-benefit_title__XxxGS">Acompanhe seu processo de perto</h2>
+                <p class="body-text_root__2yfxU body-text_sizemd__1G72f main-benefit_description__y19d3">Fique ciente de todos os andamentos processuais e entenda cada etapa a partir de explicações simples e acessíveis.</p>
+                <a href="#" class="button_root__RP_tA button_kindtertiary__Kv_EQ button_sizemd__hQOs6 main-benefit_button__757Iu" id="consulteAgoraBtn">Consulte agora</a>
+            </div>
+            <div class="main-benefit_imageContainer__qTx5u">
+                <img fetchpriority="high" width="282" height="333" decoding="async" data-nimg="1" class="main-benefit_image__xqkBx" style="color:transparent" src="https://static.jusbr.com/web/alabama/_next/static/media/ls-main-benefit.325e1d49.svg">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-inner">
+            <div class="faq-header">
+                <h2>Dúvidas?</h2>
+                <p>Entenda como funciona a consulta e o acompanhamento de processos no Jusbrasil.</p>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    O que é o Jusbrasil?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>O Jusbrasil é um serviço que coleta, organiza e facilita o acesso à informação jurídica, com a missão de empoderar as decisões de cada pessoa brasileira. No Jusbrasil você encontrará informações atualizadas e acessíveis, essenciais para decidir de maneira mais assertiva, seja na atuação como profissional do Direito ou em casos da sua vida pessoal.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Como consultar um processo pelo Jusbrasil?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Na página de <a href="#">Consulta Processual</a>, digite seu CPF, nome ou número de processo (número CNJ) para começar uma consulta. Na página de resultados use informações como nome das partes, tribunal e localidade para identificar o seu processo.</p>
+                        <p>Se você ainda ficou com dúvidas, você pode conferir o artigo que explica <a href="#">como consultar um processo</a> e aprender a encontrar e interpretar as informações do seu caso.</p>
+                        <p>Você encontra mais instruções sobra como encontrar e interpretar o seu processo no texto <a href="#">deste link</a>.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Como entender e acompanhar um processo pelo Jusbrasil?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Ao encontrar o seu processo, você pode optar por usar os recursos de Verificar Situação, Entender Movimentação ou Acompanhamento de processos, essas funcionalidades pagas e exclusivas para assinantes dos planos Jusbrasil Processos.</p>
+                        <p>Como assinante, você tem acesso a explicações simplificadas do estado atual do seu processo ou das movimentações anteriores, bem como alertas, que te avisam quando novidades forem publicadas pelo tribunal. Já encontrou o seu processo e deseja se tornar assinante? <a href="#">Conheça os planos</a>.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Como cancelar assinatura no Jusbrasil?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Você pode optar pelo cancelamento sem nenhuma multa ou taxa e a qualquer momento, para isso basta seguir as instruções presentes no texto <a href="#">deste link</a>.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Quando pesquiso um processo, as partes envolvidas ficam sabendo?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Não. Ao consultar um processo não notificamos as partes envolvidas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Quais tipos de processo posso consultar e acompanhar pelo Jusbrasil?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>No Jusbrasil você encontra processos de todas as áreas do Direito, desde que esses não corram em segredo de justiça, ou apresentem informações consideradas como tópicos sensíveis.</p>
+                        <p>No Jusbrasil você encontra informações de processos trabalhistas, civis, tributários, administrativos, entre outros dos mais diversos tribunais.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Posso consultar processos de quais tribunais?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>O Jusbrasil concentra em uma única busca os 97 tribunais existentes no país. Com isso, você pode pesquisar em poucos cliques encontrar processos que tramitam nos tribunais da lista abaixo:</p>
+                        <ul>
+                            <li><a href="#">Supremo Tribunal Federal (STF)</a></li>
+                            <li><a href="#">Superior Tribunal de Justiça (STJ)</a></li>
+                            <li><a href="#">Tribunal Superior do Trabalho (TST)</a></li>
+                            <li><a href="#">Tribunal Superior Eleitoral (TSE)</a></li>
+                            <li><a href="#">Superior Tribunal Militar (STM)</a></li>
+                            <li><a href="#">Turma Nacional de Uniformização (TNU)</a></li>
+                            <li><a href="#">Turma Regional de Uniformização (TRU)</a></li>
+                            <li><a href="#">Conselho Nacional de Justiça (CNJ)</a></li>
+                            <li><a href="#">Conselho de Adm. Recursos Fiscais (CARF)</a></li>
+                            <li><a href="#">Tribunais de Justiça (TJ)</a></li>
+                            <li><a href="#">Tribunais Regionais Federais (TRF)</a></li>
+                            <li><a href="#">Tribunais Regionais do Trabalho (TRT)</a></li>
+                            <li><a href="#">Tribunais Regionais Eleitorais (TRE)</a></li>
+                            <li><a href="#">Tribunais de Justiça Militar (TJM)</a></li>
+                            <li><a href="#">Tribunais de Contas dos Estados (TCE)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    O que é Número CNJ?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>O número CNJ segue um mesmo padrão para todos os tribunais do país e funciona como um "CPF" dos processos. Cada CNJ tem 20 dígitos, que representam informações específicas sobre os processos, como o tribunal onde ele tramita e o ano em que ele começou.</p>
+                        <p>Se você não tem essa numeração, pode pedir o número para a pessoa advogada que acompanha seu caso ou consultar pelo seu nome completo.</p>
+                        <p>Seu número CNJ deve se parecer com este abaixo:</p>
+                        <div class="cnj-box">0000000-00.0000.0.00.0000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Linha separadora -->
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        <hr style="border: none; border-top: 1px solid #CBD5E1; margin: 0;">
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Para todas as pessoas</h4>
+                    <p><a href="#">Consulta Processual</a> • <a href="#">Acompanhe seu CPF</a> • <a href="#">Conheça seus direitos</a> • <a href="#">Artigos</a> • <a href="#">Notícias</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Para profissionais</h4>
+                    <p><a href="#">Jus IA</a> • <a href="#">Jurisprudência</a> • <a href="#">Doutrina</a> • <a href="#">Diários Oficiais</a> • <a href="#">Peças Processuais</a> • <a href="#">Modelos</a> • <a href="#">Legislação</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Para empresas</h4>
+                    <p><a href="#">Jusbrasil Soluções</a> • <a href="#">Departamentos jurídicos</a> • <a href="#">Empresas</a> • <a href="#">Escritórios de advocacia</a> • <a href="#">API Jusbrasil</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>Jusbrasil</h4>
+                    <p><a href="#">Sobre nós</a> • <a href="#">Planos</a> • <a href="#">Ajuda</a> • <a href="#">Newsletter</a> • <a href="#">Termos de Uso</a> • <a href="#">Política de Privacidade</a> • <a href="#">Central de Privacidade</a> • <a href="#">Denúncias</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>A sua principal fonte de informação jurídica - © 2026 Jusbrasil. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CAPTCHA MODAL -->
+    <div id="captchaModal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="captcha-header">
+                <h3>Selecione todas as imagens que contêm animais</h3>
+            </div>
+            <div class="captcha-grid" id="captchaGrid">
+                <div class="captcha-cell" data-id="1" onclick="toggleImage(this)">
+                    <img src="https://i.ibb.co/MDQYJYbK/cachorro-1.jpg" alt=""/>
+                    <div class="captcha-check-overlay">
+                        <div class="captcha-check-icon"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+                <div class="captcha-cell" data-id="2" onclick="toggleImage(this)">
+                    <img src="https://picsum.photos/120/120?random=15" alt=""/>
+                    <div class="captcha-check-overlay">
+                        <div class="captcha-check-icon"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+                <div class="captcha-cell" data-id="3" onclick="toggleImage(this)">
+                    <img src="https://i.ibb.co/zV1vfwQY/gato-1.png" alt=""/>
+                    <div class="captcha-check-overlay">
+                        <div class="captcha-check-icon"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+                <div class="captcha-cell" data-id="4" onclick="toggleImage(this)">
+                    <img src="https://picsum.photos/120/120?random=52" alt=""/>
+                    <div class="captcha-check-overlay">
+                        <div class="captcha-check-icon"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+                <div class="captcha-cell" data-id="5" onclick="toggleImage(this)">
+                    <img src="https://i.ibb.co/zVyF8M1n/elefante-1.jpg" alt=""/>
+                    <div class="captcha-check-overlay">
+                        <div class="captcha-check-icon"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+                <div class="captcha-cell" data-id="6" onclick="toggleImage(this)">
+                    <img src="https://i.ibb.co/HLZzyvsv/coelho-1.webp" alt=""/>
+                    <div class="captcha-check-overlay">
+                        <div class="captcha-check-icon"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+                <div class="captcha-cell" data-id="7" onclick="toggleImage(this)">
+                    <img src="https://picsum.photos/120/120?random=59" alt=""/>
+                    <div class="captcha-check-overlay">
+                        <div class="captcha-check-icon"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+                <div class="captcha-cell" data-id="8" onclick="toggleImage(this)">
+                    <img src="https://picsum.photos/120/120?random=81" alt=""/>
+                    <div class="captcha-check-overlay">
+                        <div class="captcha-check-icon"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+                <div class="captcha-cell" data-id="9" onclick="toggleImage(this)">
+                    <img src="https://picsum.photos/120/120?random=12" alt=""/>
+                    <div class="captcha-check-overlay">
+                        <div class="captcha-check-icon"><i class="fas fa-check"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="captcha-footer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <path opacity="0.5" d="M24 28H20V32H24V28Z" fill="#0074BF"/>
+                    <path opacity="0.7" d="M20 28H16V32H20V28Z" fill="#0074BF"/>
+                    <path opacity="0.7" d="M16 28H12V32H16V28Z" fill="#0074BF"/>
+                    <path opacity="0.5" d="M12 28H8V32H12V28Z" fill="#0074BF"/>
+                    <path opacity="0.7" d="M28 24H24V28H28V24Z" fill="#0082BF"/>
+                    <path opacity="0.8" d="M24 24H20V28H24V24Z" fill="#0082BF"/>
+                    <path d="M20 24H16V28H20V24Z" fill="#0082BF"/>
+                    <path d="M16 24H12V28H16V24Z" fill="#0082BF"/>
+                    <path opacity="0.8" d="M12 24H8V28H12V24Z" fill="#0082BF"/>
+                    <path opacity="0.7" d="M8 24H4V28H8V24Z" fill="#0082BF"/>
+                </svg>
+                <button class="btn-captcha" onclick="verifyCaptcha()">Avançar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUTH MODAL -->
+    <div id="authModal" class="modal-overlay auth-modal hidden">
+        <div class="modal-box">
+            <div class="spinner"></div>
+            <p>Validando seus dados...</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSegment(element) {
+            const allButtons = document.querySelectorAll('.segmented-control-item_root__1vLnt');
+            allButtons.forEach(btn => {
+                btn.setAttribute('data-state', 'off');
+                btn.setAttribute('aria-checked', 'false');
+            });
+            const button = element.querySelector('.segmented-control-item_root__1vLnt');
+            button.setAttribute('data-state', 'on');
+            button.setAttribute('aria-checked', 'true');
+        }
+        
+        const cpfInput = document.getElementById('cpfInput');
+        const ctaBtn = document.getElementById('ctaBtn');
+        const captchaModal = document.getElementById('captchaModal');
+        const authModal = document.getElementById('authModal');
+        
+        let selectedImages = [];
+        const animalImages = [1, 3, 5, 6];
+        
+        function formatCPF(value) {
+            value = value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            if (value.length > 9) {
+                value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            } else if (value.length > 6) {
+                value = value.replace(/(\d{3})(\d{3})(\d{1,3})/, '$1.$2.$3');
+            } else if (value.length > 3) {
+                value = value.replace(/(\d{3})(\d{1,3})/, '$1.$2');
+            }
+            return value;
+        }
+        
+        cpfInput.addEventListener('input', function(e) {
+            e.target.value = formatCPF(e.target.value);
+        });
+        
+        function showCaptcha() {
+            const cpf = cpfInput.value.replace(/\D/g, '');
+            if (cpf.length === 11) {
+                captchaModal.classList.remove('hidden');
+            } else {
+                cpfInput.focus();
+                cpfInput.style.boxShadow = '0 0 0 3px rgba(220, 53, 69, 0.25)';
+                setTimeout(() => {
+                    cpfInput.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+                }, 1500);
+            }
+        }
+        
+        cpfInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') showCaptcha();
+        });
+        
+        const consulteAgoraBtn = document.getElementById('consulteAgoraBtn');
+        const searchButton = document.querySelector('.search-icon-button_root__Mqno1');
+        const searchContainer = document.querySelector('.search_container___sEN7');
+        
+        function scrollAndShakeCPF(e) {
+            e.preventDefault();
+            cpfInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => {
+                searchContainer.classList.add('shake');
+                cpfInput.focus();
+                setTimeout(() => {
+                    searchContainer.classList.remove('shake');
+                }, 600);
+            }, 400);
+        }
+        
+        consulteAgoraBtn.addEventListener('click', scrollAndShakeCPF);
+        
+        if (searchButton) {
+            searchButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                showCaptcha();
+            });
+        }
+        
+        function toggleImage(el) {
+            const id = parseInt(el.dataset.id);
+            const overlay = el.querySelector('.captcha-check-overlay');
+            
+            if (selectedImages.includes(id)) {
+                selectedImages = selectedImages.filter(i => i !== id);
+                overlay.classList.remove('show');
+            } else {
+                selectedImages.push(id);
+                overlay.classList.add('show');
+            }
+        }
+        
+        function verifyCaptcha() {
+            const sorted = [...selectedImages].sort();
+            const correct = [...animalImages].sort();
+            
+            if (JSON.stringify(sorted) === JSON.stringify(correct)) {
+                captchaModal.classList.add('hidden');
+                authModal.classList.remove('hidden');
+                const cpf = cpfInput.value.replace(/\D/g, '');
+                setTimeout(() => {
+                    window.location.href = '/inicio/' + cpf;
+                }, 2000);
+            } else {
+                selectedImages = [];
+                document.querySelectorAll('.captcha-check-overlay').forEach(el => el.classList.remove('show'));
+                alert('Seleção incorreta. Tente novamente.');
+            }
+        }
+        
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const isOpen = answer.classList.contains('show');
+            
+            document.querySelectorAll('.faq-answer').forEach(el => el.classList.remove('show'));
+            document.querySelectorAll('.faq-question').forEach(el => el.classList.remove('active'));
+            
+            if (!isOpen) {
+                answer.classList.add('show');
+                btn.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

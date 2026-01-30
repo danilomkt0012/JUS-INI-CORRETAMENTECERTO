@@ -1,0 +1,333 @@
+# Documentação Completa da API Nova Era PIX
+
+## Visão Geral
+
+A API Nova Era é um sistema de pagamentos que permite integração para criação e consulta de transações PIX. Esta documentação está baseada na implementação real do projeto.
+
+## Configuração
+
+### Credenciais
+- **URL Base**: `https://api.novaera-pagamentos.com/api/v1`
+- **Autenticação**: Basic Auth
+- **Secret Key**: `sk_uluAT1O9I6FGTQAcXzccr2H_eAQ9IOzYoY_LLDfR8U6Uv2Xb`
+- **Public Key**: `pk_E5SWGB_rZ-mZowMITdSr5w8zhOdY8TDImLhOM-s9gmJPoc9x`
+
+### Dependências
+```python
+pip install requests
+```
+
+## Estruturas de Dados
+
+### Customer (Cliente)
+```python
+@dataclass
+class Customer:
+    """Dados do cliente para pagamento"""
+    name: str
+    email: str
+    phone: str
+    cpf: str
+```
+
+### PaymentItem (Item do Pagamento)
+```python
+@dataclass
+class PaymentItem:
+    """Item do pagamento"""
+    title: str
+    quantity: int = 1
+    unit_price: int = 8740  # Em centavos
+    tangible: bool = False
+```
+
+### PixTransaction (Transação PIX)
+```python
+@dataclass
+class PixTransaction:
+    """Dados da transação PIX"""
+    id: str
+    status: str
+    amount: int
+    qr_code: str
+    expires_at: str
+    created_at: str
+```
+
+## Classe Principal
+
+### NovaEraAPI
+
+```python
+class NovaEraAPI:
+    """Cliente para API Nova Era de pagamentos PIX"""
+    
+    def __init__(self, secret_key: str, public_key: str):
+        self.secret_key = secret_key
+        self.public_key = public_key
+        self.base_url = "https://api.novaera-pagamentos.com/api/v1"
+```
+
+## Métodos Disponíveis
+
+### 1. Autenticação
+
+```python
+def _get_auth_token(self) -> str:
+    """Gera token de autenticação Basic Auth"""
+    credentials = f"{self.secret_key}:{self.public_key}"
+    token = base64.b64encode(credentials.encode()).decode()
+    return f"Basic {token}"
+```
+
+### 2. Requisições HTTP
+
+```python
+def _make_request(self, method: str, endpoint: str, data: Optional[Dict] = None) -> Dict[str, Any]:
+    """Faz requisição para a API"""
+    url = f"{self.base_url}{endpoint}"
+    
+    headers = {
+        "Content-Type": "application/json",
+        "Authorization": self._get_auth_token()
+    }
+    
+    # Suporta GET e POST
+    if method.upper() == "POST":
+        response = requests.post(url, json=data, headers=headers, timeout=30)
+    elif method.upper() == "GET":
+        response = requests.get(url, headers=headers, timeout=30)
+    else:
+        raise ValueError(f"Método HTTP não suportado: {method}")
+    
+    response.raise_for_status()
+    return response.json()
+```
+
+### 3. Criar Transação PIX
+
+```python
+def create_pix_transaction(self, customer: Customer, amount: int, description: str = "Taxa de Inscrição - Correios Contrata") -> PixTransaction:
+    """
+    Cria uma nova transação PIX
+    
+    Args:
+        customer: Dados do cliente
+        amount: Valor em centavos (ex: 8740 = R$ 87,40)
+        description: Descrição do pagamento
+    
+    Returns:
+        PixTransaction: Dados da transação criada
+    """
+```
+
+#### Payload da Requisição
+
+```python
+# Preparar dados do cliente
+customer_data = {
+    "name": customer.name,
+    "email": customer.email,
+    "phone": customer.phone,
+    "document": {
+        "number": customer.cpf.replace(".", "").replace("-", ""),
+        "type": "cpf"
+    }
+}
+
+# Preparar item do pagamento
+items = [
+    {
+        "tangible": False,
+        "quantity": 1,
+        "unitPrice": amount,
+        "title": description
+    }
+]
+
+# Dados da transação
+transaction_data = {
+    "customer": customer_data,
+    "items": items,
+    "postbackUrl": "https://webhook.site/your-webhook-url",
+    "amount": amount,
+    "paymentMethod": "pix"
+}
+```
+
+#### Resposta da API
+
+```python
+# Estrutura de resposta esperada
+{
+    "success": true,
+    "data": {
+        "id": "499608",
+        "status": "pending",
+        "amount": 8740,
+        "pix": {
+            "qrcode": "00020126580014br.gov.bcb.pix...",
+            "expirationDate": "2025-08-07T18:30:00Z"
+        },
+        "createdAt": "2025-08-07T12:30:00Z"
+    }
+}
+```
+
+### 4. Consultar Status da Transação
+
+```python
+def get_transaction_status(self, transaction_id: str) -> Dict[str, Any]:
+    """
+    Consulta o status de uma transação
+    
+    Args:
+        transaction_id: ID da transação
+    
+    Returns:
+        Dict: Dados da transação
+    """
+    
+    response = self._make_request("GET", f"/transactions/{transaction_id}")
+    
+    if response.get("success"):
+        return response["data"]
+    else:
+        error_msg = response.get("error", {}).get("message", "Erro desconhecido")
+        raise Exception(f"Erro da API: {error_msg}")
+```
+
+## Endpoints da API
+
+### POST /transactions
+**Descrição**: Criar nova transação PIX
+
+**Headers**:
+```
+Content-Type: application/json
+Authorization: Basic {base64(secret_key:public_key)}
+```
+
+**Body**:
+```json
+{
+    "customer": {
+        "name": "Nome do Cliente",
+        "email": "email@exemplo.com",
+        "phone": "(11) 99999-9999",
+        "document": {
+            "number": "12345678901",
+            "type": "cpf"
+        }
+    },
+    "items": [
+        {
+            "tangible": false,
+            "quantity": 1,
+            "unitPrice": 8740,
+            "title": "Taxa de Inscrição"
+        }
+    ],
+    "postbackUrl": "https://webhook.site/your-webhook-url",
+    "amount": 8740,
+    "paymentMethod": "pix"
+}
+```
+
+### GET /transactions/{id}
+**Descrição**: Consultar status de uma transação
+
+**Headers**:
+```
+Authorization: Basic {base64(secret_key:public_key)}
+```
+
+## Status da Transação
+
+- `pending`: Aguardando pagamento
+- `paid`: Pagamento confirmado
+- `expired`: Transação expirada
+- `failed`: Falha no pagamento
+
+## Exemplo de Uso Completo
+
+```python
+import base64
+import requests
+import json
+import logging
+from typing import Dict, Any, Optional
+from dataclasses import dataclass
+from datetime import datetime
+
+# Suas classes Customer, PaymentItem, PixTransaction aqui...
+
+def create_nova_era_client() -> NovaEraAPI:
+    """Cria cliente da API Nova Era com as credenciais fornecidas"""
+    secret_key = "sk_uluAT1O9I6FGTQAcXzccr2H_eAQ9IOzYoY_LLDfR8U6Uv2Xb"
+    public_key = "pk_E5SWGB_rZ-mZowMITdSr5w8zhOdY8TDImLhOM-s9gmJPoc9x"
+    
+    return NovaEraAPI(secret_key, public_key)
+
+# Exemplo de teste
+def test_api():
+    """Função para testar a API"""
+    try:
+        api = create_nova_era_client()
+        
+        # Dados de teste
+        customer = Customer(
+            name="RIZIA REGIA DA SILVA RODRIGUES MAGALHAES",
+            email="rizia@teste.com",
+            phone="(11) 99999-9999",
+            cpf="011.011.011-05"
+        )
+        
+        # Criar transação
+        transaction = api.create_pix_transaction(customer, 8740)
+        
+        print(f"Transação criada com sucesso!")
+        print(f"ID: {transaction.id}")
+        print(f"Status: {transaction.status}")
+        print(f"QR Code: {transaction.qr_code[:50]}...")
+        print(f"Expira em: {transaction.expires_at}")
+        
+        return transaction
+        
+    except Exception as e:
+        print(f"Erro no teste: {e}")
+        return None
+
+if __name__ == "__main__":
+    test_api()
+```
+
+## Configuração de Logging
+
+```python
+import os
+if os.environ.get('FLASK_ENV') == 'production':
+    logging.basicConfig(level=logging.ERROR)
+else:
+    logging.basicConfig(level=logging.WARNING)
+logger = logging.getLogger(__name__)
+```
+
+## Tratamento de Erros
+
+- **ValueError**: Para métodos HTTP não suportados
+- **requests.exceptions.RequestException**: Para erros de rede
+- **json.JSONDecodeError**: Para erros de decodificação JSON
+- **Exception**: Para erros gerais da API
+
+## Observações Importantes
+
+1. **Valores em centavos**: Todos os valores monetários devem ser enviados em centavos (ex: R$ 87,40 = 8740)
+2. **CPF**: Deve ser limpo de pontos e hífens antes do envio
+3. **Timeout**: Requisições têm timeout de 30 segundos
+4. **Webhook URL**: Configure uma URL válida para receber notificações de pagamento
+5. **QR Code**: O campo `qrcode` na resposta contém o código PIX completo
+
+## Teste Realizado
+
+A API foi testada com sucesso no projeto, gerando a transação ID `499608` com os dados de teste fornecidos.

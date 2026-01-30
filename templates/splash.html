@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JusBrasil</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        .splash-image {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <img src="https://www.estadao.com.br/resizer/v2/7RMCYG4AHVF7XAUGLZYVH5UQAU.jpeg?quality=80&auth=a256ac54a4a6c46f455a870a8a64890762af361e26c8ce41186fda5867156c9c&height=1600" 
+         alt="JusBrasil" 
+         class="splash-image">
+    
+    <script>
+        setTimeout(function() {
+            window.location.href = '/login';
+        }, 4000);
+    </script>
+</body>
+</html>

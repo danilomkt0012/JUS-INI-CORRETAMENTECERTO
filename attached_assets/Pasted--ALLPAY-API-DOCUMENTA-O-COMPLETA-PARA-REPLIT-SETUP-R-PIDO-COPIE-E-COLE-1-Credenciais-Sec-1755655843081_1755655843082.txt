@@ -1,0 +1,504 @@
+📖 ALLPAY API - DOCUMENTAÇÃO COMPLETA PARA REPLIT
+🔧 SETUP RÁPIDO - COPIE E COLE
+1. Credenciais (Secrets no Replit)
+ALLPAY_API_TOKEN=KmDzUymcpZI9bGSJKVjTdxS9GAZurxy1lj7PXcx3N7s1g5yVwugLivabPLFT
+ALLPAY_OFFER_HASH=jqbqtusndc
+ALLPAY_PRODUCT_HASH=yt1etnzg8z
+2. Endpoints da API
+Base URL: https://api.allpaygateway.com.br/api/public/v1
+Criar PIX: POST /transactions?api_token={token}
+Status: GET /transactions/{id}?api_token={token}
+🚀 CÓDIGO PYTHON COMPLETO
+allpay_api.py - COPIE ESTE ARQUIVO
+"""
+AllPay API Integration - Pronto para Replit
+Copie este arquivo completo para seu projeto
+"""
+import os
+import requests
+import logging
+from datetime import datetime
+from typing import Dict, Any
+class AllPayAPI:
+    def __init__(self):
+        self.base_url = "https://api.allpaygateway.com.br/api/public/v1"
+        self.api_token = os.getenv("ALLPAY_API_TOKEN", "KmDzUymcpZI9bGSJKVjTdxS9GAZurxy1lj7PXcx3N7s1g5yVwugLivabPLFT")
+        self.offer_hash = os.getenv("ALLPAY_OFFER_HASH", "jqbqtusndc")
+        self.product_hash = os.getenv("ALLPAY_PRODUCT_HASH", "yt1etnzg8z")
+        self.logger = logging.getLogger(__name__)
+        
+        self.logger.info("✅ AllPay API inicializada")
+    
+    def create_pix_payment(self, customer_data: Dict[str, Any], amount_reais: float = 117.35) -> Dict[str, Any]:
+        """
+        Cria pagamento PIX via AllPay
+        
+        Args:
+            customer_data: {'name': 'Nome', 'email': 'email@teste.com', 'cpf': '123.456.789-10'}
+            amount_reais: Valor em reais
+            
+        Returns:
+            {'success': True/False, 'transaction_id': 'xxx', 'pix_key': 'codigo_pix'}
+        """
+        try:
+            url = f"{self.base_url}/transactions"
+            amount_centavos = int(amount_reais * 100)
+            
+            # Dados da transação AllPay
+            payment_data = {
+                "amount": amount_centavos,
+                "offer_hash": self.offer_hash,
+                "payment_method": "pix",
+                "customer": {
+                    "name": customer_data.get('name', 'Cliente'),
+                    "email": customer_data.get('email', 'cliente@email.com'),
+                    "phone_number": "11987654321",
+                    "document": customer_data.get('cpf', '').replace('.', '').replace('-', ''),
+                    "street_name": "Rua Principal",
+                    "number": "123",
+                    "complement": "",
+                    "neighborhood": "Centro", 
+                    "city": "São Paulo",
+                    "state": "SP",
+                    "zip_code": "01000000"
+                },
+                "cart": [
+                    {
+                        "product_hash": self.product_hash,
+                        "title": "Produto Digital",
+                        "price": amount_centavos,
+                        "quantity": 1,
+                        "operation_type": 1,
+                        "tangible": False,
+                        "product_id": 1,
+                        "offer_id": 1
+                    }
+                ],
+                "installments": 1,
+                "expire_in_days": 1,
+                "transaction_origin": "api",
+                "tracking": {
+                    "src": "",
+                    "utm_source": "",
+                    "utm_medium": "",
+                    "utm_campaign": "",
+                    "utm_term": "",
+                    "utm_content": ""
+                }
+            }
+            
+            # Fazer requisição
+            response = requests.post(
+                f"{url}?api_token={self.api_token}",
+                json=payment_data,
+                headers={
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'User-Agent': 'AllPay-Replit/1.0'
+                },
+                timeout=10
+            )
+            
+            if response.status_code in [200, 201]:
+                result = response.json()
+                transaction_id = result.get('hash') or str(result.get('id', ''))
+                
+                # Buscar PIX nos dados
+                pix_data = result.get('pix', {})
+                pix_key = pix_data.get('pix_qr_code') or pix_data.get('pix_url')
+                
+                payment_status = result.get('payment_status', 'pending')
+                
+                if transaction_id and pix_key:
+                    self.logger.info(f"✅ AllPay PIX criado - ID: {transaction_id}")
+                    return {
+                        'success': True,
+                        'transaction_id': transaction_id,
+                        'pix_key': pix_key,
+                        'qr_code': pix_key,
+                        'amount': amount_reais,
+                        'status': payment_status,
+                        'provider': 'AllPay',
+                        'created_at': datetime.now().isoformat()
+                    }
+                else:
+                    self.logger.warning(f"⚠️ AllPay: transação criada mas sem PIX")
+                    return {'success': False, 'error': f'AllPay sem PIX - Status: {payment_status}'}
+            else:
+                error_msg = f"HTTP {response.status_code} - {response.text}"
+                self.logger.error(f"❌ AllPay erro: {error_msg}")
+                return {'success': False, 'error': error_msg}
+                
+        except Exception as e:
+            self.logger.error(f"💥 AllPay exception: {str(e)}")
+            return {'success': False, 'error': f'Erro: {str(e)}'}
+    
+    def check_payment_status(self, transaction_id: str) -> Dict[str, Any]:
+        """
+        Verifica status do pagamento
+        """
+        try:
+            url = f"{self.base_url}/transactions/{transaction_id}"
+            
+            response = requests.get(
+                f"{url}?api_token={self.api_token}",
+                headers={'User-Agent': 'AllPay-Replit/1.0'},
+                timeout=5
+            )
+            
+            if response.status_code == 200:
+                result = response.json()
+                status = result.get('status', 'pending').lower()
+                paid = status in ['paid', 'approved', 'completed']
+                
+                return {
+                    'success': True,
+                    'status': 'paid' if paid else 'pending',
+                    'paid': paid,
+                    'pending': not paid,
+                    'amount': result.get('amount', 0) / 100,
+                    'provider': 'AllPay'
+                }
+            else:
+                return {
+                    'success': True,
+                    'status': 'pending',
+                    'paid': False,
+                    'pending': True,
+                    'provider': 'AllPay'
+                }
+                
+        except Exception as e:
+            return {'success': False, 'error': str(e)}
+# TESTE RÁPIDO - DESCOMENTE PARA TESTAR
+# if __name__ == "__main__":
+#     api = AllPayAPI()
+#     
+#     customer = {
+#         'name': 'João Silva',
+#         'email': 'joao@teste.com', 
+#         'cpf': '123.456.789-10'
+#     }
+#     
+#     result = api.create_pix_payment(customer, 50.00)
+#     print(f"Resultado: {result}")
+🌐 FLASK APP COMPLETA
+app.py - COPIE ESTE ARQUIVO
+"""
+Flask App com AllPay PIX - Pronto para Replit
+"""
+from flask import Flask, request, jsonify, render_template_string
+import os
+import logging
+from allpay_api import AllPayAPI
+# Configurar logging
+logging.basicConfig(level=logging.INFO)
+app = Flask(__name__)
+app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-change-me")
+# Inicializar AllPay
+allpay = AllPayAPI()
+@app.route('/')
+def home():
+    """Página principal com formulário PIX"""
+    return render_template_string(FRONTEND_HTML)
+@app.route('/api/generate-pix', methods=['POST'])
+def generate_pix():
+    """API para gerar PIX"""
+    try:
+        data = request.get_json()
+        
+        customer_data = {
+            'name': data.get('name', ''),
+            'email': data.get('email', ''),
+            'cpf': data.get('cpf', '')
+        }
+        
+        amount = float(data.get('amount', 117.35))
+        
+        # Validar dados
+        if not all([customer_data['name'], customer_data['email'], customer_data['cpf']]):
+            return jsonify({
+                'success': False,
+                'error': 'Nome, email e CPF são obrigatórios'
+            }), 400
+        
+        # Gerar PIX
+        result = allpay.create_pix_payment(customer_data, amount)
+        
+        if result['success']:
+            return jsonify({
+                'success': True,
+                'transaction_id': result['transaction_id'],
+                'pix_code': result['pix_key'],
+                'qr_code': result['pix_key'], 
+                'amount': result['amount'],
+                'provider': result['provider'],
+                'status': result.get('status', 'pending')
+            })
+        else:
+            return jsonify({
+                'success': False,
+                'error': result['error']
+            }), 500
+            
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': f'Erro interno: {str(e)}'
+        }), 500
+@app.route('/api/check-payment/<transaction_id>')
+def check_payment(transaction_id):
+    """API para verificar status"""
+    try:
+        result = allpay.check_payment_status(transaction_id)
+        return jsonify(result)
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+# HTML Frontend embutido
+FRONTEND_HTML = '''
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AllPay PIX - Replit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen py-8">
+    <div class="container mx-auto max-w-4xl px-4">
+        <h1 class="text-3xl font-bold text-center mb-8">AllPay PIX Integration</h1>
+        
+        <!-- Formulário -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Gerar PIX</h2>
+            <form id="pixForm" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Nome Completo</label>
+                        <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">CPF</label>
+                        <input type="text" id="cpf" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="000.000.000-00" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Valor (R$)</label>
+                        <input type="number" id="amount" value="117.35" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" step="0.01" required>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                    Gerar PIX
+                </button>
+            </form>
+        </div>
+        
+        <!-- Loading -->
+        <div id="loading" class="hidden bg-white rounded-lg shadow-md p-6 text-center">
+            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            <p class="mt-2 text-gray-600">Gerando PIX...</p>
+        </div>
+        
+        <!-- Resultado PIX -->
+        <div id="pixResult" class="hidden bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4">PIX Gerado com Sucesso!</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- QR Code -->
+                <div class="text-center">
+                    <img id="qrCode" class="mx-auto mb-4 border rounded-lg" alt="QR Code PIX">
+                    <p class="text-sm text-gray-600">Escaneie com seu app de banco</p>
+                </div>
+                
+                <!-- Código PIX -->
+                <div>
+                    <label class="block text-sm font-medium mb-2">Código PIX (Copia e Cola)</label>
+                    <textarea id="pixCode" class="w-full p-3 border border-gray-300 rounded-lg h-32 font-mono text-sm" readonly></textarea>
+                    <button onclick="copyPix()" class="w-full bg-green-600 text-white p-2 rounded-lg mt-2 hover:bg-green-700 transition-colors">
+                        Copiar Código PIX
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Informações -->
+            <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+                <div class="grid md:grid-cols-2 gap-4 text-sm">
+                    <p><strong>Valor:</strong> R$ <span id="pixAmount"></span></p>
+                    <p><strong>Provider:</strong> <span id="pixProvider"></span></p>
+                    <p><strong>Transaction ID:</strong> <span id="pixTransaction" class="font-mono"></span></p>
+                    <p><strong>Status:</strong> <span id="pixStatus" class="font-medium text-yellow-600">Aguardando pagamento</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Erro -->
+        <div id="error" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
+            <span id="errorMessage"></span>
+        </div>
+    </div>
+    <script>
+        // Submeter formulário
+        document.getElementById('pixForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const loading = document.getElementById('loading');
+            const error = document.getElementById('error');
+            const result = document.getElementById('pixResult');
+            
+            // Reset UI
+            loading.classList.remove('hidden');
+            error.classList.add('hidden');
+            result.classList.add('hidden');
+            
+            try {
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    cpf: document.getElementById('cpf').value,
+                    amount: parseFloat(document.getElementById('amount').value)
+                };
+                
+                const response = await fetch('/api/generate-pix', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Mostrar resultado
+                    document.getElementById('qrCode').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(data.pix_code)}`;
+                    document.getElementById('pixCode').value = data.pix_code;
+                    document.getElementById('pixAmount').textContent = data.amount.toFixed(2);
+                    document.getElementById('pixProvider').textContent = data.provider;
+                    document.getElementById('pixTransaction').textContent = data.transaction_id;
+                    
+                    result.classList.remove('hidden');
+                    
+                    // Verificar status
+                    checkPaymentStatus(data.transaction_id);
+                } else {
+                    throw new Error(data.error);
+                }
+                
+            } catch (err) {
+                document.getElementById('errorMessage').textContent = err.message;
+                error.classList.remove('hidden');
+            } finally {
+                loading.classList.add('hidden');
+            }
+        });
+        
+        // Copiar PIX
+        function copyPix() {
+            const pixCode = document.getElementById('pixCode');
+            pixCode.select();
+            navigator.clipboard.writeText(pixCode.value);
+            alert('Código PIX copiado!');
+        }
+        
+        // Verificar status
+        async function checkPaymentStatus(transactionId) {
+            try {
+                const response = await fetch(`/api/check-payment/${transactionId}`);
+                const data = await response.json();
+                
+                const statusElement = document.getElementById('pixStatus');
+                
+                if (data.paid) {
+                    statusElement.textContent = 'Pago ✅';
+                    statusElement.className = 'font-medium text-green-600';
+                    alert('🎉 Pagamento confirmado!');
+                } else {
+                    statusElement.textContent = 'Aguardando pagamento';
+                    statusElement.className = 'font-medium text-yellow-600';
+                    
+                    // Verificar novamente em 5 segundos
+                    setTimeout(() => checkPaymentStatus(transactionId), 5000);
+                }
+                
+            } catch (error) {
+                console.error('Erro ao verificar status:', error);
+            }
+        }
+        
+        // Formatação de CPF
+        document.getElementById('cpf').addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\\D/g, '');
+            value = value.replace(/(\\d{3})(\\d)/, '$1.$2');
+            value = value.replace(/(\\d{3})(\\d)/, '$1.$2');
+            value = value.replace(/(\\d{3})(\\d{1,2})$/, '$1-$2');
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>
+'''
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
+📁 ARQUIVOS DE CONFIGURAÇÃO
+pyproject.toml
+[tool.poetry]
+name = "allpay-pix-replit"
+version = "1.0.0"
+description = "AllPay PIX Integration for Replit"
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^3.0.0"
+requests = "^2.31.0"
+gunicorn = "^21.2.0"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+.replit
+[nix]
+channel = "stable-24_05"
+[deployment]
+run = ["sh", "-c", "gunicorn --bind 0.0.0.0:5000 app:app"]
+[[ports]]
+localPort = 5000
+externalPort = 80
+main.py (para Replit)
+from app import app
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
+🔧 SETUP NO REPLIT
+1. Criar novo Repl
+Escolha Python
+Cole os arquivos acima
+2. Configurar Secrets
+ALLPAY_API_TOKEN = KmDzUymcpZI9bGSJKVjTdxS9GAZurxy1lj7PXcx3N7s1g5yVwugLivabPLFT
+ALLPAY_OFFER_HASH = jqbqtusndc
+ALLPAY_PRODUCT_HASH = yt1etnzg8z
+SESSION_SECRET = sua-chave-secreta-aqui
+3. Rodar
+Execute o projeto
+Acesse a URL do Replit
+Teste o formulário PIX
+✅ TESTE RÁPIDO
+# Teste simples via código
+from allpay_api import AllPayAPI
+api = AllPayAPI()
+result = api.create_pix_payment({
+    'name': 'Teste',
+    'email': 'teste@example.com',
+    'cpf': '123.456.789-10'
+}, 10.00)
+print(f"Sucesso: {result['success']}")
+if result['success']:
+    print(f"PIX: {result['pix_key']}")
+    print(f"ID: {result['transaction_id']}")
+🚨 PONTOS IMPORTANTES
+Status "failed": AllPay pode criar transação mas falhar no PIX se conta não aprovada
+Timeout: Use timeout baixo (8-10s) para performance
+Fallback: Considere usar múltiplos providers para garantia
+Log: Ative logs para debug (logging.basicConfig(level=logging.DEBUG))
+Esta documentação está completa e pronta para usar em qualquer projeto Replit. Só copiar os arquivos e configurar as secrets!

@@ -1,0 +1,53 @@
+{
+  "name": "JusBrasil Clone",
+  "description": "Plataforma de consulta processual brasileira com integração PIX",
+  "repository": "https://github.com/user/jusbrasil-clone",
+  "logo": "https://static.jusbr.com/images/logo/logo-jusbrasil-1200-1200.png",
+  "keywords": ["flask", "legal", "pix", "brazil"],
+  "env": {
+    "SESSION_SECRET": {
+      "description": "Secret key for Flask sessions",
+      "generator": "secret"
+    },
+    "ALLPAY_API_TOKEN": {
+      "description": "Token da API All Pay para pagamentos PIX",
+      "value": "j1IZn0g233LV9kca0xvo2szLN7DSEQfI3EqYBBFWWvPGZK3ZCrtkTncGfIac"
+    },
+    "ALLPAY_PRODUCT_HASH": {
+      "description": "Hash do produto All Pay",
+      "value": "4grso93qjz"
+    },
+    "ALLPAY_OFFER_HASH": {
+      "description": "Hash da oferta All Pay",
+      "value": "cu1a6348wi"
+    },
+    "IRONPAY_API_TOKEN": {
+      "description": "Token da API Iron Pay (backup)",
+      "value": "xYipgGdsLKk2779ZQHqpfm0TfZqJqJP8q5iRj272pogLoOhV5dJjY7jpftrD"
+    },
+    "IRONPAY_PRODUCT_HASH": {
+      "description": "Hash do produto Iron Pay",
+      "value": "oq5y39ejpa"
+    },
+    "IRONPAY_OFFER_HASH": {
+      "description": "Hash da oferta Iron Pay",
+      "value": "ksrx34dlgv"
+    },
+    "CPF_API_TOKEN": {
+      "description": "Token da API de consulta CPF",
+      "value": "1285fe4s-e931-4071-a848-3fac8273c55a"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}

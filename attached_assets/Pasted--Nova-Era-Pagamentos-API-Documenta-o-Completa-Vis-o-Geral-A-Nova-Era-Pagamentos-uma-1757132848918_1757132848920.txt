@@ -1,0 +1,487 @@
+# 📖 Nova Era Pagamentos API - Documentação Completa
+
+## 🎯 Visão Geral
+
+A Nova Era Pagamentos é uma API de pagamentos PIX que permite gerar códigos PIX reais para recebimento de pagamentos. Esta documentação contém tudo que você precisa para implementar em qualquer projeto.
+
+## 🔑 Credenciais de Acesso
+
+```python
+# Chaves para uso em produção
+NOVA_ERA_SECRET_KEY = "sk_M7x3fbfpQjgK..."  # Chave secreta
+NOVA_ERA_PUBLIC_KEY = "pk_yG6_FUX6tAUn..."  # Chave pública
+```
+
+**Base URL**: `https://api.novaera-pagamentos.com/api/v1`
+
+## 📁 Estrutura de Arquivos
+
+### 1. `nova_era_api.py` - Cliente Principal
+
+```python
+import requests
+import logging
+from typing import Dict, Any, Optional
+from dataclasses import dataclass
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+@dataclass
+class Customer:
+    """Classe para dados do cliente"""
+    name: str
+    email: str
+    phone: str
+    document_number: str
+    document_type: str = "cpf"
+
+class NovaEraAPIClient:
+    """Cliente para integração com Nova Era Pagamentos API"""
+    
+    def __init__(self, secret_key: str, public_key: str):
+        self.secret_key = secret_key
+        self.public_key = public_key
+        self.base_url = "https://api.novaera-pagamentos.com/api/v1"
+        self.headers = {
+            "Authorization": f"Bearer {secret_key}",
+            "Content-Type": "application/json"
+        }
+        
+        logger.info("✅ Nova Era API initialized")
+        logger.info(f"✅ Secret Key: {secret_key[:15]}***")
+        logger.info(f"✅ Public Key: {public_key[:15]}***")
+        logger.info(f"✅ Base URL: {self.base_url}")
+    
+    def create_pix_transaction(self, customer: Customer, amount: float, description: str = "Compra") -> Dict[str, Any]:
+        """
+        Cria uma transação PIX
+        
+        Args:
+            customer: Dados do cliente
+            amount: Valor em reais (ex: 149.90)
+            description: Descrição da transação
+            
+        Returns:
+            dict: Dados da transação criada incluindo código PIX
+        """
+        try:
+            # Converter valor para centavos
+            amount_cents = int(amount * 100)
+            
+            payload = {
+                "customer": {
+                    "name": customer.name,
+                    "email": customer.email,
+                    "phone": customer.phone,
+                    "document": {
+                        "number": customer.document_number,
+                        "type": customer.document_type
+                    }
+                },
+                "items": [
+                    {
+                        "tangible": False,
+                        "quantity": 1,
+                        "unitPrice": amount_cents,
+                        "title": description
+                    }
+                ],
+                "postbackUrl": "https://webhook.site/nova-era-webhook",
+                "amount": amount_cents,
+                "paymentMethod": "pix"
+            }
+            
+            logger.info(f"🚀 Criando transação PIX para: {customer.name}")
+            logger.info(f"💰 Valor: R$ {amount:.2f}")
+            logger.info(f"🔄 POST {self.base_url}/transactions")
+            logger.info(f"📤 Payload: {payload}")
+            
+            response = requests.post(
+                f"{self.base_url}/transactions",
+                json=payload,
+                headers=self.headers,
+                timeout=30
+            )
+            
+            logger.info(f"📡 Status Nova Era: {response.status_code}")
+            
+            if response.status_code == 201:
+                data = response.json()
+                logger.info(f"📡 Resposta: {data}")
+                
+                if data.get("success"):
+                    transaction_data = data.get("data", {})
+                    logger.info(f"✅ Transação criada com sucesso - ID: {transaction_data.get('id')}")
+                    
+                    return {
+                        "success": True,
+                        "transaction_id": transaction_data.get("id"),
+                        "status": transaction_data.get("status"),
+                        "amount": transaction_data.get("amount"),
+                        "pix_code": transaction_data.get("pix", {}).get("qrcode", ""),
+                        "expiration_date": transaction_data.get("pix", {}).get("expirationDate", ""),
+                        "secure_url": transaction_data.get("secureUrl", ""),
+                        "company_id": transaction_data.get("companyId"),
+                        "acquirer_type": transaction_data.get("acquirerType"),
+                        "fees": transaction_data.get("fees", 0),
+                        "customer": transaction_data.get("customer", {}),
+                        "raw_response": data
+                    }
+                else:
+                    logger.error(f"❌ Nova Era retornou sucesso=false: {data}")
+                    return {"success": False, "error": "API returned success=false", "raw_response": data}
+            else:
+                error_msg = f"HTTP {response.status_code}: {response.text}"
+                logger.error(f"❌ Erro Nova Era: {error_msg}")
+                return {"success": False, "error": error_msg, "status_code": response.status_code}
+                
+        except requests.exceptions.Timeout:
+            error_msg = "Timeout na conexão com Nova Era API"
+            logger.error(f"❌ {error_msg}")
+            return {"success": False, "error": error_msg}
+            
+        except requests.exceptions.ConnectionError:
+            error_msg = "Erro de conexão com Nova Era API"
+            logger.error(f"❌ {error_msg}")
+            return {"success": False, "error": error_msg}
+            
+        except Exception as e:
+            error_msg = f"Erro inesperado: {str(e)}"
+            logger.error(f"❌ {error_msg}")
+            return {"success": False, "error": error_msg}
+    
+    def get_transaction(self, transaction_id: str) -> Dict[str, Any]:
+        """
+        Consulta uma transação pelo ID
+        
+        Args:
+            transaction_id: ID da transação
+            
+        Returns:
+            dict: Dados da transação
+        """
+        try:
+            response = requests.get(
+                f"{self.base_url}/transactions/{transaction_id}",
+                headers=self.headers,
+                timeout=30
+            )
+            
+            if response.status_code == 200:
+                return {"success": True, "data": response.json()}
+            else:
+                return {"success": False, "error": f"HTTP {response.status_code}: {response.text}"}
+                
+        except Exception as e:
+            return {"success": False, "error": str(e)}
+
+def create_nova_era_client() -> NovaEraAPIClient:
+    """
+    Factory function para criar cliente Nova Era
+    Busca as chaves das variáveis de ambiente
+    """
+    import os
+    
+    secret_key = os.environ.get("NOVA_ERA_SECRET_KEY")
+    public_key = os.environ.get("NOVA_ERA_PUBLIC_KEY")
+    
+    if not secret_key or not public_key:
+        raise ValueError("NOVA_ERA_SECRET_KEY e NOVA_ERA_PUBLIC_KEY devem ser configuradas")
+    
+    return NovaEraAPIClient(secret_key, public_key)
+```
+
+## 🔧 Integração com Flask
+
+### 1. Instalação de Dependências
+
+```bash
+# requirements.txt ou pyproject.toml
+requests>=2.32.4
+flask>=3.1.1
+```
+
+### 2. Configuração no app.py
+
+```python
+import os
+from flask import Flask, request, jsonify, session
+from nova_era_api import create_nova_era_client, Customer
+
+app = Flask(__name__)
+app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret")
+
+# Inicializar cliente Nova Era
+nova_era_client = create_nova_era_client()
+
+@app.route('/create-pix', methods=['POST'])
+def create_pix():
+    """Endpoint para criar PIX"""
+    try:
+        data = request.get_json()
+        
+        # Criar objeto customer
+        customer = Customer(
+            name=data['customer_name'],
+            email=data['customer_email'], 
+            phone=data['customer_phone'],
+            document_number=data['customer_document']
+        )
+        
+        # Criar transação PIX
+        result = nova_era_client.create_pix_transaction(
+            customer=customer,
+            amount=float(data['amount']),
+            description=data.get('description', 'Compra')
+        )
+        
+        if result['success']:
+            # Salvar dados do PIX na sessão
+            session['pix_data'] = {
+                'transaction_id': result['transaction_id'],
+                'pix_code': result['pix_code'],
+                'amount': result['amount'],
+                'expiration_date': result['expiration_date']
+            }
+            
+            return jsonify({
+                'success': True,
+                'pix_code': result['pix_code'],
+                'transaction_id': result['transaction_id'],
+                'amount': result['amount']
+            })
+        else:
+            return jsonify({
+                'success': False,
+                'error': result['error']
+            }), 400
+            
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+@app.route('/check-payment/<transaction_id>')
+def check_payment(transaction_id):
+    """Verificar status do pagamento"""
+    result = nova_era_client.get_transaction(transaction_id)
+    return jsonify(result)
+```
+
+## 🌐 Variáveis de Ambiente
+
+### Para desenvolvimento (.env ou Replit Secrets)
+```bash
+NOVA_ERA_SECRET_KEY=sk_M7x3fbfpQjgK...
+NOVA_ERA_PUBLIC_KEY=pk_yG6_FUX6tAUn...
+SESSION_SECRET=sua-chave-secreta-aqui
+```
+
+### Para Heroku
+```bash
+heroku config:set NOVA_ERA_SECRET_KEY="sk_M7x3fbfpQjgK..."
+heroku config:set NOVA_ERA_PUBLIC_KEY="pk_yG6_FUX6tAUn..."
+heroku config:set SESSION_SECRET="sua-chave-secreta"
+```
+
+## 📋 Exemplo de Uso Completo
+
+```python
+from nova_era_api import create_nova_era_client, Customer
+
+# Inicializar cliente
+client = create_nova_era_client()
+
+# Dados do cliente
+customer = Customer(
+    name="JOÃO DA SILVA",
+    email="joao@email.com",
+    phone="(11) 99999-9999", 
+    document_number="12345678901"
+)
+
+# Criar PIX de R$ 149,90
+result = client.create_pix_transaction(
+    customer=customer,
+    amount=149.90,
+    description="Pistola Airsoft GBB Rossi Beretta M92"
+)
+
+if result['success']:
+    print(f"PIX criado com sucesso!")
+    print(f"Código PIX: {result['pix_code']}")
+    print(f"ID da transação: {result['transaction_id']}")
+    print(f"Valor: R$ {result['amount']/100:.2f}")
+else:
+    print(f"Erro: {result['error']}")
+```
+
+## 🎨 Template HTML para PIX
+
+```html
+<!-- pix_payment.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pagamento PIX</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="pix-container">
+        <h2>Pague com PIX</h2>
+        
+        <div class="amount">
+            <h3>Valor: R$ {{ "%.2f"|format(total/100) }}</h3>
+        </div>
+        
+        <div class="qr-code">
+            <!-- QR Code seria gerado aqui -->
+            <p>Código PIX:</p>
+            <textarea readonly>{{ pix_code }}</textarea>
+            <button onclick="copyPix()">Copiar Código PIX</button>
+        </div>
+        
+        <div class="instructions">
+            <h4>Como pagar:</h4>
+            <ol>
+                <li>Abra o app do seu banco</li>
+                <li>Escolha a opção PIX</li>
+                <li>Cole o código PIX</li>
+                <li>Confirme o pagamento</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+    function copyPix() {
+        const textArea = document.querySelector('textarea');
+        textArea.select();
+        document.execCommand('copy');
+        alert('Código PIX copiado!');
+    }
+    </script>
+</body>
+</html>
+```
+
+## 📊 Resposta da API
+
+### Sucesso (201)
+```json
+{
+  "success": true,
+  "message": "Transaction created",
+  "status": 201,
+  "data": {
+    "id": 691419,
+    "status": "pending",
+    "amount": 14990,
+    "companyId": 1565,
+    "acquirerType": "ameiipay",
+    "pix": {
+      "qrcode": "00020126880014br.gov.bcb.pix...",
+      "expirationDate": "2025-09-06T20:26:51.852Z"
+    },
+    "customer": {
+      "name": "JOÃO DA SILVA",
+      "email": "joao@email.com",
+      "phone": "(11) 99999-9999",
+      "document": {
+        "number": "12345678901",
+        "type": "cpf"
+      }
+    },
+    "fees": 1484,
+    "createdAt": "2025-09-04T20:26:51.852Z"
+  }
+}
+```
+
+### Erro (400/500)
+```json
+{
+  "success": false,
+  "message": "Validation error",
+  "errors": {
+    "customer.email": ["Email inválido"]
+  }
+}
+```
+
+## 🔍 Estados da Transação
+
+- `pending` - Aguardando pagamento
+- `paid` - Pago com sucesso  
+- `expired` - PIX expirado
+- `cancelled` - Cancelado
+
+## ⚡ Webhook (Opcional)
+
+```python
+@app.route('/nova-era-webhook', methods=['POST'])
+def nova_era_webhook():
+    """Receber notificações de pagamento"""
+    try:
+        data = request.get_json()
+        
+        transaction_id = data.get('transaction_id')
+        status = data.get('status')
+        
+        if status == 'paid':
+            # Processar pagamento aprovado
+            print(f"Pagamento aprovado para transação {transaction_id}")
+            
+        return jsonify({'success': True})
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+```
+
+## 🚨 Tratamento de Erros
+
+```python
+def handle_nova_era_error(result):
+    """Tratar erros da Nova Era API"""
+    if not result['success']:
+        error = result.get('error', 'Erro desconhecido')
+        
+        if 'timeout' in error.lower():
+            return "Erro de conexão. Tente novamente."
+        elif 'validation' in error.lower():
+            return "Dados inválidos. Verifique as informações."
+        elif 'unauthorized' in error.lower():
+            return "Erro de autenticação. Verifique as chaves da API."
+        else:
+            return f"Erro: {error}"
+    
+    return None
+```
+
+## 🎯 Checklist de Implementação
+
+- [ ] Criar arquivo `nova_era_api.py`
+- [ ] Configurar variáveis de ambiente
+- [ ] Instalar dependência `requests`
+- [ ] Implementar endpoint de criação PIX
+- [ ] Criar template de pagamento
+- [ ] Implementar verificação de status
+- [ ] Configurar webhook (opcional)
+- [ ] Testar fluxo completo
+- [ ] Deploy em produção
+
+## 💡 Dicas Importantes
+
+1. **Valores**: Sempre em centavos na API (R$ 1,00 = 100)
+2. **Timeout**: Configure timeout de 30s para requisições
+3. **Logs**: Use logging para debug em produção
+4. **Validação**: Valide dados antes de enviar para API
+5. **Segurança**: Nunca exponha as chaves no frontend
+6. **Teste**: Teste em ambiente de desenvolvimento primeiro
+
+---
+
+**🎉 Documentação completa para implementar Nova Era PIX em qualquer projeto!**

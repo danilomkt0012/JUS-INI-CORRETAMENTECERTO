@@ -1,0 +1,110 @@
+curl --request POST \
+  --url https://api.blackcatpagamentos.com/v1/transactions \
+  --header 'accept: application/json' \
+  --header 'authorization: Basic c2tfb1U4d0pHczdKT2pyMFNqYkktMWVlQlpPNVU2cXdYSm9GWHlfUXRoSVB0bF9nNXRVOng=' \
+  --header 'content-type: application/json' \
+  --data '{
+  "amount": 500,
+  "currency": "BRL",
+  "paymentMethod": "pix",
+  "items": [
+    {
+      "title": "testo de 1000",
+      "unitPrice": 500,
+      "quantity": 1,
+      "tangible": false
+    }
+  ],
+  "customer": {
+    "name": "junin du7",
+    "email": "j@gmail.com",
+    "phone": "19999112233",
+    "document": {
+      "number": "43639895568",
+      "type": "cpf"
+    }
+  }
+}'
+
+a resposta quando o pix é gerado vem assim:
+
+{
+  "id": 28742344,
+  "tenantId": "ccaca050-bd57-4c10-a050-55d7f8e492e6",
+  "companyId": 31706,
+  "amount": 500,
+  "currency": "BRL",
+  "paymentMethod": "pix",
+  "status": "waiting_payment",
+  "installments": 1,
+  "paidAt": null,
+  "paidAmount": 0,
+  "refundedAt": null,
+  "refundedAmount": 0,
+  "redirectUrl": null,
+  "returnUrl": null,
+  "postbackUrl": null,
+  "metadata": null,
+  "ip": null,
+  "externalRef": null,
+  "secureId": "5c7868de-d086-4b82-96b3-0378e27145e3",
+  "secureUrl": "5c7868de-d086-4b82-96b3-0378e27145e3",
+  "createdAt": "2025-11-14T05:13:08.004Z",
+  "updatedAt": "2025-11-14T05:13:08.004Z",
+  "payer": null,
+  "traceable": false,
+  "authorizationCode": null,
+  "basePrice": null,
+  "interestRate": null,
+  "items": [
+    {
+      "title": "testo de 1000",
+      "quantity": 1,
+      "tangible": false,
+      "unitPrice": 500,
+      "externalRef": ""
+    }
+  ],
+  "customer": {
+    "id": 29448463,
+    "name": "junin du7",
+    "email": "j@gmail.com",
+    "phone": "19999112233",
+    "birthdate": null,
+    "createdAt": "2025-11-14T05:13:06.751Z",
+    "externalRef": null,
+    "document": {
+      "type": "cpf",
+      "number": "43639895568"
+    },
+    "address": null
+  },
+  "fee": {
+    "netAmount": 265,
+    "estimatedFee": 234,
+    "fixedAmount": 200,
+    "spreadPercent": 699,
+    "currency": "BRL"
+  },
+  "splits": [
+    {
+      "amount": 500,
+      "netAmount": 265,
+      "recipientId": 31706,
+      "chargeProcessingFee": false
+    }
+  ],
+  "refunds": [],
+  "pix": {
+    "qrcode": "00020101021226840014br.gov.bcb.pix2562qrcode.cartwavehub.com.br/pix/35C51CC3E9254095B1DA5DA9709CE2F45204000053039865802BR5924COBRANFY PAGAMENTOS LTDA6009Sao Paulo62070503***6304D679",
+    "end2EndId": null,
+    "receiptUrl": null,
+    "expirationDate": "2025-11-16"
+  },
+  "boleto": null,
+  "card": null,
+  "refusedReason": null,
+  "shipping": null,
+  "delivery": null,
+  "threeDS": null
+}

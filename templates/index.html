@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}JusBrasil - Consulta Processual e Jurisprudência{% endblock %}
+
+{% block content %}
+<div class="text-center mb-8">
+    <h1 class="text-2xl font-bold text-gray-900 leading-tight mb-4">
+        {% if user_data %}
+            {{ user_data.nome.split()[0] }}, Ação Judicial Localizada no Jusbrasil
+        {% else %}
+            Usuário, Ação Judicial Localizada no Jusbrasil
+        {% endif %}
+    </h1>
+    {% if user_data %}
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-3 mb-4 text-left">
+            <p class="text-xs text-gray-500 mb-1">Dados Identificados</p>
+            <div class="text-sm text-gray-700 space-y-0.5">
+                <p><strong>Nome:</strong> {{ user_data.nome }}</p>
+                <p><strong>CPF:</strong> {{ user_data.cpf[:3] }}.{{ user_data.cpf[3:6] }}.{{ user_data.cpf[6:9] }}-{{ user_data.cpf[9:] }}</p>
+                <p><strong>Nome da Mãe:</strong> {{ user_data.nome_mae }}</p>
+                <p><strong>Data de Nascimento:</strong> {{ user_data.data_nascimento[:10] }}</p>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Processos Section -->
+<div class="w-full flex justify-center mb-8">
+    <div class="w-full max-w-md">
+        <!-- Card -->
+        <div class="bg-white rounded-2xl border border-gray-200 p-0 shadow-sm">
+            <div class="px-4 pt-4 pb-1">
+                <div class="text-gray-900 text-lg font-bold mb-2">Processos</div>
+                <!-- Processo 1 -->
+                <div>
+                    <a class="text-green-800 text-sm font-medium underline" href="#">{{ user_data.nome if user_data else 'Usuário' }}</a>
+                    <div class="text-gray-700 text-xs mt-0.5">1 processo menciona o nome no TJN</div>
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-3 mt-2 text-left">
+                        <h3 class="text-red-800 text-sm font-bold mb-2">INTIMAÇÃO JUDICIAL - Jusbrasil</h3>
+                        <p class="text-red-700 text-xs leading-relaxed mb-2">
+                            {{ user_data.nome if user_data else 'USUÁRIO' }}, portador(a) do CPF {{ (user_data.cpf[:3] + '.' + user_data.cpf[3:6] + '.' + user_data.cpf[6:9] + '-' + user_data.cpf[9:]) if user_data else '000.000.000-00' }}, em conformidade com o artigo 142 do CTN, informamos que após cruzamento de dados o processo número: 28.1748320184-9284.03, foi identificada uma pendência em sua situação processual.
+                        </p>
+                        <p class="text-red-800 text-xs font-semibold mb-2">
+                            PRAZO FINAL: {{ current_date }} é o último dia para regularização. O não cumprimento desta intimação resultará nas seguintes punições conforme Instrução Normativa RFB nº 1.888/2019:
+                        </p>
+                        <ul class="text-red-700 text-xs space-y-1 list-disc pl-4">
+                            <li>Bloqueio de contas bancárias e cartões</li>
+                            <li>Impossibilidade de movimentar PIX, TED e DOC</li>
+                            <li>Restrições no Banco Central e SERASA</li>
+                            <li>Suspensão do acesso a benefícios federais (Auxílio, Bolsa Família, etc.)</li>
+                            <li>Impedimento para financiamentos, empréstimos e compras no crédito</li>
+                            <li>Aplicação de multa automática de até 150%</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-200 my-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Botão Ver Processo -->
+<div class="w-full flex justify-center mb-6">
+    <a id="botao-ver-processo" href="{{ url_for('processo', cpf=user_data.cpf if user_data else '00000000000') }}" class="w-full max-w-md flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 rounded-lg py-3 transition-all shadow-md hover:shadow-lg">
+        <span class="text-white text-sm font-semibold">Ver Processo</span>
+        <i class="fas fa-arrow-right ml-2 text-white text-sm"></i>
+    </a>
+</div>
+
+<!-- Features Section -->
+<div class="grid grid-cols-1 gap-4 mb-8">
+    <div class="bg-white border border-gray-200 rounded-lg p-4">
+        <div class="flex items-center mb-2">
+            <i class="fas fa-chart-line text-emerald-600 mr-3"></i>
+            <h3 class="font-semibold text-gray-900">Resumo simplificado</h3>
+        </div>
+        <p class="text-sm text-gray-600">
+            Últimos acontecimentos do processo
+        </p>
+    </div>
+    
+    <div class="bg-white border border-gray-200 rounded-lg p-4">
+        <div class="flex items-center mb-2">
+            <i class="fas fa-history text-emerald-600 mr-3"></i>
+            <h3 class="font-semibold text-gray-900">Histórico completo</h3>
+        </div>
+        <p class="text-sm text-gray-600">
+            Explicações detalhadas de cada etapa
+        </p>
+    </div>
+    
+    <div class="bg-white border border-gray-200 rounded-lg p-4">
+        <div class="flex items-center mb-2">
+            <i class="fas fa-file-alt text-emerald-600 mr-3"></i>
+            <h3 class="font-semibold text-gray-900">Documentos</h3>
+        </div>
+        <p class="text-sm text-gray-600">
+            Decisões, audiências e documentos do processo
+        </p>
+    </div>
+</div>
+
+
+{% endblock %}

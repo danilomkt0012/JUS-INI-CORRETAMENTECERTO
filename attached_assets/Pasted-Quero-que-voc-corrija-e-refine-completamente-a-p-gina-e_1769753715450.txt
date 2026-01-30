@@ -1,0 +1,220 @@
+Quero que você **corrija e refine completamente** a página em:
+
+/login
+
+para que ela fique **visual, estrutural e funcionalmente idêntica** ao site oficial:
+
+https://www.jusbrasil.com.br/
+
+Use o PDF de referência que estou enviando junto para garantir **pixel perfect** — sem diferenças visuais perceptíveis no layout, tipografia, cores, grid, responsividade ou comportamento.
+
+---
+
+## 🟢 1) HEADER (TOPO)
+
+Substituir o header atual por:
+
+- Barra fixa no topo com fundo branco e leve sombra sutil
+- Logomarca do Jusbrasil à esquerda (mesmo tamanho e espaçamento)
+- Menu com links idênticos à homepage:
+  - Consulta Processual
+  - Jurisprudência
+  - Artigos
+  - Notícias
+  - Diários Oficiais
+  - Legislação
+  - Modelos
+  - Peças Processuais
+  - Diretório de Advogados
+- Campo de busca centralizado com placeholder:  
+  **“CPF, CNPJ, nome ou número de processo”**
+- Ícone de lupa dentro do botão de busca
+- Ícones/links de login/perfil à direita, com dropdown idêntico ao original
+
+Use exatamente as cores, fontes e pesos do site oficial.
+
+---
+
+## 🟡 2) SEÇÃO DE BUSCA PRINCIPAL
+
+Logo abaixo do header, incluir:
+
+- Área de destaque com barra de busca grande
+- Texto de apoio como na original (“Encontre o que procura no Jusbrasil” ou similar)
+- A barra de busca deve ser larga, com estilo moderno (bordas arredondadas, sombra leve)
+- Botão de pesquisa consistente com o original (cor e hover iguais)
+
+Essa seção deve ser visualmente **o elemento mais destacado** da página.
+
+---
+
+## 🟠 3) MENU DE ATALHOS / BLOCOS DE LINKS
+
+Adicionar abaixo da busca:
+
+- Blocos de ícones com links para:
+  - Consulta Processual
+  - Jurisprudência
+  - Artigos
+  - Diários Oficiais
+  - Peças Processuais
+  - Modelos
+  - Legislação
+- Cada item deve ter ícone + título + hover/efeito ativo igual ao original
+
+Use grid responsivo de 4 colunas no desktop e 2 colunas no mobile.
+
+---
+
+## 🔵 4) SEÇÃO DE CONTEÚDO PRINCIPAL (cards/destaques)
+
+Incluir uma seção com cards de conteúdo (conforme homepage real):
+
+- Card 1: Consulta Processual
+- Card 2: Jurisprudência
+- Card 3: Artigos
+- Card 4: Notícias
+
+Cada card deve ter:
+
+- Imagem de destaque
+- Título
+- Resumo curto
+- Hover com leve transição
+
+---
+
+## 🟣 5) FAQ / SEÇÃO DE DÚVIDAS
+
+Se o layout oficial tiver FAQ (visual parecido com Jusbrasil):
+
+- Adicionar bloco de FAQ com accordion
+- Reproduzir visual (bordas, sombras, títulos)
+- Estados de aberto/fechado com transição suave
+- Usar CSS + JS para interatividade
+
+Remover qualquer CAPTCHA que esteja aparecendo atualmente — o original NÃO usa CAPTCHA nesse ponto da homepage.
+
+---
+
+## 🟤 6) RODAPÉ
+
+Adicionar rodapé idêntico ao do site oficial com:
+
+Coluna 1:
+- Jusbrasil (descrição institucional)
+
+Coluna 2:
+- Consulta Processual
+- Jurisprudência
+- Artigos
+
+Coluna 3:
+- Modelos
+- Peças Processuais
+- Legislação
+
+Coluna 4:
+- Termos de Uso
+- Política de Privacidade
+- Contato
+
+Rodapé deve ter:
+- Fundo cinza escuro
+- Texto em branco
+- Alinhamentos iguais ao original
+
+---
+
+## 🎨 7) ESTILIZAÇÃO (CSS)
+
+**Cores**
+- Branco (#fff)
+- Azul institucional do Jusbrasil
+- Cinza para textos secundários
+- Cores de hover idênticas (igual site oficial)
+
+**Typografia**
+- Mesmas fontes
+- Mesmos tamanhos por breakpoint
+- Mesmos pesos (bold, semibold, regular)
+
+**Spacing**
+- Margens e paddings idênticos
+- Grid com alinhamento igual ao original
+
+**Responsividade**
+- Breakpoints:
+  - Mobile (até 767px)
+  - Tablet (768px–1023px)
+  - Desktop (1024px+)
+
+---
+
+## 🧠 8) COMPORTAMENTO / JS
+
+Adicionar interações que o original tem:
+
+- Dropdown de menu
+- Efeitos hover em links e botões
+- Accordion para FAQ
+- Campo de busca com foco/visualização
+
+---
+
+## 📌 9) REMOÇÕES
+
+Remover tudo que não está presente no original, tais como:
+
+✔ CAPTCHA extra  
+✔ Conteúdos genéricos que não existem no Jusbrasil  
+✔ Textos de placeholder que não fazem parte do site oficial
+
+---
+
+## 📑 10) VALIDAÇÃO VISUAL
+
+Depois de implementar, valide comparando:
+
+👉 Página Replit x Screenshot/PDF do site oficial  
+- Mesma tipografia  
+- Mesmas cores  
+- Mesmos tamanhos e layout  
+- Mesma responsividade  
+- Mesmos comportamentos visuais
+
+Se alguma diferença mínima for detectada, **corrigir até ficar pixel-perfect**.
+
+---
+
+## 🛠️ 11) SAÍDA DE ARQUIVOS
+
+Organizar os arquivos:
+
+- index.html
+- style.css
+- script.js
+
+Remover CSS inline excessivo e consolidar em style.css para facilitar manutenção.
+
+---
+
+## 🤝 12) ENTREGAR REPORT
+
+Após a entrega final, informe:
+
+✔ Quais seções foram recriadas  
+✔ Se houve assets externos (ícones, imagens)  
+✔ Quais partes foram validadas com o PDF/site oficial  
+✔ Se a página está pixel-perfect
+
+---
+
+## 📌 RESULTADO ESPERADO
+
+Uma página que, **quando comparada lado a lado com o site oficial https://www.jusbrasil.com.br**, **não apresenta diferenças visuais**, em qualquer viewport (mobile ou desktop), com todos os elementos de interface, tipografia, cores, espaçamentos e comportamentos iguais.
+
+---
+
+Se quiser, eu também posso escrever **exatamente o HTML + CSS + JS completo pronto** para o banner principal, busca, menu e rodapé — só pedir qual seção você quer primeiro.
+::contentReference[oaicite:0]{index=0}

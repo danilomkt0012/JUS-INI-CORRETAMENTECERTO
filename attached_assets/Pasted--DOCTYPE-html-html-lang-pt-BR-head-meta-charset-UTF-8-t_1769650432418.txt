@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>gov.br Login</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: "Rawline", Arial, Helvetica, sans-serif;
+      color: #1f1f1f;
+    }
+
+    .wrapper {
+      width: 640px;
+      margin: 40px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .option svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .text {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .badge {
+      margin-left: 14px;
+      background-color: #2e7d32;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <!-- Login com seu banco -->
+    <div class="option">
+      <!-- Ícone banco -->
+      <svg viewBox="0 0 24 24" fill="#2e7d32">
+        <path d="M12 2L2 7v2h20V7L12 2zm8 7H4v9H2v2h20v-2h-2V9zm-4 9h-2v-5h2v5zm-4 0h-2v-5h2v5zm-4 0H6v-5h2v5z"/>
+      </svg>
+
+      <span class="text">Login com seu banco</span>
+      <span class="badge">Sua conta será prata</span>
+    </div>
+
+    <!-- Seu aplicativo gov.br -->
+    <div class="option">
+      <svg viewBox="0 0 24 24" fill="#1e5aa8">
+        <path d="M17 1H7C5.9 1 5 1.9 5 3v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm-5 21c-.83 0-1.5-.67-1.5-1.5S11.17 19 12 19s1.5.67 1.5 1.5S12.83 22 12 22z"/>
+      </svg>
+
+      <span class="text">Seu aplicativo gov.br</span>
+    </div>
+
+    <!-- Seu certificado digital -->
+    <div class="option">
+      <svg viewBox="0 0 24 24" fill="#1e5aa8">
+        <path d="M17 3H7v18h10V3zm-5 16l-3-3h2V9h2v7h2l-3 3z"/>
+      </svg>
+
+      <span class="text">Seu certificado digital</span>
+    </div>
+
+    <!-- Certificado digital em nuvem -->
+    <div class="option">
+      <svg viewBox="0 0 24 24" fill="#1e5aa8">
+        <path d="M19 18H6a4 4 0 010-8 5 5 0 019.7-1.6A4.5 4.5 0 1119 18z"/>
+      </svg>
+
+      <span class="text">Seu certificado digital em nuvem</span>
+    </div>
+
+  </div>
+
+</body>
+</html>

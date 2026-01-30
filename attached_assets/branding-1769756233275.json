@@ -1,0 +1,155 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Inter",
+      "count": 204
+    },
+    {
+      "family": "Inter-fallback",
+      "count": 102
+    },
+    {
+      "family": "system-ui",
+      "count": 102
+    },
+    {
+      "family": "-apple-system",
+      "count": 102
+    },
+    {
+      "family": "Segoe UI",
+      "count": 102
+    },
+    {
+      "family": "Oxygen",
+      "count": 102
+    },
+    {
+      "family": "Ubuntu",
+      "count": 102
+    },
+    {
+      "family": "Cantarell",
+      "count": 102
+    },
+    {
+      "family": "Open Sans",
+      "count": 102
+    },
+    {
+      "family": "Helvetica Neue",
+      "count": 102
+    }
+  ],
+  "colors": {
+    "primary": "#5C6F8A",
+    "accent": "#0F172A",
+    "background": "#FFFFFF",
+    "textPrimary": "#0F172A",
+    "link": "#0F172A"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Inter",
+      "heading": "Inter"
+    },
+    "fontStacks": {
+      "body": [
+        "Inter",
+        "Inter-fallback",
+        "Inter",
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Oxygen",
+        "Ubuntu",
+        "Cantarell",
+        "Open Sans",
+        "Helvetica Neue",
+        "sans-serif"
+      ],
+      "heading": [
+        "Inter",
+        "Inter-fallback",
+        "Inter",
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Oxygen",
+        "Ubuntu",
+        "Cantarell",
+        "Open Sans",
+        "Helvetica Neue",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Inter",
+        "Inter-fallback",
+        "Inter",
+        "system-ui",
+        "-apple-system",
+        "Segoe UI",
+        "Oxygen",
+        "Ubuntu",
+        "Cantarell",
+        "Open Sans",
+        "Helvetica Neue",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "40px",
+      "h2": "14px",
+      "body": "14px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "6px"
+  },
+  "components": {
+    "input": {
+      "background": "transparent",
+      "textColor": "#0F172A",
+      "borderColor": null,
+      "borderRadius": "0px",
+      "borderRadiusCorners": {
+        "topLeft": "0px",
+        "topRight": "0px",
+        "bottomRight": "0px",
+        "bottomLeft": "0px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.svg",
+    "favicon": "https://www.jusbrasil.com.br/favicon.ico",
+    "ogImage": "File saved at: attached_assets/ogImage.png"
+  },
+  "__framework_hints": [],
+  "__llm_logo_reasoning": {
+    "selectedIndex": 1,
+    "reasoning": "Strong indicators: variant bonus (+8), header logo linking to homepage, header location, visible, top-left position, alt contains brand name \"Jusbrasil\", src contains brand name \"Jusbrasil\", reasonable size, SVG format. Score: 129 (clear winner by 129 points)",
+    "confidence": 0.9
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "secondary": {
+      "index": -1,
+      "text": "N/A",
+      "reasoning": "LLM failed"
+    },
+    "confidence": 0
+  },
+  "confidence": {
+    "buttons": 0,
+    "colors": 0,
+    "overall": 0
+  }
+}

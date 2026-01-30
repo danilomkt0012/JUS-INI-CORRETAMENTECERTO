@@ -1,0 +1,107 @@
+Estou enviando este comando para que você **corrija a página atual que está em: /login
+
+Além do site online, **estou enviando em anexo um PDF** que contém o **layout visual completo do site do Jusbrasil**, exatamente como ele aparece no navegador (cores, fontes, espaçamentos, seções, ícones e hierarquia visual).
+
+⚠️ O PDF deve ser tratado como **referência visual obrigatória e prioritária**, servindo para garantir que o resultado final seja **pixel perfect**.
+
+---
+
+## 🎯 OBJETIVO PRINCIPAL
+
+Recriar uma página **visual e estruturalmente idêntica (pixel perfect)** à página principal do site:
+https://www.jusbrasil.com.br/
+
+O resultado final deve ser **indistinguível do original para um usuário comum**, tanto em desktop quanto em mobile.
+
+---
+
+## 📌 REFERÊNCIAS OBRIGATÓRIAS
+
+1. **Site oficial do Jusbrasil (online)**
+2. **PDF anexado com o layout completo**
+   - O PDF deve ser usado para:
+     - Conferir espaçamentos
+     - Conferir tipografia
+     - Conferir cores
+     - Conferir hierarquia visual
+     - Conferir responsividade percebida
+
+Se houver qualquer divergência entre código atual e o PDF, **o PDF prevalece**.
+
+---
+
+## 📐 REQUISITOS OBRIGATÓRIOS
+
+### 1. Layout
+- Layout 100% idêntico ao Jusbrasil
+- Mesma estrutura de seções
+- Mesma disposição de elementos
+- Mesmas cores, fontes, tamanhos e margens
+- Mesmos botões, ícones e cards
+- Mesma organização visual do header, hero, conteúdo e rodapé
+
+### 2. Responsividade
+- Mobile (≤ 768px)
+- Tablet (768px–1024px)
+- Desktop (≥ 1024px)
+- O comportamento responsivo deve seguir exatamente o layout visto no PDF e no site
+
+---
+
+## 🛠️ TECNOLOGIA
+
+- HTML5
+- CSS3 (puro ou Tailwind, desde que o visual seja idêntico)
+- JavaScript apenas para interações visuais (ex: accordion, menu mobile)
+- Não utilizar React, Vue ou frameworks SPA (a menos que já estejam no projeto)
+- Caso use bibliotecas externas, devem reproduzir exatamente o comportamento visual do original
+
+---
+
+## 📁 ORGANIZAÇÃO DO PROJETO
+
+- index.html → estrutura
+- style.css → estilos visuais
+- script.js → interações
+
+Código limpo, organizado e comentado quando necessário.
+
+---
+
+## 🧩 FUNCIONALIDADES VISUAIS A RECRIAR
+
+- Header com logo, menu e busca
+- Seção principal (hero) com campo de pesquisa
+- Blocos informativos conforme layout do PDF
+- Cards/serviços
+- FAQ (accordion funcional, se presente)
+- Rodapé completo conforme layout original
+
+---
+
+## 📝 CONTEÚDO TEXTUAL
+
+- Utilizar exatamente os textos que aparecem no site e no PDF
+- Não inventar textos
+- Não alterar títulos, subtítulos ou descrições
+
+---
+
+## ✅ RESULTADO ESPERADO
+
+- Página final **idêntica ao Jusbrasil**
+- Diferença visual imperceptível
+- Layout fiel ao PDF enviado
+- Total compatibilidade com desktop e mobile
+
+---
+
+## 📣 CONFIRMAÇÃO FINAL
+
+Após concluir, informe:
+- Seções recriadas
+- Se houve uso de assets externos
+- Se o layout foi conferido linha a linha com o PDF
+- Se a página passou por ajuste pixel perfect
+
+Obrigado.

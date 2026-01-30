@@ -1,0 +1,128 @@
+<section class="faq">
+        <div class="faq-inner">
+            <div class="faq-header">
+                <h2>Dúvidas?</h2>
+                <p>Entenda como funciona a consulta e o acompanhamento de processos no Jusbrasil.</p>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    O que é o Jusbrasil?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>O Jusbrasil é um serviço que coleta, organiza e facilita o acesso à informação jurídica, com a missão de empoderar as decisões de cada pessoa brasileira. No Jusbrasil você encontrará informações atualizadas e acessíveis, essenciais para decidir de maneira mais assertiva, seja na atuação como profissional do Direito ou em casos da sua vida pessoal.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Como consultar um processo pelo Jusbrasil?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Na página de <a href="#">Consulta Processual</a>, digite seu CPF, nome ou número de processo (número CNJ) para começar uma consulta. Na página de resultados use informações como nome das partes, tribunal e localidade para identificar o seu processo.</p>
+                        <p>Se você ainda ficou com dúvidas, você pode conferir o artigo que explica <a href="#">como consultar um processo</a> e aprender a encontrar e interpretar as informações do seu caso.</p>
+                        <p>Você encontra mais instruções sobra como encontrar e interpretar o seu processo no texto <a href="#">deste link</a>.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Como entender e acompanhar um processo pelo Jusbrasil?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Ao encontrar o seu processo, você pode optar por usar os recursos de Verificar Situação, Entender Movimentação ou Acompanhamento de processos, essas funcionalidades pagas e exclusivas para assinantes dos planos Jusbrasil Processos.</p>
+                        <p>Como assinante, você tem acesso a explicações simplificadas do estado atual do seu processo ou das movimentações anteriores, bem como alertas, que te avisam quando novidades forem publicadas pelo tribunal. Já encontrou o seu processo e deseja se tornar assinante? <a href="#">Conheça os planos</a>.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Como cancelar assinatura no Jusbrasil?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Você pode optar pelo cancelamento sem nenhuma multa ou taxa e a qualquer momento, para isso basta seguir as instruções presentes no texto <a href="#">deste link</a>.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Quando pesquiso um processo, as partes envolvidas ficam sabendo?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Não. Ao consultar um processo não notificamos as partes envolvidas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Quais tipos de processo posso consultar e acompanhar pelo Jusbrasil?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>No Jusbrasil você encontra processos de todas as áreas do Direito, desde que esses não corram em segredo de justiça, ou apresentem informações consideradas como tópicos sensíveis.</p>
+                        <p>No Jusbrasil você encontra informações de processos trabalhistas, civis, tributários, administrativos, entre outros dos mais diversos tribunais.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Posso consultar processos de quais tribunais?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>O Jusbrasil concentra em uma única busca os 97 tribunais existentes no país. Com isso, você pode pesquisar em poucos cliques encontrar processos que tramitam nos tribunais da lista abaixo:</p>
+                        <ul>
+                            <li><a href="#">Supremo Tribunal Federal (STF)</a></li>
+                            <li><a href="#">Superior Tribunal de Justiça (STJ)</a></li>
+                            <li><a href="#">Tribunal Superior do Trabalho (TST)</a></li>
+                            <li><a href="#">Tribunal Superior Eleitoral (TSE)</a></li>
+                            <li><a href="#">Superior Tribunal Militar (STM)</a></li>
+                            <li><a href="#">Turma Nacional de Uniformização (TNU)</a></li>
+                            <li><a href="#">Turma Regional de Uniformização (TRU)</a></li>
+                            <li><a href="#">Conselho Nacional de Justiça (CNJ)</a></li>
+                            <li><a href="#">Conselho de Adm. Recursos Fiscais (CARF)</a></li>
+                            <li><a href="#">Tribunais de Justiça (TJ)</a></li>
+                            <li><a href="#">Tribunais Regionais Federais (TRF)</a></li>
+                            <li><a href="#">Tribunais Regionais do Trabalho (TRT)</a></li>
+                            <li><a href="#">Tribunais Regionais Eleitorais (TRE)</a></li>
+                            <li><a href="#">Tribunais de Justiça Militar (TJM)</a></li>
+                            <li><a href="#">Tribunais de Contas dos Estados (TCE)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    O que é Número CNJ?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>O número CNJ segue um mesmo padrão para todos os tribunais do país e funciona como um "CPF" dos processos. Cada CNJ tem 20 dígitos, que representam informações específicas sobre os processos, como o tribunal onde ele tramita e o ano em que ele começou.</p>
+                        <p>Se você não tem essa numeração, pode pedir o número para a pessoa advogada que acompanha seu caso ou consultar pelo seu nome completo.</p>
+                        <p>Seu número CNJ deve se parecer com este abaixo:</p>
+                        <div class="cnj-box">0000000-00.0000.0.00.0000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
