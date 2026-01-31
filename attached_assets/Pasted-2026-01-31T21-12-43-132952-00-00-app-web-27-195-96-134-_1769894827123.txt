@@ -1,0 +1,320 @@
+2026-01-31T21:12:43.132952+00:00 app[web.27]: 195.96.134.242 - - [31/Jan/2026:21:12:43 +0000] "POST /api/gerar-pix-blackcat HTTP/1.1" 200 5242 "https://iniciojscorretamentecerto-868356610e15.herokuapp.com/checkout/01101101105" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+2026-01-31T21:12:43.132966+00:00 heroku[router]: sock=client at=warning code=H27 desc="Client Request Interrupted" method=POST path="/api/gerar-pix-blackcat" host=iniciojscorretamentecerto-868356610e15.herokuapp.com request_id=e1c2abad-e643-67af-37bd-82b04d15a7a0 fwd="195.96.134.242" dyno=web.27 connect=0ms service=1501ms status=200 bytes=0 protocol=http1.1 tls=true tls_version=unknown
+2026-01-31T21:20:58.810290+00:00 heroku[router]: at=info method=GET path="/" host=jus.br.registro-social.org request_id=710c2a30-0608-c6b4-65c3-dd9c04b4efed fwd="186.195.35.185" dyno=web.44 connect=0ms service=1ms status=302 bytes=199 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:20:58.810460+00:00 app[web.44]: 186.195.35.185 - - [31/Jan/2026:21:20:58 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:20:58.969721+00:00 app[web.29]: 186.195.35.185 - - [31/Jan/2026:21:20:58 +0000] "GET /login HTTP/1.1" 200 63199 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:20:58.970479+00:00 heroku[router]: at=info method=GET path="/login" host=jus.br.registro-social.org request_id=2101dc5a-bd79-c465-7385-c098692cfeb1 fwd="186.195.35.185" dyno=web.29 connect=0ms service=24ms status=200 bytes=63199 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:23:23.743346+00:00 app[web.73]: 186.195.35.185 - - [31/Jan/2026:21:23:23 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:23:23.743397+00:00 heroku[router]: at=info method=GET path="/" host=jus.br.registro-social.org request_id=6ba8b22d-7717-ae5c-52dd-e8df1461f4cb fwd="186.195.35.185" dyno=web.73 connect=0ms service=2ms status=302 bytes=199 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:23:23.897971+00:00 app[web.66]: 186.195.35.185 - - [31/Jan/2026:21:23:23 +0000] "GET /login HTTP/1.1" 200 63199 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:23:23.898463+00:00 heroku[router]: at=info method=GET path="/login" host=jus.br.registro-social.org request_id=d8ebcfca-c7f7-d2fe-b1e9-663684807719 fwd="186.195.35.185" dyno=web.66 connect=0ms service=20ms status=200 bytes=63199 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:23:28.616011+00:00 app[api]: Log session created by user caisouza5022@outlook.com
+2026-01-31T21:24:49.023591+00:00 heroku[router]: at=info method=GET path="/login" host=jus.br.registro-social.org request_id=6f18c6eb-f5e5-62ed-a1f3-249de0d1dec6 fwd="186.195.35.185" dyno=web.6 connect=0ms service=9ms status=200 bytes=63199 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:24:49.022945+00:00 app[web.6]: 186.195.35.185 - - [31/Jan/2026:21:24:49 +0000] "GET /login HTTP/1.1" 200 63199 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:25:00.888948+00:00 app[web.29]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.amnesiatecnologia.rocks:443
+2026-01-31T21:25:01.162213+00:00 heroku[router]: at=info method=GET path="/inicio/45317828791" host=jus.br.registro-social.org request_id=aacc26ca-b4fe-c563-3f63-c49d9b703e1a fwd="186.195.35.185" dyno=web.29 connect=0ms service=290ms status=200 bytes=10530 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:01.331732+00:00 heroku[router]: at=info method=GET path="/static/css/custom.css" host=jus.br.registro-social.org request_id=d8e466f5-1438-3276-92b0-dc2bcf368748 fwd="186.195.35.185" dyno=web.90 connect=0ms service=1ms status=304 bytes=0 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:01.334555+00:00 heroku[router]: at=info method=GET path="/static/js/app.js" host=jus.br.registro-social.org request_id=9f277557-5b24-dd2d-adab-8105d2b14b29 fwd="186.195.35.185" dyno=web.73 connect=0ms service=4ms status=304 bytes=0 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:01.160006+00:00 app[web.29]: DEBUG:urllib3.connectionpool:https://api.amnesiatecnologia.rocks:443 "GET /?token=261207b9-0ec2-468a-ac04-f9d38a51da88&cpf=45317828791 HTTP/1.1" 200 None
+2026-01-31T21:25:01.160505+00:00 app[web.29]: INFO:root:Dados encontrados para CPF: 45317828791 - Nome: JAIR MESSIAS BOLSONARO
+2026-01-31T21:25:01.160529+00:00 app[web.29]: INFO:root:Renderizando template com user_data: {'nome': 'JAIR MESSIAS BOLSONARO', 'cpf': '45317828791', 'data_nascimento': '21/03/1955', 'nome_mae': 'OLINDA BONTURI BOLSONARO', 'sexo': 'M'}
+2026-01-31T21:25:01.162053+00:00 app[web.29]: 186.195.35.185 - - [31/Jan/2026:21:25:01 +0000] "GET /inicio/45317828791 HTTP/1.1" 200 10530 "https://jus.br.registro-social.org/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:25:01.331880+00:00 app[web.90]: 186.195.35.185 - - [31/Jan/2026:21:25:01 +0000] "GET /static/css/custom.css HTTP/1.1" 304 0 "https://jus.br.registro-social.org/inicio/45317828791" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:25:01.334471+00:00 app[web.73]: 186.195.35.185 - - [31/Jan/2026:21:25:01 +0000] "GET /static/js/app.js HTTP/1.1" 304 0 "https://jus.br.registro-social.org/inicio/45317828791" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:25:04.044227+00:00 app[web.7]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.amnesiatecnologia.rocks:443
+2026-01-31T21:25:04.359633+00:00 heroku[router]: at=info method=GET path="/processo/45317828791" host=jus.br.registro-social.org request_id=5d5d702b-c281-fce8-27b0-fbe27a60b378 fwd="186.195.35.185" dyno=web.7 connect=0ms service=333ms status=200 bytes=15188 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:04.534787+00:00 heroku[router]: at=info method=GET path="/static/css/custom.css" host=jus.br.registro-social.org request_id=9678110b-121a-12ff-3e4a-ac87845aabb3 fwd="186.195.35.185" dyno=web.42 connect=0ms service=1ms status=304 bytes=0 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:04.345681+00:00 app[web.7]: DEBUG:urllib3.connectionpool:https://api.amnesiatecnologia.rocks:443 "GET /?token=261207b9-0ec2-468a-ac04-f9d38a51da88&cpf=45317828791 HTTP/1.1" 200 None
+2026-01-31T21:25:04.346265+00:00 app[web.7]: INFO:root:Dados encontrados para CPF: 45317828791 - Nome: JAIR MESSIAS BOLSONARO
+2026-01-31T21:25:04.358698+00:00 app[web.7]: 186.195.35.185 - - [31/Jan/2026:21:25:04 +0000] "GET /processo/45317828791 HTTP/1.1" 200 15188 "https://jus.br.registro-social.org/inicio/45317828791" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:25:04.640562+00:00 heroku[router]: at=info method=GET path="/static/js/app.js" host=jus.br.registro-social.org request_id=3f66887c-ce1d-8ac0-7dd9-fb74ed05f6ae fwd="186.195.35.185" dyno=web.66 connect=0ms service=7ms status=304 bytes=0 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:04.534718+00:00 app[web.42]: 186.195.35.185 - - [31/Jan/2026:21:25:04 +0000] "GET /static/css/custom.css HTTP/1.1" 304 0 "https://jus.br.registro-social.org/processo/45317828791" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:25:04.640572+00:00 app[web.66]: 186.195.35.185 - - [31/Jan/2026:21:25:04 +0000] "GET /static/js/app.js HTTP/1.1" 304 0 "https://jus.br.registro-social.org/processo/45317828791" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:25:11.366149+00:00 heroku[router]: at=info method=GET path="/static/css/custom.css" host=jus.br.registro-social.org request_id=084c4148-9d62-59ba-d9ff-751811a8df9b fwd="186.195.35.185" dyno=web.73 connect=0ms service=1ms status=304 bytes=0 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:11.366022+00:00 app[web.73]: 186.195.35.185 - - [31/Jan/2026:21:25:11 +0000] "GET /static/css/custom.css HTTP/1.1" 304 0 "https://jus.br.registro-social.org/processo/45317828791" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+2026-01-31T21:25:22.635899+00:00 app[web.66]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.amnesiatecnologia.rocks:443
+2026-01-31T21:25:22.933961+00:00 heroku[router]: at=info method=GET path="/checkout/45317828791" host=jus.br.registro-social.org request_id=eb960b4f-2853-6b05-94c9-fa5527430037 fwd="186.195.35.185" dyno=web.66 connect=0ms service=300ms status=200 bytes=16822 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:23.127187+00:00 heroku[router]: at=info method=GET path="/static/css/custom.css" host=jus.br.registro-social.org request_id=1c492925-f05f-0c3a-533e-a887a67e6b3e fwd="186.195.35.185" dyno=web.5 connect=0ms service=6ms status=304 bytes=0 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:22.919967+00:00 app[web.66]: DEBUG:urllib3.connectionpool:https://api.amnesiatecnologia.rocks:443 "GET /?token=261207b9-0ec2-468a-ac04-f9d38a51da88&cpf=45317828791 HTTP/1.1" 200 None
+2026-01-31T21:25:22.920549+00:00 app[web.66]: INFO:root:Dados encontrados para CPF: 45317828791 - Nome: JAIR MESSIAS BOLSONARO, Email: jair8791@cursodigital.com
+2026-01-31T21:25:22.933884+00:00 app[web.66]: 186.195.35.185 - - [31/Jan/2026:21:25:22 +0000] "GET /checkout/45317828791 HTTP/1.1" 200 16822 "https://jus.br.registro-social.org/processo/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:23.127052+00:00 app[web.5]: 186.195.35.185 - - [31/Jan/2026:21:25:23 +0000] "GET /static/css/custom.css HTTP/1.1" 304 0 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:25.361587+00:00 app[web.27]: INFO:root:Dados recebidos para PIX BlackCat: {'nome': 'JAIR MESSIAS BOLSONARO', 'cpf': '45317828791', 'email': 'jair8791@cursodigital.com', 'telefone': '13996125034'}
+2026-01-31T21:25:25.361623+00:00 app[web.27]: INFO:root:Dados BlackCat processados - Nome: JAIR MESSIAS BOLSONARO, CPF: ***8791
+2026-01-31T21:25:25.361629+00:00 app[web.27]: INFO:blackcat_gateway:🚀 Criando PIX BlackCat (Nova API) - Cliente: JAIR MESSIAS BOLSONARO
+2026-01-31T21:25:25.361662+00:00 app[web.27]: INFO:blackcat_gateway:💰 Valor: R$ 24.90 (2490 centavos)
+2026-01-31T21:25:25.361682+00:00 app[web.27]: INFO:blackcat_gateway:📄 CPF: ***8791
+2026-01-31T21:25:25.361709+00:00 app[web.27]: INFO:blackcat_gateway:🔄 POST https://api.blackcatpagamentos.online/api/sales/create-sale
+2026-01-31T21:25:25.362465+00:00 app[web.27]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:26.381057+00:00 heroku[router]: at=info method=POST path="/api/gerar-pix-blackcat" host=jus.br.registro-social.org request_id=5a95c6ab-9f5f-a44d-0421-a8a9f4b31c7b fwd="186.195.35.185" dyno=web.27 connect=0ms service=1020ms status=200 bytes=5266 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:26.378984+00:00 app[web.27]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "POST /api/sales/create-sale HTTP/1.1" 201 2535
+2026-01-31T21:25:26.379318+00:00 app[web.27]: INFO:blackcat_gateway:📡 BlackCat Response: HTTP 201
+2026-01-31T21:25:26.379385+00:00 app[web.27]: INFO:blackcat_gateway:📡 BlackCat Response: {'success': True, 'data': {'transactionId': 'TRX1769894725458SVNYWI', 'status': 'PENDING', 'paymentMethod': 'PIX', 'amount': 2490, 'netAmount': 2041, 'fees': 449, 'createdAt': '2026-01-31T18:25:25-03:00', 'invoiceUrl': 'https://app.blackcatpagamentos.online/checkout/TRX1769894725458SVNYWI', 'payment...
+2026-01-31T21:25:26.379422+00:00 app[web.27]: INFO:blackcat_gateway:✅ PIX BlackCat criado - ID: TRX1769894725458SVNYWI
+2026-01-31T21:25:26.379450+00:00 app[web.27]: INFO:blackcat_gateway:✅ Status: PENDING
+2026-01-31T21:25:26.379474+00:00 app[web.27]: INFO:blackcat_gateway:✅ PIX Code: 188 caracteres
+2026-01-31T21:25:26.379498+00:00 app[web.27]: INFO:blackcat_gateway:✅ Expira em: 
+2026-01-31T21:25:26.379520+00:00 app[web.27]: INFO:blackcat_gateway:✅ Invoice URL: https://app.blackcatpagamentos.online/checkout/TRX1769894725458SVNYWI
+2026-01-31T21:25:26.380300+00:00 app[web.27]: INFO:root:✅ PIX BlackCat criado: TRX1769894725458SVNYWI
+2026-01-31T21:25:26.380943+00:00 app[web.27]: 186.195.35.185 - - [31/Jan/2026:21:25:26 +0000] "POST /api/gerar-pix-blackcat HTTP/1.1" 200 5266 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:30.715437+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=f70f7a0c-8ed7-33bf-5339-88fc6ad9d45e fwd="186.195.35.185" dyno=web.63 connect=0ms service=186ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:30.531089+00:00 app[web.63]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:30.535873+00:00 app[web.63]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:25:30.535905+00:00 app[web.63]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:25:30.535923+00:00 app[web.63]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:30.539703+00:00 app[web.63]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:30.713263+00:00 app[web.63]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:25:30.713785+00:00 app[web.63]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:25:30.714551+00:00 app[web.63]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:25:30.715242+00:00 app[web.63]: 186.195.35.185 - - [31/Jan/2026:21:25:30 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:33.617706+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=f4ee458e-fe67-190b-8d62-c2b5aaf79306 fwd="186.195.35.185" dyno=web.90 connect=0ms service=81ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:33.537461+00:00 app[web.90]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:33.540999+00:00 app[web.90]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:25:33.541017+00:00 app[web.90]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:25:33.541066+00:00 app[web.90]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:33.543489+00:00 app[web.90]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:33.615586+00:00 app[web.90]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:25:33.616071+00:00 app[web.90]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:25:33.616783+00:00 app[web.90]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:25:33.617397+00:00 app[web.90]: 186.195.35.185 - - [31/Jan/2026:21:25:33 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:36.358291+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=28d7e117-3418-0824-7100-e833e06a28da fwd="186.195.35.185" dyno=web.5 connect=0ms service=103ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:36.255525+00:00 app[web.5]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:36.258788+00:00 app[web.5]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:25:36.258811+00:00 app[web.5]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:25:36.258828+00:00 app[web.5]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:36.261572+00:00 app[web.5]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:36.356393+00:00 app[web.5]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:25:36.356872+00:00 app[web.5]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:25:36.357549+00:00 app[web.5]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:25:36.358151+00:00 app[web.5]: 186.195.35.185 - - [31/Jan/2026:21:25:36 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:39.614292+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=0b275195-15f4-03c0-263a-a84ad6536da1 fwd="186.195.35.185" dyno=web.34 connect=0ms service=81ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:39.533294+00:00 app[web.34]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:39.533311+00:00 app[web.34]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:39.534098+00:00 app[web.34]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:39.612588+00:00 app[web.34]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:25:39.612942+00:00 app[web.34]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:25:39.613585+00:00 app[web.34]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:25:39.614255+00:00 app[web.34]: 186.195.35.185 - - [31/Jan/2026:21:25:39 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:42.378457+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=22481b3b-30a0-e954-3fc5-671a213f3ac5 fwd="186.195.35.185" dyno=web.40 connect=0ms service=128ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:42.252761+00:00 app[web.40]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:42.252775+00:00 app[web.40]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:42.252776+00:00 app[web.40]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:42.378433+00:00 app[web.40]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:25:42.378456+00:00 app[web.40]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:25:42.378456+00:00 app[web.40]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:25:42.378463+00:00 app[web.40]: 186.195.35.185 - - [31/Jan/2026:21:25:42 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:45.650108+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=93246de4-7e99-af71-7839-175ac6f5bab4 fwd="186.195.35.185" dyno=web.39 connect=0ms service=124ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:45.526801+00:00 app[web.39]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:45.565563+00:00 app[web.39]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:25:45.565569+00:00 app[web.39]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:25:45.565580+00:00 app[web.39]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:45.566312+00:00 app[web.39]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:45.648453+00:00 app[web.39]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:25:45.648770+00:00 app[web.39]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:25:45.649614+00:00 app[web.39]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:25:45.650017+00:00 app[web.39]: 186.195.35.185 - - [31/Jan/2026:21:25:45 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:48.528157+00:00 app[web.66]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:48.529622+00:00 app[web.66]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:25:48.529683+00:00 app[web.66]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:25:48.529733+00:00 app[web.66]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:48.531207+00:00 app[web.66]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:48.966847+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=5b20e5f1-f726-4fd0-7e9e-c67701aaec72 fwd="186.195.35.185" dyno=web.66 connect=0ms service=439ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:48.964438+00:00 app[web.66]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:25:48.964924+00:00 app[web.66]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:25:48.965926+00:00 app[web.66]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:25:48.966704+00:00 app[web.66]: 186.195.35.185 - - [31/Jan/2026:21:25:48 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:51.392502+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=c7010fdc-68c6-d95d-5332-6cabd7a99cda fwd="186.195.35.185" dyno=web.6 connect=0ms service=140ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:51.253163+00:00 app[web.6]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:51.256149+00:00 app[web.6]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:25:51.256167+00:00 app[web.6]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:25:51.256184+00:00 app[web.6]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:51.259130+00:00 app[web.6]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:51.390439+00:00 app[web.6]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:25:51.390959+00:00 app[web.6]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:25:51.391736+00:00 app[web.6]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:25:51.392428+00:00 app[web.6]: 186.195.35.185 - - [31/Jan/2026:21:25:51 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:53.878528+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=3f58b6ba-a1fe-b4bb-5885-9f1fd69e1a51 fwd="186.195.35.185" dyno=web.63 connect=0ms service=68ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:53.811690+00:00 app[web.63]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:53.812236+00:00 app[web.63]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:25:53.812260+00:00 app[web.63]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:25:53.812277+00:00 app[web.63]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:53.814297+00:00 app[web.63]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:53.876456+00:00 app[web.63]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:25:53.876959+00:00 app[web.63]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:25:53.877734+00:00 app[web.63]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:25:53.878332+00:00 app[web.63]: 186.195.35.185 - - [31/Jan/2026:21:25:53 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:25:56.650828+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=254ec36b-5cbe-57cf-eec9-b1b339950a0c fwd="186.195.35.185" dyno=web.7 connect=0ms service=116ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:25:56.535728+00:00 app[web.7]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:56.571028+00:00 app[web.7]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:25:56.571057+00:00 app[web.7]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:25:56.571066+00:00 app[web.7]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:25:56.572919+00:00 app[web.7]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:25:56.649224+00:00 app[web.7]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:25:56.649632+00:00 app[web.7]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:25:56.650220+00:00 app[web.7]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:25:56.650779+00:00 app[web.7]: 186.195.35.185 - - [31/Jan/2026:21:25:56 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:00.681809+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=88ad4271-c593-c0bc-ce26-a42ad9033f00 fwd="186.195.35.185" dyno=web.62 connect=0ms service=153ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:00.530064+00:00 app[web.62]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:00.535357+00:00 app[web.62]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:26:00.535399+00:00 app[web.62]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:26:00.535428+00:00 app[web.62]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:00.539116+00:00 app[web.62]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:00.681376+00:00 app[web.62]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:00.681378+00:00 app[web.62]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:00.681379+00:00 app[web.62]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:00.681753+00:00 app[web.62]: 186.195.35.185 - - [31/Jan/2026:21:26:00 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:03.609555+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=4be25524-8fea-d20d-8221-a3f42cabe621 fwd="186.195.35.185" dyno=web.90 connect=0ms service=84ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:03.526457+00:00 app[web.90]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:03.527042+00:00 app[web.90]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:26:03.527064+00:00 app[web.90]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:26:03.527087+00:00 app[web.90]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:03.528953+00:00 app[web.90]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:03.607521+00:00 app[web.90]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:03.608002+00:00 app[web.90]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:03.608659+00:00 app[web.90]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:03.609276+00:00 app[web.90]: 186.195.35.185 - - [31/Jan/2026:21:26:03 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:06.329071+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=e5bb8d74-c28b-dd63-ee8d-835f9b2be4be fwd="186.195.35.185" dyno=web.90 connect=0ms service=73ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:06.257040+00:00 app[web.90]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:06.257048+00:00 app[web.90]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:06.257810+00:00 app[web.90]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:06.327508+00:00 app[web.90]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:06.327823+00:00 app[web.90]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:06.328411+00:00 app[web.90]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:06.328989+00:00 app[web.90]: 186.195.35.185 - - [31/Jan/2026:21:26:06 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:09.636363+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=b15813a8-7111-a40c-7537-51909db7da87 fwd="186.195.35.185" dyno=web.40 connect=0ms service=105ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:09.534720+00:00 app[web.40]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:09.534736+00:00 app[web.40]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:26:09.534736+00:00 app[web.40]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:26:09.534737+00:00 app[web.40]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:09.536419+00:00 app[web.40]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:09.633384+00:00 app[web.40]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:09.634167+00:00 app[web.40]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:09.635391+00:00 app[web.40]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:09.636258+00:00 app[web.40]: 186.195.35.185 - - [31/Jan/2026:21:26:09 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:12.323451+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=27bfce12-2825-7faa-72a1-cdce7f93bd29 fwd="186.195.35.185" dyno=web.5 connect=0ms service=71ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:12.252850+00:00 app[web.5]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:12.253413+00:00 app[web.5]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:26:12.253450+00:00 app[web.5]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:26:12.253476+00:00 app[web.5]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:12.255350+00:00 app[web.5]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:12.321806+00:00 app[web.5]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:12.322248+00:00 app[web.5]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:12.322895+00:00 app[web.5]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:12.323522+00:00 app[web.5]: 186.195.35.185 - - [31/Jan/2026:21:26:12 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:15.656151+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=1d696011-f741-e029-e75a-8be8ed5e48d7 fwd="186.195.35.185" dyno=web.85 connect=0ms service=128ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:15.532202+00:00 app[web.85]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:15.532218+00:00 app[web.85]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:15.535482+00:00 app[web.85]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:15.652949+00:00 app[web.85]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:15.653527+00:00 app[web.85]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:15.654912+00:00 app[web.85]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:15.656058+00:00 app[web.85]: 186.195.35.185 - - [31/Jan/2026:21:26:15 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:18.667899+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=cb23f7ee-a713-bc36-85b4-e090d6a0736d fwd="186.195.35.185" dyno=web.34 connect=0ms service=146ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:18.522562+00:00 app[web.34]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:18.523302+00:00 app[web.34]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:26:18.523326+00:00 app[web.34]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:26:18.523352+00:00 app[web.34]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:18.525911+00:00 app[web.34]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:18.665977+00:00 app[web.34]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:18.666469+00:00 app[web.34]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:18.667227+00:00 app[web.34]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:18.667844+00:00 app[web.34]: 186.195.35.185 - - [31/Jan/2026:21:26:18 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:21.355603+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=da38c3cd-8505-ede9-438d-e555ed472118 fwd="186.195.35.185" dyno=web.17 connect=0ms service=105ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:21.251283+00:00 app[web.17]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:21.256557+00:00 app[web.17]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:26:21.256574+00:00 app[web.17]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:26:21.256602+00:00 app[web.17]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:21.260038+00:00 app[web.17]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:21.353561+00:00 app[web.17]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:21.354076+00:00 app[web.17]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:21.354822+00:00 app[web.17]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:21.355524+00:00 app[web.17]: 186.195.35.185 - - [31/Jan/2026:21:26:21 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:24.592339+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=3af5bf75-24a9-b94d-0203-ab149b112e61 fwd="186.195.35.185" dyno=web.6 connect=0ms service=67ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:24.525951+00:00 app[web.6]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:24.525974+00:00 app[web.6]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:24.526730+00:00 app[web.6]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:24.590396+00:00 app[web.6]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:24.590714+00:00 app[web.6]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:24.591526+00:00 app[web.6]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:24.592165+00:00 app[web.6]: 186.195.35.185 - - [31/Jan/2026:21:26:24 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:27.351078+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=cfa9b9d5-4368-5e41-fd44-2fb5adb0c68e fwd="186.195.35.185" dyno=web.42 connect=0ms service=99ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:27.252689+00:00 app[web.42]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:27.255919+00:00 app[web.42]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:26:27.255937+00:00 app[web.42]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:26:27.255955+00:00 app[web.42]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:27.258583+00:00 app[web.42]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:27.349070+00:00 app[web.42]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:27.349570+00:00 app[web.42]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:27.350261+00:00 app[web.42]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:27.350897+00:00 app[web.42]: 186.195.35.185 - - [31/Jan/2026:21:26:27 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:30.599522+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=cef98a6f-66a5-466a-4ed3-0127f42257cb fwd="186.195.35.185" dyno=web.5 connect=0ms service=72ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:30.528079+00:00 app[web.5]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:30.528102+00:00 app[web.5]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:30.528933+00:00 app[web.5]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:30.597753+00:00 app[web.5]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:30.598066+00:00 app[web.5]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:30.598776+00:00 app[web.5]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:30.599402+00:00 app[web.5]: 186.195.35.185 - - [31/Jan/2026:21:26:30 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:33.608116+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=75f9ef7a-d55f-b069-0148-51fdab6a265d fwd="186.195.35.185" dyno=web.17 connect=0ms service=80ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:33.529340+00:00 app[web.17]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:33.530148+00:00 app[web.17]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:26:33.530169+00:00 app[web.17]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:26:33.530195+00:00 app[web.17]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:33.532587+00:00 app[web.17]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:33.605971+00:00 app[web.17]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:33.606526+00:00 app[web.17]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:33.607295+00:00 app[web.17]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:33.607958+00:00 app[web.17]: 186.195.35.185 - - [31/Jan/2026:21:26:33 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:36.325067+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=dabc8ea2-512d-8cb3-b977-b236b828530e fwd="186.195.35.185" dyno=web.7 connect=0ms service=75ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:36.250226+00:00 app[web.7]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:36.250246+00:00 app[web.7]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:36.250955+00:00 app[web.7]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:36.323437+00:00 app[web.7]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:36.323704+00:00 app[web.7]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:36.324347+00:00 app[web.7]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:36.324902+00:00 app[web.7]: 186.195.35.185 - - [31/Jan/2026:21:26:36 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:39.624607+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=96f72cc6-9421-34ec-ba35-15f9f830090f fwd="186.195.35.185" dyno=web.85 connect=0ms service=96ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:39.528941+00:00 app[web.85]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:39.529650+00:00 app[web.85]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:39.531200+00:00 app[web.85]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:39.621863+00:00 app[web.85]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:39.622317+00:00 app[web.85]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:39.623582+00:00 app[web.85]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:39.624473+00:00 app[web.85]: 186.195.35.185 - - [31/Jan/2026:21:26:39 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:42.357809+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=1ee0a26b-c97e-9c25-96e8-52be2a8b3e66 fwd="186.195.35.185" dyno=web.62 connect=0ms service=107ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:42.252953+00:00 app[web.62]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:42.252970+00:00 app[web.62]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:26:42.252971+00:00 app[web.62]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:26:42.252971+00:00 app[web.62]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:42.255149+00:00 app[web.62]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:42.351734+00:00 app[web.62]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:42.352412+00:00 app[web.62]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:42.353643+00:00 app[web.62]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:42.357739+00:00 app[web.62]: 186.195.35.185 - - [31/Jan/2026:21:26:42 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:45.618386+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=ce44548e-654c-173d-21d2-98f32a942919 fwd="186.195.35.185" dyno=web.73 connect=0ms service=89ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:45.530659+00:00 app[web.73]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:45.531307+00:00 app[web.73]: INFO:blackcat_gateway:✅ BlackCat Payments Gateway inicializado (Nova API)
+2026-01-31T21:26:45.531323+00:00 app[web.73]: INFO:blackcat_gateway:✅ Base URL: https://api.blackcatpagamentos.online/api
+2026-01-31T21:26:45.531346+00:00 app[web.73]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:45.533527+00:00 app[web.73]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:45.615964+00:00 app[web.73]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:45.616538+00:00 app[web.73]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:45.617273+00:00 app[web.73]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:45.617987+00:00 app[web.73]: 186.195.35.185 - - [31/Jan/2026:21:26:45 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:48.680581+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=0f02f397-849c-653c-ae04-50aab6997011 fwd="186.195.35.185" dyno=web.40 connect=0ms service=135ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:48.546896+00:00 app[web.40]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:48.548359+00:00 app[web.40]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:48.548370+00:00 app[web.40]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:48.677365+00:00 app[web.40]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:48.678086+00:00 app[web.40]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:48.679494+00:00 app[web.40]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:48.680531+00:00 app[web.40]: 186.195.35.185 - - [31/Jan/2026:21:26:48 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:51.355387+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=33057e21-5deb-ce61-70d9-b7d1ab2da60d fwd="186.195.35.185" dyno=web.63 connect=0ms service=105ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
+2026-01-31T21:26:51.250284+00:00 app[web.63]: INFO:root:Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:51.250309+00:00 app[web.63]: INFO:blackcat_gateway:🔍 Verificando status BlackCat: TRX1769894725458SVNYWI
+2026-01-31T21:26:51.251038+00:00 app[web.63]: DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.blackcatpagamentos.online:443
+2026-01-31T21:26:51.353568+00:00 app[web.63]: DEBUG:urllib3.connectionpool:https://api.blackcatpagamentos.online:443 "GET /api/sales/status/TRX1769894725458SVNYWI HTTP/1.1" 404 None
+2026-01-31T21:26:51.353920+00:00 app[web.63]: ERROR:blackcat_gateway:❌ Erro HTTP 404
+2026-01-31T21:26:51.354707+00:00 app[web.63]: ERROR:root:❌ Erro ao verificar BlackCat: Erro HTTP 404
+2026-01-31T21:26:51.355317+00:00 app[web.63]: 186.195.35.185 - - [31/Jan/2026:21:26:51 +0000] "GET /api/verificar-status-blackcat/TRX1769894725458SVNYWI HTTP/1.1" 400 60 "https://jus.br.registro-social.org/checkout/45317828791" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+2026-01-31T21:26:55.070752+00:00 heroku[router]: at=info method=GET path="/api/verificar-status-blackcat/TRX1769894725458SVNYWI" host=jus.br.registro-social.org request_id=2d00092b-508a-0bf5-4ed0-460d28821452 fwd="186.195.35.185" dyno=web.38 connect=0ms service=142ms status=400 bytes=60 protocol=http2.0 tls=true tls_version=tls1.3
